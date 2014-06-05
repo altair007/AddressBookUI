@@ -19,6 +19,12 @@
 		C217ABA519408CFB0006784A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8D19408CFB0006784A /* UIKit.framework */; };
 		C217ABAD19408CFB0006784A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C217ABAB19408CFB0006784A /* InfoPlist.strings */; };
 		C217ABAF19408CFB0006784A /* AddressBookUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABAE19408CFB0006784A /* AddressBookUITests.m */; };
+		C217ABBA19408E0D0006784A /* CFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABB919408E0D0006784A /* CFMainViewController.m */; };
+		C217ABBD19408E880006784A /* CFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABBC19408E880006784A /* CFDetailViewController.m */; };
+		C217ABBF19408EB90006784A /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C217ABBE19408EB90006784A /* readme.md */; };
+		C217ABC2194090D30006784A /* AddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABC1194090D30006784A /* AddressBook.m */; };
+		C217ABC5194090E00006784A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABC4194090E00006784A /* Person.m */; };
+		C217ABC7194097180006784A /* 颜风.png in Resources */ = {isa = PBXBuildFile; fileRef = C217ABC6194097180006784A /* 颜风.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +54,16 @@
 		C217ABAA19408CFB0006784A /* AddressBookUITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AddressBookUITests-Info.plist"; sourceTree = "<group>"; };
 		C217ABAC19408CFB0006784A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C217ABAE19408CFB0006784A /* AddressBookUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookUITests.m; sourceTree = "<group>"; };
+		C217ABB819408E0D0006784A /* CFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFMainViewController.h; sourceTree = "<group>"; };
+		C217ABB919408E0D0006784A /* CFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFMainViewController.m; sourceTree = "<group>"; };
+		C217ABBB19408E880006784A /* CFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFDetailViewController.h; sourceTree = "<group>"; };
+		C217ABBC19408E880006784A /* CFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFDetailViewController.m; sourceTree = "<group>"; };
+		C217ABBE19408EB90006784A /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
+		C217ABC0194090D30006784A /* AddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddressBook.h; path = ../AddressBook.h; sourceTree = "<group>"; };
+		C217ABC1194090D30006784A /* AddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddressBook.m; path = ../AddressBook.m; sourceTree = "<group>"; };
+		C217ABC3194090E00006784A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = ../Person.h; sourceTree = "<group>"; };
+		C217ABC4194090E00006784A /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = ../Person.m; sourceTree = "<group>"; };
+		C217ABC6194097180006784A /* 颜风.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "颜风.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +123,20 @@
 		C217AB8F19408CFB0006784A /* AddressBookUI */ = {
 			isa = PBXGroup;
 			children = (
+				C217ABC6194097180006784A /* 颜风.png */,
 				C217AB9819408CFB0006784A /* CFAppDelegate.h */,
 				C217AB9919408CFB0006784A /* CFAppDelegate.m */,
 				C217AB9B19408CFB0006784A /* Images.xcassets */,
 				C217AB9019408CFB0006784A /* Supporting Files */,
+				C217ABB819408E0D0006784A /* CFMainViewController.h */,
+				C217ABB919408E0D0006784A /* CFMainViewController.m */,
+				C217ABBB19408E880006784A /* CFDetailViewController.h */,
+				C217ABBC19408E880006784A /* CFDetailViewController.m */,
+				C217ABC3194090E00006784A /* Person.h */,
+				C217ABC4194090E00006784A /* Person.m */,
+				C217ABC0194090D30006784A /* AddressBook.h */,
+				C217ABC1194090D30006784A /* AddressBook.m */,
+				C217ABBE19408EB90006784A /* readme.md */,
 			);
 			path = AddressBookUI;
 			sourceTree = "<group>";
@@ -221,7 +247,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C217AB9419408CFB0006784A /* InfoPlist.strings in Resources */,
+				C217ABBF19408EB90006784A /* readme.md in Resources */,
 				C217AB9C19408CFB0006784A /* Images.xcassets in Resources */,
+				C217ABC7194097180006784A /* 颜风.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C217ABC5194090E00006784A /* Person.m in Sources */,
 				C217AB9619408CFB0006784A /* main.m in Sources */,
 				C217AB9A19408CFB0006784A /* CFAppDelegate.m in Sources */,
+				C217ABC2194090D30006784A /* AddressBook.m in Sources */,
+				C217ABBD19408E880006784A /* CFDetailViewController.m in Sources */,
+				C217ABBA19408E0D0006784A /* CFMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +392,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AddressBookUI/AddressBookUI-Prefix.pch";
 				INFOPLIST_FILE = "AddressBookUI/AddressBookUI-Info.plist";
@@ -373,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AddressBookUI/AddressBookUI-Prefix.pch";
 				INFOPLIST_FILE = "AddressBookUI/AddressBookUI-Info.plist";
