@@ -26,6 +26,7 @@
 		C216C06A19420EDF008DF648 /* CFDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C06519420EDF008DF648 /* CFDetailView.m */; };
 		C216C06B19420EDF008DF648 /* CFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C06719420EDF008DF648 /* CFDetailViewController.m */; };
 		C216C06C19420EDF008DF648 /* CFDetaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C06919420EDF008DF648 /* CFDetaiModel.m */; };
+		C216C06E194211AB008DF648 /* 作业需求(最新).jpg in Resources */ = {isa = PBXBuildFile; fileRef = C216C06D194211AB008DF648 /* 作业需求(最新).jpg */; };
 		C217AB8A19408CFB0006784A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8919408CFB0006784A /* Foundation.framework */; };
 		C217AB8C19408CFB0006784A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8B19408CFB0006784A /* CoreGraphics.framework */; };
 		C217AB8E19408CFB0006784A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8D19408CFB0006784A /* UIKit.framework */; };
@@ -79,6 +80,7 @@
 		C216C06719420EDF008DF648 /* CFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFDetailViewController.m; path = Detail/CFDetailViewController.m; sourceTree = "<group>"; };
 		C216C06819420EDF008DF648 /* CFDetaiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDetaiModel.h; path = Detail/CFDetaiModel.h; sourceTree = "<group>"; };
 		C216C06919420EDF008DF648 /* CFDetaiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFDetaiModel.m; path = Detail/CFDetaiModel.m; sourceTree = "<group>"; };
+		C216C06D194211AB008DF648 /* 作业需求(最新).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "作业需求(最新).jpg"; sourceTree = "<group>"; };
 		C217AB8619408CFB0006784A /* AddressBookUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AddressBookUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C217AB8919408CFB0006784A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C217AB8B19408CFB0006784A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -218,6 +220,7 @@
 		C281CA2A1941CC0300D61F40 /* AddressBookUI */ = {
 			isa = PBXGroup;
 			children = (
+				C216C06D194211AB008DF648 /* 作业需求(最新).jpg */,
 				C216C02B194200CD008DF648 /* img */,
 				C281CA341941CC0300D61F40 /* CFAppDelegate.h */,
 				C281CA351941CC0300D61F40 /* CFAppDelegate.m */,
@@ -328,6 +331,7 @@
 				C216C05719420EB7008DF648 /* 佐马利·路鲁.png in Resources */,
 				C216C05119420EB7008DF648 /* 妮莉艾露·杜·欧德修凡克.png in Resources */,
 				C216C05619420EB7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png in Resources */,
+				C216C06E194211AB008DF648 /* 作业需求(最新).jpg in Resources */,
 				C216C05219420EB7008DF648 /* 诺伊特拉·吉尔加.png in Resources */,
 				C281CA481941CC0300D61F40 /* readme.md in Resources */,
 				C216C05319420EB7008DF648 /* 萨尔阿波罗·格兰兹.png in Resources */,
