@@ -7,7 +7,7 @@
 //
 
 #import "CFDetailViewController.h"
-#import "person.h"
+#import "CFPerson.h"
 
 @interface CFDetailViewController ()
 

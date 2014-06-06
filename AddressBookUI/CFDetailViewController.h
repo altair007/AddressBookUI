@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Person;
+@class CFPerson;
 
 @interface CFDetailViewController : UIViewController
-@property (retain, nonatomic) Person * person; //!< 联系人
+@property (retain, nonatomic) CFPerson * person; //!< 联系人
 @end

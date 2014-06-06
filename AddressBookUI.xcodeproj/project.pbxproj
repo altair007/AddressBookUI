@@ -10,21 +10,24 @@
 		C217AB8A19408CFB0006784A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8919408CFB0006784A /* Foundation.framework */; };
 		C217AB8C19408CFB0006784A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8B19408CFB0006784A /* CoreGraphics.framework */; };
 		C217AB8E19408CFB0006784A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8D19408CFB0006784A /* UIKit.framework */; };
-		C217AB9419408CFB0006784A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C217AB9219408CFB0006784A /* InfoPlist.strings */; };
-		C217AB9619408CFB0006784A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C217AB9519408CFB0006784A /* main.m */; };
-		C217AB9A19408CFB0006784A /* CFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C217AB9919408CFB0006784A /* CFAppDelegate.m */; };
-		C217AB9C19408CFB0006784A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C217AB9B19408CFB0006784A /* Images.xcassets */; };
 		C217ABA319408CFB0006784A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217ABA219408CFB0006784A /* XCTest.framework */; };
 		C217ABA419408CFB0006784A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8919408CFB0006784A /* Foundation.framework */; };
 		C217ABA519408CFB0006784A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8D19408CFB0006784A /* UIKit.framework */; };
 		C217ABAD19408CFB0006784A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C217ABAB19408CFB0006784A /* InfoPlist.strings */; };
 		C217ABAF19408CFB0006784A /* AddressBookUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABAE19408CFB0006784A /* AddressBookUITests.m */; };
-		C217ABBA19408E0D0006784A /* CFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABB919408E0D0006784A /* CFMainViewController.m */; };
-		C217ABBD19408E880006784A /* CFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABBC19408E880006784A /* CFDetailViewController.m */; };
-		C217ABBF19408EB90006784A /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C217ABBE19408EB90006784A /* readme.md */; };
-		C217ABC2194090D30006784A /* AddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABC1194090D30006784A /* AddressBook.m */; };
-		C217ABC5194090E00006784A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABC4194090E00006784A /* Person.m */; };
-		C217ABC7194097180006784A /* 颜风.png in Resources */ = {isa = PBXBuildFile; fileRef = C217ABC6194097180006784A /* 颜风.png */; };
+		C281CA3E1941CC0300D61F40 /* addressBookData in Resources */ = {isa = PBXBuildFile; fileRef = C281CA2B1941CC0300D61F40 /* addressBookData */; };
+		C281CA3F1941CC0300D61F40 /* AddressBookUI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C281CA2C1941CC0300D61F40 /* AddressBookUI-Info.plist */; };
+		C281CA401941CC0300D61F40 /* CFAddressBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA2F1941CC0300D61F40 /* CFAddressBookModel.m */; };
+		C281CA411941CC0300D61F40 /* CFAddressBookView.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA311941CC0300D61F40 /* CFAddressBookView.m */; };
+		C281CA421941CC0300D61F40 /* CFAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA331941CC0300D61F40 /* CFAddressBookViewController.m */; };
+		C281CA431941CC0300D61F40 /* CFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA351941CC0300D61F40 /* CFAppDelegate.m */; };
+		C281CA441941CC0300D61F40 /* CFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA371941CC0300D61F40 /* CFDetailViewController.m */; };
+		C281CA451941CC0300D61F40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C281CA381941CC0300D61F40 /* InfoPlist.strings */; };
+		C281CA461941CC0300D61F40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C281CA3A1941CC0300D61F40 /* Images.xcassets */; };
+		C281CA471941CC0300D61F40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA3B1941CC0300D61F40 /* main.m */; };
+		C281CA481941CC0300D61F40 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C281CA3C1941CC0300D61F40 /* readme.md */; };
+		C281CA491941CC0300D61F40 /* 颜风.png in Resources */ = {isa = PBXBuildFile; fileRef = C281CA3D1941CC0300D61F40 /* 颜风.png */; };
+		C281CA4C1941CC7800D61F40 /* CFPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA4B1941CC7800D61F40 /* CFPerson.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,28 +45,31 @@
 		C217AB8919408CFB0006784A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C217AB8B19408CFB0006784A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C217AB8D19408CFB0006784A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C217AB9119408CFB0006784A /* AddressBookUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AddressBookUI-Info.plist"; sourceTree = "<group>"; };
-		C217AB9319408CFB0006784A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C217AB9519408CFB0006784A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C217AB9719408CFB0006784A /* AddressBookUI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AddressBookUI-Prefix.pch"; sourceTree = "<group>"; };
-		C217AB9819408CFB0006784A /* CFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CFAppDelegate.h; sourceTree = "<group>"; };
-		C217AB9919408CFB0006784A /* CFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CFAppDelegate.m; sourceTree = "<group>"; };
-		C217AB9B19408CFB0006784A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C217ABA119408CFB0006784A /* AddressBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AddressBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C217ABA219408CFB0006784A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C217ABAA19408CFB0006784A /* AddressBookUITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AddressBookUITests-Info.plist"; sourceTree = "<group>"; };
 		C217ABAC19408CFB0006784A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C217ABAE19408CFB0006784A /* AddressBookUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookUITests.m; sourceTree = "<group>"; };
-		C217ABB819408E0D0006784A /* CFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFMainViewController.h; sourceTree = "<group>"; };
-		C217ABB919408E0D0006784A /* CFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFMainViewController.m; sourceTree = "<group>"; };
-		C217ABBB19408E880006784A /* CFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFDetailViewController.h; sourceTree = "<group>"; };
-		C217ABBC19408E880006784A /* CFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFDetailViewController.m; sourceTree = "<group>"; };
-		C217ABBE19408EB90006784A /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
-		C217ABC0194090D30006784A /* AddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddressBook.h; path = ../AddressBook.h; sourceTree = "<group>"; };
-		C217ABC1194090D30006784A /* AddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddressBook.m; path = ../AddressBook.m; sourceTree = "<group>"; };
-		C217ABC3194090E00006784A /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = ../Person.h; sourceTree = "<group>"; };
-		C217ABC4194090E00006784A /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = ../Person.m; sourceTree = "<group>"; };
-		C217ABC6194097180006784A /* 颜风.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "颜风.png"; sourceTree = "<group>"; };
+		C281CA2B1941CC0300D61F40 /* addressBookData */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = addressBookData; sourceTree = "<group>"; };
+		C281CA2C1941CC0300D61F40 /* AddressBookUI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AddressBookUI-Info.plist"; sourceTree = "<group>"; };
+		C281CA2D1941CC0300D61F40 /* AddressBookUI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AddressBookUI-Prefix.pch"; sourceTree = "<group>"; };
+		C281CA2E1941CC0300D61F40 /* CFAddressBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFAddressBookModel.h; sourceTree = "<group>"; };
+		C281CA2F1941CC0300D61F40 /* CFAddressBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFAddressBookModel.m; sourceTree = "<group>"; };
+		C281CA301941CC0300D61F40 /* CFAddressBookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFAddressBookView.h; sourceTree = "<group>"; };
+		C281CA311941CC0300D61F40 /* CFAddressBookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFAddressBookView.m; sourceTree = "<group>"; };
+		C281CA321941CC0300D61F40 /* CFAddressBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFAddressBookViewController.h; sourceTree = "<group>"; };
+		C281CA331941CC0300D61F40 /* CFAddressBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFAddressBookViewController.m; sourceTree = "<group>"; };
+		C281CA341941CC0300D61F40 /* CFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFAppDelegate.h; sourceTree = "<group>"; };
+		C281CA351941CC0300D61F40 /* CFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFAppDelegate.m; sourceTree = "<group>"; };
+		C281CA361941CC0300D61F40 /* CFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFDetailViewController.h; sourceTree = "<group>"; };
+		C281CA371941CC0300D61F40 /* CFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFDetailViewController.m; sourceTree = "<group>"; };
+		C281CA391941CC0300D61F40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C281CA3A1941CC0300D61F40 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C281CA3B1941CC0300D61F40 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C281CA3C1941CC0300D61F40 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
+		C281CA3D1941CC0300D61F40 /* 颜风.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "颜风.png"; sourceTree = "<group>"; };
+		C281CA4A1941CC7800D61F40 /* CFPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFPerson.h; sourceTree = "<group>"; };
+		C281CA4B1941CC7800D61F40 /* CFPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFPerson.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +99,7 @@
 		C217AB7D19408CFB0006784A = {
 			isa = PBXGroup;
 			children = (
-				C217AB8F19408CFB0006784A /* AddressBookUI */,
+				C281CA2A1941CC0300D61F40 /* AddressBookUI */,
 				C217ABA819408CFB0006784A /* AddressBookUITests */,
 				C217AB8819408CFB0006784A /* Frameworks */,
 				C217AB8719408CFB0006784A /* Products */,
@@ -120,38 +126,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C217AB8F19408CFB0006784A /* AddressBookUI */ = {
-			isa = PBXGroup;
-			children = (
-				C217ABC6194097180006784A /* 颜风.png */,
-				C217AB9819408CFB0006784A /* CFAppDelegate.h */,
-				C217AB9919408CFB0006784A /* CFAppDelegate.m */,
-				C217AB9B19408CFB0006784A /* Images.xcassets */,
-				C217AB9019408CFB0006784A /* Supporting Files */,
-				C217ABB819408E0D0006784A /* CFMainViewController.h */,
-				C217ABB919408E0D0006784A /* CFMainViewController.m */,
-				C217ABBB19408E880006784A /* CFDetailViewController.h */,
-				C217ABBC19408E880006784A /* CFDetailViewController.m */,
-				C217ABC3194090E00006784A /* Person.h */,
-				C217ABC4194090E00006784A /* Person.m */,
-				C217ABC0194090D30006784A /* AddressBook.h */,
-				C217ABC1194090D30006784A /* AddressBook.m */,
-				C217ABBE19408EB90006784A /* readme.md */,
-			);
-			path = AddressBookUI;
-			sourceTree = "<group>";
-		};
-		C217AB9019408CFB0006784A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C217AB9119408CFB0006784A /* AddressBookUI-Info.plist */,
-				C217AB9219408CFB0006784A /* InfoPlist.strings */,
-				C217AB9519408CFB0006784A /* main.m */,
-				C217AB9719408CFB0006784A /* AddressBookUI-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		C217ABA819408CFB0006784A /* AddressBookUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +142,41 @@
 				C217ABAB19408CFB0006784A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C281CA2A1941CC0300D61F40 /* AddressBookUI */ = {
+			isa = PBXGroup;
+			children = (
+				C281CA4D1941CC9800D61F40 /* AddressBook */,
+				C281CA4A1941CC7800D61F40 /* CFPerson.h */,
+				C281CA4B1941CC7800D61F40 /* CFPerson.m */,
+				C281CA2B1941CC0300D61F40 /* addressBookData */,
+				C281CA2C1941CC0300D61F40 /* AddressBookUI-Info.plist */,
+				C281CA2D1941CC0300D61F40 /* AddressBookUI-Prefix.pch */,
+				C281CA341941CC0300D61F40 /* CFAppDelegate.h */,
+				C281CA351941CC0300D61F40 /* CFAppDelegate.m */,
+				C281CA361941CC0300D61F40 /* CFDetailViewController.h */,
+				C281CA371941CC0300D61F40 /* CFDetailViewController.m */,
+				C281CA381941CC0300D61F40 /* InfoPlist.strings */,
+				C281CA3A1941CC0300D61F40 /* Images.xcassets */,
+				C281CA3B1941CC0300D61F40 /* main.m */,
+				C281CA3C1941CC0300D61F40 /* readme.md */,
+				C281CA3D1941CC0300D61F40 /* 颜风.png */,
+			);
+			path = AddressBookUI;
+			sourceTree = "<group>";
+		};
+		C281CA4D1941CC9800D61F40 /* AddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				C281CA311941CC0300D61F40 /* CFAddressBookView.m */,
+				C281CA321941CC0300D61F40 /* CFAddressBookViewController.h */,
+				C281CA331941CC0300D61F40 /* CFAddressBookViewController.m */,
+				C281CA2E1941CC0300D61F40 /* CFAddressBookModel.h */,
+				C281CA2F1941CC0300D61F40 /* CFAddressBookModel.m */,
+				C281CA301941CC0300D61F40 /* CFAddressBookView.h */,
+			);
+			name = AddressBook;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,10 +255,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C217AB9419408CFB0006784A /* InfoPlist.strings in Resources */,
-				C217ABBF19408EB90006784A /* readme.md in Resources */,
-				C217AB9C19408CFB0006784A /* Images.xcassets in Resources */,
-				C217ABC7194097180006784A /* 颜风.png in Resources */,
+				C281CA3F1941CC0300D61F40 /* AddressBookUI-Info.plist in Resources */,
+				C281CA461941CC0300D61F40 /* Images.xcassets in Resources */,
+				C281CA451941CC0300D61F40 /* InfoPlist.strings in Resources */,
+				C281CA491941CC0300D61F40 /* 颜风.png in Resources */,
+				C281CA481941CC0300D61F40 /* readme.md in Resources */,
+				C281CA3E1941CC0300D61F40 /* addressBookData in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,12 +279,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C217ABC5194090E00006784A /* Person.m in Sources */,
-				C217AB9619408CFB0006784A /* main.m in Sources */,
-				C217AB9A19408CFB0006784A /* CFAppDelegate.m in Sources */,
-				C217ABC2194090D30006784A /* AddressBook.m in Sources */,
-				C217ABBD19408E880006784A /* CFDetailViewController.m in Sources */,
-				C217ABBA19408E0D0006784A /* CFMainViewController.m in Sources */,
+				C281CA421941CC0300D61F40 /* CFAddressBookViewController.m in Sources */,
+				C281CA401941CC0300D61F40 /* CFAddressBookModel.m in Sources */,
+				C281CA4C1941CC7800D61F40 /* CFPerson.m in Sources */,
+				C281CA411941CC0300D61F40 /* CFAddressBookView.m in Sources */,
+				C281CA441941CC0300D61F40 /* CFDetailViewController.m in Sources */,
+				C281CA471941CC0300D61F40 /* main.m in Sources */,
+				C281CA431941CC0300D61F40 /* CFAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,18 +308,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C217AB9219408CFB0006784A /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C217AB9319408CFB0006784A /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		C217ABAB19408CFB0006784A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C217ABAC19408CFB0006784A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C281CA381941CC0300D61F40 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C281CA391941CC0300D61F40 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -474,6 +486,7 @@
 				C217ABB419408CFB0006784A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C217ABB519408CFB0006784A /* Build configuration list for PBXNativeTarget "AddressBookUITests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +495,7 @@
 				C217ABB719408CFB0006784A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

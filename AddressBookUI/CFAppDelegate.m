@@ -7,7 +7,7 @@
 //
 
 #import "CFAppDelegate.h"
-#import "CFMainViewController.h"
+#import "CFAddressBookViewController.h"
 
 @implementation CFAppDelegate
 -(void)dealloc
@@ -23,7 +23,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    CFMainViewController * mainVC = [[CFMainViewController alloc] init];
+    CFAddressBookViewController * mainVC = [[CFAddressBookViewController alloc] init];
     
     UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:mainVC];
     [mainVC release];
