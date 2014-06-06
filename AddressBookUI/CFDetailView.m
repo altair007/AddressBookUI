@@ -27,8 +27,7 @@
         
         [self addSubview: self.avatar];
         
-        
-        UILabel * infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 100, 100, 100)];
+        UILabel * infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 100, 150, 100)];
         infoLabel.numberOfLines = 0;
         infoLabel.adjustsFontSizeToFitWidth = YES;
         

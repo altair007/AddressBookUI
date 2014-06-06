@@ -36,11 +36,18 @@
 - (void)loadView
 {
     CFDetailView * detailView = [[CFDetailView alloc] init];
-    detailView.avatar.image = [UIImage imageNamed: self.detailModel.person.name];
-    detailView.infoLabel.text = [[[NSString alloc] initWithFormat:@"%@\n%@\n%ld\n%@", self.detailModel.person.name, self.detailModel.person.sex, self.detailModel.person.age, self.detailModel.person.tel] autorelease];
-    
     self.view = detailView;
     [detailView release];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // 注意:因为会多次使用同一个CFDetailViewController对象,所以是在viewWillAppear:中设置而不是在loadView中.
+    // loadView只会在首次显示视图时被调用,不满足需求!
+    
+    CFDetailView * detailView = (CFDetailView *)self.view;
+    detailView.avatar.image = [UIImage imageNamed: self.detailModel.person.name];
+    detailView.infoLabel.text = [[[NSString alloc] initWithFormat:@"%@\n%@\n%ld\n%@", self.detailModel.person.name, self.detailModel.person.sex, self.detailModel.person.age, self.detailModel.person.tel] autorelease];
 }
 
 - (void)viewDidLoad
