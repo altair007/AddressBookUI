@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 @class CFAddressBookModel;
 @class CFAddressBookView;
+@class CFDetailViewController;
 
 
 @interface CFAddressBookViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (retain, nonatomic) CFAddressBookModel * addressBookModel; //!< 通讯录模型
+@property (retain, nonatomic) CFAddressBookModel * addressBookModel; //!< 通讯录模型.
+@property (retain, nonatomic, readonly) CFDetailViewController * detailVC; //!< 联系人详情控制器.
 
 @end

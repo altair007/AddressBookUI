@@ -1,5 +1,5 @@
 //
-//  CFMainViewController.m
+//  CFAddressBookViewController.m
 //  AddressBookUI
 //
 //  Created by   颜风 on 14-6-5.
@@ -11,9 +11,10 @@
 #import "CFAddressBookView.h"
 #import "CFPerson.h"
 #import "CFDetailViewController.h"
+#import "CFDetaiModel.h"
 
 @interface CFAddressBookViewController ()
-
+@property (retain, nonatomic, readwrite) CFDetailViewController * detailVC;
 @end
 
 @implementation CFAddressBookViewController
@@ -24,14 +25,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
-        // 初始化模型
-        NSString * path;
-        path = [NSBundle pathForResource:@"addressBookData" ofType: nil inDirectory:[NSBundle mainBundle].bundlePath];
-        CFAddressBookModel * addressBookModel = [[CFAddressBookModel alloc] initWithFile:path];
-        self.addressBookModel = addressBookModel;
-        [addressBookModel release];
-        
+        self.detailVC = [[[CFDetailViewController alloc] init] autorelease];
     }
     
     return self;
@@ -82,11 +76,12 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     if (nil == cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
     }
     
     CFPerson * person = [self.addressBookModel.persons objectAtIndex: indexPath.row];
     cell.textLabel.text = person.name;
+    cell.detailTextLabel.text = person.tel;
     cell.imageView.image = [UIImage imageNamed:person.avatar];
     
     return cell;
@@ -95,9 +90,15 @@
 #pragma mark - UITableViewDelegate协议方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CFDetailViewController * detailVC = [[CFDetailViewController alloc] init];
-    detailVC.person = [self.addressBookModel.persons objectAtIndex:indexPath.row];
-    [self.navigationController pushViewController:detailVC animated: YES];
+    CFPerson * dataPerson;
+    dataPerson = [self.addressBookModel.persons objectAtIndex:indexPath.row];
+    
+    CFDetaiModel * detailModel = [[CFDetaiModel alloc] initWithPerson:dataPerson];
+    
+    self.detailVC.detailModel = detailModel;
+    [detailModel release];
+    
+    [self.navigationController pushViewController:self.detailVC animated: YES];
 }
 
 

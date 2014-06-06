@@ -8,6 +8,8 @@
 
 #import "CFDetailViewController.h"
 #import "CFPerson.h"
+#import "CFDetailView.h"
+#import "CFDetaiModel.h"
 
 @interface CFDetailViewController ()
 
@@ -17,7 +19,7 @@
 
 - (void)dealloc
 {
-    self.person = nil;
+    self.detailModel = nil;
     
     [super dealloc];
 }
@@ -31,25 +33,21 @@
     return self;
 }
 
+- (void)loadView
+{
+    CFDetailView * detailView = [[CFDetailView alloc] init];
+    detailView.avatar.image = [UIImage imageNamed: self.detailModel.person.name];
+    detailView.infoLabel.text = [[[NSString alloc] initWithFormat:@"%@\n%@\n%ld\n%@", self.detailModel.person.name, self.detailModel.person.sex, self.detailModel.person.age, self.detailModel.person.tel] autorelease];
+    
+    self.view = detailView;
+    [detailView release];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = self.person.name;
-    
-    UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:self.person.avatar]];
-    // !!!:位置信息,不应该写死!
-    imageView.frame = CGRectMake(0, 100, 100, 100);
-    [self.view addSubview: imageView];
-    [imageView release];
-    
-    // !!!: 位置信息,不应该写死!
-    UILabel * infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 100, 100, 100)];
-    infoLabel.numberOfLines = 0;
-    infoLabel.adjustsFontSizeToFitWidth = YES;
-    infoLabel.text = [[[NSString alloc] initWithFormat:@"%@\n%@\n%ld\n%@", self.person.name, self.person.sex, self.person.age, self.person.tel] autorelease];
-    [self.view addSubview:infoLabel];
-    [infoLabel release];
+    self.navigationItem.title = self.detailModel.person.name;
     
 }
 

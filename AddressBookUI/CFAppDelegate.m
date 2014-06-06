@@ -8,6 +8,7 @@
 
 #import "CFAppDelegate.h"
 #import "CFAddressBookViewController.h"
+#import "CFAddressBookModel.h"
 
 @implementation CFAppDelegate
 -(void)dealloc
@@ -23,7 +24,15 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
+    // 数据模型
+    NSString * path;
+    path = [NSBundle pathForResource:@"addressBookData" ofType: nil inDirectory:[NSBundle mainBundle].bundlePath];
+    CFAddressBookModel * addressBookModel = [[CFAddressBookModel alloc] initWithFile:path];
+    
+    // 第一个页面
     CFAddressBookViewController * mainVC = [[CFAddressBookViewController alloc] init];
+    mainVC.addressBookModel = addressBookModel;
+    [addressBookModel release];
     
     UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:mainVC];
     [mainVC release];

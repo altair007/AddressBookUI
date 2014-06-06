@@ -8,5 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  通讯录视图类
+ */
 @interface CFAddressBookView : UITableView
 @end
