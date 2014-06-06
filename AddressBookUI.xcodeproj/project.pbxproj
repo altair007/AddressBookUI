@@ -7,20 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C216C0241941DE67008DF648 /* CFDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C0231941DE67008DF648 /* CFDetailView.m */; };
-		C216C0271941DF3C008DF648 /* CFDetaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C0261941DF3C008DF648 /* CFDetaiModel.m */; };
 		C216C0291941F283008DF648 /* AddressBookUI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C216C0281941F283008DF648 /* AddressBookUI-Info.plist */; };
-		C216C037194200E7008DF648 /* 拜勒岗·鲁伊森邦.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C02C194200E7008DF648 /* 拜勒岗·鲁伊森邦.png */; };
-		C216C038194200E7008DF648 /* 蒂雅·赫丽贝尔.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C02D194200E7008DF648 /* 蒂雅·赫丽贝尔.png */; };
-		C216C039194200E7008DF648 /* 葛力姆乔·贾卡杰克.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C02E194200E7008DF648 /* 葛力姆乔·贾卡杰克.png */; };
-		C216C03A194200E7008DF648 /* 柯雅泰·史塔克.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C02F194200E7008DF648 /* 柯雅泰·史塔克.png */; };
-		C216C03B194200E7008DF648 /* 妮莉艾露·杜·欧德修凡克.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C030194200E7008DF648 /* 妮莉艾露·杜·欧德修凡克.png */; };
-		C216C03C194200E7008DF648 /* 诺伊特拉·吉尔加.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C031194200E7008DF648 /* 诺伊特拉·吉尔加.png */; };
-		C216C03D194200E7008DF648 /* 萨尔阿波罗·格兰兹.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C032194200E7008DF648 /* 萨尔阿波罗·格兰兹.png */; };
-		C216C03E194200E7008DF648 /* 乌尔奇奥拉·西法.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C033194200E7008DF648 /* 乌尔奇奥拉·西法.png */; };
-		C216C03F194200E7008DF648 /* 牙密·里亚尔戈.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C034194200E7008DF648 /* 牙密·里亚尔戈.png */; };
-		C216C040194200E7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C035194200E7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png */; };
-		C216C041194200E7008DF648 /* 佐马利·路鲁.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C036194200E7008DF648 /* 佐马利·路鲁.png */; };
+		C216C04D19420EB7008DF648 /* 拜勒岗·鲁伊森邦.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04219420EB7008DF648 /* 拜勒岗·鲁伊森邦.png */; };
+		C216C04E19420EB7008DF648 /* 蒂雅·赫丽贝尔.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04319420EB7008DF648 /* 蒂雅·赫丽贝尔.png */; };
+		C216C04F19420EB7008DF648 /* 葛力姆乔·贾卡杰克.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04419420EB7008DF648 /* 葛力姆乔·贾卡杰克.png */; };
+		C216C05019420EB7008DF648 /* 柯雅泰·史塔克.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04519420EB7008DF648 /* 柯雅泰·史塔克.png */; };
+		C216C05119420EB7008DF648 /* 妮莉艾露·杜·欧德修凡克.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04619420EB7008DF648 /* 妮莉艾露·杜·欧德修凡克.png */; };
+		C216C05219420EB7008DF648 /* 诺伊特拉·吉尔加.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04719420EB7008DF648 /* 诺伊特拉·吉尔加.png */; };
+		C216C05319420EB7008DF648 /* 萨尔阿波罗·格兰兹.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04819420EB7008DF648 /* 萨尔阿波罗·格兰兹.png */; };
+		C216C05419420EB7008DF648 /* 乌尔奇奥拉·西法.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04919420EB7008DF648 /* 乌尔奇奥拉·西法.png */; };
+		C216C05519420EB7008DF648 /* 牙密·里亚尔戈.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04A19420EB7008DF648 /* 牙密·里亚尔戈.png */; };
+		C216C05619420EB7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04B19420EB7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png */; };
+		C216C05719420EB7008DF648 /* 佐马利·路鲁.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04C19420EB7008DF648 /* 佐马利·路鲁.png */; };
+		C216C06019420ED0008DF648 /* CFAddressBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C05919420ED0008DF648 /* CFAddressBookModel.m */; };
+		C216C06119420ED0008DF648 /* CFAddressBookView.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C05B19420ED0008DF648 /* CFAddressBookView.m */; };
+		C216C06219420ED0008DF648 /* CFAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C05D19420ED0008DF648 /* CFAddressBookViewController.m */; };
+		C216C06319420ED0008DF648 /* CFPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C05F19420ED0008DF648 /* CFPerson.m */; };
+		C216C06A19420EDF008DF648 /* CFDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C06519420EDF008DF648 /* CFDetailView.m */; };
+		C216C06B19420EDF008DF648 /* CFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C06719420EDF008DF648 /* CFDetailViewController.m */; };
+		C216C06C19420EDF008DF648 /* CFDetaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C06919420EDF008DF648 /* CFDetaiModel.m */; };
 		C217AB8A19408CFB0006784A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8919408CFB0006784A /* Foundation.framework */; };
 		C217AB8C19408CFB0006784A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8B19408CFB0006784A /* CoreGraphics.framework */; };
 		C217AB8E19408CFB0006784A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8D19408CFB0006784A /* UIKit.framework */; };
@@ -30,17 +35,11 @@
 		C217ABAD19408CFB0006784A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C217ABAB19408CFB0006784A /* InfoPlist.strings */; };
 		C217ABAF19408CFB0006784A /* AddressBookUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABAE19408CFB0006784A /* AddressBookUITests.m */; };
 		C281CA3E1941CC0300D61F40 /* addressBookData in Resources */ = {isa = PBXBuildFile; fileRef = C281CA2B1941CC0300D61F40 /* addressBookData */; };
-		C281CA401941CC0300D61F40 /* CFAddressBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA2F1941CC0300D61F40 /* CFAddressBookModel.m */; };
-		C281CA411941CC0300D61F40 /* CFAddressBookView.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA311941CC0300D61F40 /* CFAddressBookView.m */; };
-		C281CA421941CC0300D61F40 /* CFAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA331941CC0300D61F40 /* CFAddressBookViewController.m */; };
 		C281CA431941CC0300D61F40 /* CFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA351941CC0300D61F40 /* CFAppDelegate.m */; };
-		C281CA441941CC0300D61F40 /* CFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA371941CC0300D61F40 /* CFDetailViewController.m */; };
 		C281CA451941CC0300D61F40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C281CA381941CC0300D61F40 /* InfoPlist.strings */; };
 		C281CA461941CC0300D61F40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C281CA3A1941CC0300D61F40 /* Images.xcassets */; };
 		C281CA471941CC0300D61F40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA3B1941CC0300D61F40 /* main.m */; };
 		C281CA481941CC0300D61F40 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C281CA3C1941CC0300D61F40 /* readme.md */; };
-		C281CA491941CC0300D61F40 /* 颜风.png in Resources */ = {isa = PBXBuildFile; fileRef = C281CA3D1941CC0300D61F40 /* 颜风.png */; };
-		C281CA4C1941CC7800D61F40 /* CFPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA4B1941CC7800D61F40 /* CFPerson.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,22 +53,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C216C0221941DE67008DF648 /* CFDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFDetailView.h; sourceTree = "<group>"; };
-		C216C0231941DE67008DF648 /* CFDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFDetailView.m; sourceTree = "<group>"; };
-		C216C0251941DF3C008DF648 /* CFDetaiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFDetaiModel.h; sourceTree = "<group>"; };
-		C216C0261941DF3C008DF648 /* CFDetaiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFDetaiModel.m; sourceTree = "<group>"; };
 		C216C0281941F283008DF648 /* AddressBookUI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AddressBookUI-Info.plist"; path = "Resources/AddressBookUI-Info.plist"; sourceTree = "<group>"; };
-		C216C02C194200E7008DF648 /* 拜勒岗·鲁伊森邦.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拜勒岗·鲁伊森邦.png"; sourceTree = "<group>"; };
-		C216C02D194200E7008DF648 /* 蒂雅·赫丽贝尔.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "蒂雅·赫丽贝尔.png"; sourceTree = "<group>"; };
-		C216C02E194200E7008DF648 /* 葛力姆乔·贾卡杰克.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "葛力姆乔·贾卡杰克.png"; sourceTree = "<group>"; };
-		C216C02F194200E7008DF648 /* 柯雅泰·史塔克.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "柯雅泰·史塔克.png"; sourceTree = "<group>"; };
-		C216C030194200E7008DF648 /* 妮莉艾露·杜·欧德修凡克.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "妮莉艾露·杜·欧德修凡克.png"; sourceTree = "<group>"; };
-		C216C031194200E7008DF648 /* 诺伊特拉·吉尔加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "诺伊特拉·吉尔加.png"; sourceTree = "<group>"; };
-		C216C032194200E7008DF648 /* 萨尔阿波罗·格兰兹.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "萨尔阿波罗·格兰兹.png"; sourceTree = "<group>"; };
-		C216C033194200E7008DF648 /* 乌尔奇奥拉·西法.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "乌尔奇奥拉·西法.png"; sourceTree = "<group>"; };
-		C216C034194200E7008DF648 /* 牙密·里亚尔戈.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "牙密·里亚尔戈.png"; sourceTree = "<group>"; };
-		C216C035194200E7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "亚罗尼洛·艾鲁鲁耶利.png"; sourceTree = "<group>"; };
-		C216C036194200E7008DF648 /* 佐马利·路鲁.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "佐马利·路鲁.png"; sourceTree = "<group>"; };
+		C216C04219420EB7008DF648 /* 拜勒岗·鲁伊森邦.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "拜勒岗·鲁伊森邦.png"; path = "Resources/拜勒岗·鲁伊森邦.png"; sourceTree = "<group>"; };
+		C216C04319420EB7008DF648 /* 蒂雅·赫丽贝尔.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "蒂雅·赫丽贝尔.png"; path = "Resources/蒂雅·赫丽贝尔.png"; sourceTree = "<group>"; };
+		C216C04419420EB7008DF648 /* 葛力姆乔·贾卡杰克.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "葛力姆乔·贾卡杰克.png"; path = "Resources/葛力姆乔·贾卡杰克.png"; sourceTree = "<group>"; };
+		C216C04519420EB7008DF648 /* 柯雅泰·史塔克.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "柯雅泰·史塔克.png"; path = "Resources/柯雅泰·史塔克.png"; sourceTree = "<group>"; };
+		C216C04619420EB7008DF648 /* 妮莉艾露·杜·欧德修凡克.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "妮莉艾露·杜·欧德修凡克.png"; path = "Resources/妮莉艾露·杜·欧德修凡克.png"; sourceTree = "<group>"; };
+		C216C04719420EB7008DF648 /* 诺伊特拉·吉尔加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "诺伊特拉·吉尔加.png"; path = "Resources/诺伊特拉·吉尔加.png"; sourceTree = "<group>"; };
+		C216C04819420EB7008DF648 /* 萨尔阿波罗·格兰兹.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "萨尔阿波罗·格兰兹.png"; path = "Resources/萨尔阿波罗·格兰兹.png"; sourceTree = "<group>"; };
+		C216C04919420EB7008DF648 /* 乌尔奇奥拉·西法.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "乌尔奇奥拉·西法.png"; path = "Resources/乌尔奇奥拉·西法.png"; sourceTree = "<group>"; };
+		C216C04A19420EB7008DF648 /* 牙密·里亚尔戈.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "牙密·里亚尔戈.png"; path = "Resources/牙密·里亚尔戈.png"; sourceTree = "<group>"; };
+		C216C04B19420EB7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "亚罗尼洛·艾鲁鲁耶利.png"; path = "Resources/亚罗尼洛·艾鲁鲁耶利.png"; sourceTree = "<group>"; };
+		C216C04C19420EB7008DF648 /* 佐马利·路鲁.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "佐马利·路鲁.png"; path = "Resources/佐马利·路鲁.png"; sourceTree = "<group>"; };
+		C216C05819420ED0008DF648 /* CFAddressBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFAddressBookModel.h; path = AddressBook/CFAddressBookModel.h; sourceTree = "<group>"; };
+		C216C05919420ED0008DF648 /* CFAddressBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFAddressBookModel.m; path = AddressBook/CFAddressBookModel.m; sourceTree = "<group>"; };
+		C216C05A19420ED0008DF648 /* CFAddressBookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFAddressBookView.h; path = AddressBook/CFAddressBookView.h; sourceTree = "<group>"; };
+		C216C05B19420ED0008DF648 /* CFAddressBookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFAddressBookView.m; path = AddressBook/CFAddressBookView.m; sourceTree = "<group>"; };
+		C216C05C19420ED0008DF648 /* CFAddressBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFAddressBookViewController.h; path = AddressBook/CFAddressBookViewController.h; sourceTree = "<group>"; };
+		C216C05D19420ED0008DF648 /* CFAddressBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFAddressBookViewController.m; path = AddressBook/CFAddressBookViewController.m; sourceTree = "<group>"; };
+		C216C05E19420ED0008DF648 /* CFPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPerson.h; path = AddressBook/CFPerson.h; sourceTree = "<group>"; };
+		C216C05F19420ED0008DF648 /* CFPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFPerson.m; path = AddressBook/CFPerson.m; sourceTree = "<group>"; };
+		C216C06419420EDF008DF648 /* CFDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDetailView.h; path = Detail/CFDetailView.h; sourceTree = "<group>"; };
+		C216C06519420EDF008DF648 /* CFDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFDetailView.m; path = Detail/CFDetailView.m; sourceTree = "<group>"; };
+		C216C06619420EDF008DF648 /* CFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDetailViewController.h; path = Detail/CFDetailViewController.h; sourceTree = "<group>"; };
+		C216C06719420EDF008DF648 /* CFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFDetailViewController.m; path = Detail/CFDetailViewController.m; sourceTree = "<group>"; };
+		C216C06819420EDF008DF648 /* CFDetaiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDetaiModel.h; path = Detail/CFDetaiModel.h; sourceTree = "<group>"; };
+		C216C06919420EDF008DF648 /* CFDetaiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFDetaiModel.m; path = Detail/CFDetaiModel.m; sourceTree = "<group>"; };
 		C217AB8619408CFB0006784A /* AddressBookUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AddressBookUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C217AB8919408CFB0006784A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C217AB8B19408CFB0006784A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -81,23 +90,12 @@
 		C217ABAE19408CFB0006784A /* AddressBookUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookUITests.m; sourceTree = "<group>"; };
 		C281CA2B1941CC0300D61F40 /* addressBookData */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = addressBookData; sourceTree = "<group>"; };
 		C281CA2D1941CC0300D61F40 /* AddressBookUI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AddressBookUI-Prefix.pch"; sourceTree = "<group>"; };
-		C281CA2E1941CC0300D61F40 /* CFAddressBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFAddressBookModel.h; sourceTree = "<group>"; };
-		C281CA2F1941CC0300D61F40 /* CFAddressBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFAddressBookModel.m; sourceTree = "<group>"; };
-		C281CA301941CC0300D61F40 /* CFAddressBookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFAddressBookView.h; sourceTree = "<group>"; };
-		C281CA311941CC0300D61F40 /* CFAddressBookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFAddressBookView.m; sourceTree = "<group>"; };
-		C281CA321941CC0300D61F40 /* CFAddressBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFAddressBookViewController.h; sourceTree = "<group>"; };
-		C281CA331941CC0300D61F40 /* CFAddressBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFAddressBookViewController.m; sourceTree = "<group>"; };
 		C281CA341941CC0300D61F40 /* CFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFAppDelegate.h; sourceTree = "<group>"; };
 		C281CA351941CC0300D61F40 /* CFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFAppDelegate.m; sourceTree = "<group>"; };
-		C281CA361941CC0300D61F40 /* CFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFDetailViewController.h; sourceTree = "<group>"; };
-		C281CA371941CC0300D61F40 /* CFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFDetailViewController.m; sourceTree = "<group>"; };
 		C281CA391941CC0300D61F40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C281CA3A1941CC0300D61F40 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C281CA3B1941CC0300D61F40 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C281CA3C1941CC0300D61F40 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
-		C281CA3D1941CC0300D61F40 /* 颜风.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "颜风.png"; sourceTree = "<group>"; };
-		C281CA4A1941CC7800D61F40 /* CFPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFPerson.h; sourceTree = "<group>"; };
-		C281CA4B1941CC7800D61F40 /* CFPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFPerson.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,12 +125,12 @@
 		C216C0211941DE22008DF648 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				C281CA361941CC0300D61F40 /* CFDetailViewController.h */,
-				C281CA371941CC0300D61F40 /* CFDetailViewController.m */,
-				C216C0221941DE67008DF648 /* CFDetailView.h */,
-				C216C0231941DE67008DF648 /* CFDetailView.m */,
-				C216C0251941DF3C008DF648 /* CFDetaiModel.h */,
-				C216C0261941DF3C008DF648 /* CFDetaiModel.m */,
+				C216C06419420EDF008DF648 /* CFDetailView.h */,
+				C216C06519420EDF008DF648 /* CFDetailView.m */,
+				C216C06619420EDF008DF648 /* CFDetailViewController.h */,
+				C216C06719420EDF008DF648 /* CFDetailViewController.m */,
+				C216C06819420EDF008DF648 /* CFDetaiModel.h */,
+				C216C06919420EDF008DF648 /* CFDetaiModel.m */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -145,7 +143,6 @@
 				C281CA2B1941CC0300D61F40 /* addressBookData */,
 				C216C0281941F283008DF648 /* AddressBookUI-Info.plist */,
 				C281CA381941CC0300D61F40 /* InfoPlist.strings */,
-				C281CA3D1941CC0300D61F40 /* 颜风.png */,
 				C281CA3A1941CC0300D61F40 /* Images.xcassets */,
 				C281CA2D1941CC0300D61F40 /* AddressBookUI-Prefix.pch */,
 			);
@@ -155,17 +152,17 @@
 		C216C02B194200CD008DF648 /* img */ = {
 			isa = PBXGroup;
 			children = (
-				C216C02C194200E7008DF648 /* 拜勒岗·鲁伊森邦.png */,
-				C216C02D194200E7008DF648 /* 蒂雅·赫丽贝尔.png */,
-				C216C02E194200E7008DF648 /* 葛力姆乔·贾卡杰克.png */,
-				C216C02F194200E7008DF648 /* 柯雅泰·史塔克.png */,
-				C216C030194200E7008DF648 /* 妮莉艾露·杜·欧德修凡克.png */,
-				C216C031194200E7008DF648 /* 诺伊特拉·吉尔加.png */,
-				C216C032194200E7008DF648 /* 萨尔阿波罗·格兰兹.png */,
-				C216C033194200E7008DF648 /* 乌尔奇奥拉·西法.png */,
-				C216C034194200E7008DF648 /* 牙密·里亚尔戈.png */,
-				C216C035194200E7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png */,
-				C216C036194200E7008DF648 /* 佐马利·路鲁.png */,
+				C216C04219420EB7008DF648 /* 拜勒岗·鲁伊森邦.png */,
+				C216C04319420EB7008DF648 /* 蒂雅·赫丽贝尔.png */,
+				C216C04419420EB7008DF648 /* 葛力姆乔·贾卡杰克.png */,
+				C216C04519420EB7008DF648 /* 柯雅泰·史塔克.png */,
+				C216C04619420EB7008DF648 /* 妮莉艾露·杜·欧德修凡克.png */,
+				C216C04719420EB7008DF648 /* 诺伊特拉·吉尔加.png */,
+				C216C04819420EB7008DF648 /* 萨尔阿波罗·格兰兹.png */,
+				C216C04919420EB7008DF648 /* 乌尔奇奥拉·西法.png */,
+				C216C04A19420EB7008DF648 /* 牙密·里亚尔戈.png */,
+				C216C04B19420EB7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png */,
+				C216C04C19420EB7008DF648 /* 佐马利·路鲁.png */,
 			);
 			name = img;
 			sourceTree = "<group>";
@@ -234,14 +231,14 @@
 		C281CA4D1941CC9800D61F40 /* AddressBook */ = {
 			isa = PBXGroup;
 			children = (
-				C281CA321941CC0300D61F40 /* CFAddressBookViewController.h */,
-				C281CA331941CC0300D61F40 /* CFAddressBookViewController.m */,
-				C281CA2E1941CC0300D61F40 /* CFAddressBookModel.h */,
-				C281CA2F1941CC0300D61F40 /* CFAddressBookModel.m */,
-				C281CA311941CC0300D61F40 /* CFAddressBookView.m */,
-				C281CA301941CC0300D61F40 /* CFAddressBookView.h */,
-				C281CA4A1941CC7800D61F40 /* CFPerson.h */,
-				C281CA4B1941CC7800D61F40 /* CFPerson.m */,
+				C216C05819420ED0008DF648 /* CFAddressBookModel.h */,
+				C216C05919420ED0008DF648 /* CFAddressBookModel.m */,
+				C216C05A19420ED0008DF648 /* CFAddressBookView.h */,
+				C216C05B19420ED0008DF648 /* CFAddressBookView.m */,
+				C216C05C19420ED0008DF648 /* CFAddressBookViewController.h */,
+				C216C05D19420ED0008DF648 /* CFAddressBookViewController.m */,
+				C216C05E19420ED0008DF648 /* CFPerson.h */,
+				C216C05F19420ED0008DF648 /* CFPerson.m */,
 			);
 			name = AddressBook;
 			sourceTree = "<group>";
@@ -322,23 +319,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C216C03D194200E7008DF648 /* 萨尔阿波罗·格兰兹.png in Resources */,
 				C216C0291941F283008DF648 /* AddressBookUI-Info.plist in Resources */,
-				C216C03B194200E7008DF648 /* 妮莉艾露·杜·欧德修凡克.png in Resources */,
 				C281CA461941CC0300D61F40 /* Images.xcassets in Resources */,
 				C281CA451941CC0300D61F40 /* InfoPlist.strings in Resources */,
-				C216C041194200E7008DF648 /* 佐马利·路鲁.png in Resources */,
-				C281CA491941CC0300D61F40 /* 颜风.png in Resources */,
-				C216C03C194200E7008DF648 /* 诺伊特拉·吉尔加.png in Resources */,
-				C216C03F194200E7008DF648 /* 牙密·里亚尔戈.png in Resources */,
-				C216C03E194200E7008DF648 /* 乌尔奇奥拉·西法.png in Resources */,
-				C216C03A194200E7008DF648 /* 柯雅泰·史塔克.png in Resources */,
+				C216C04E19420EB7008DF648 /* 蒂雅·赫丽贝尔.png in Resources */,
+				C216C05019420EB7008DF648 /* 柯雅泰·史塔克.png in Resources */,
+				C216C05519420EB7008DF648 /* 牙密·里亚尔戈.png in Resources */,
+				C216C05719420EB7008DF648 /* 佐马利·路鲁.png in Resources */,
+				C216C05119420EB7008DF648 /* 妮莉艾露·杜·欧德修凡克.png in Resources */,
+				C216C05619420EB7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png in Resources */,
+				C216C05219420EB7008DF648 /* 诺伊特拉·吉尔加.png in Resources */,
 				C281CA481941CC0300D61F40 /* readme.md in Resources */,
-				C216C038194200E7008DF648 /* 蒂雅·赫丽贝尔.png in Resources */,
-				C216C039194200E7008DF648 /* 葛力姆乔·贾卡杰克.png in Resources */,
-				C216C037194200E7008DF648 /* 拜勒岗·鲁伊森邦.png in Resources */,
+				C216C05319420EB7008DF648 /* 萨尔阿波罗·格兰兹.png in Resources */,
 				C281CA3E1941CC0300D61F40 /* addressBookData in Resources */,
-				C216C040194200E7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png in Resources */,
+				C216C04F19420EB7008DF648 /* 葛力姆乔·贾卡杰克.png in Resources */,
+				C216C05419420EB7008DF648 /* 乌尔奇奥拉·西法.png in Resources */,
+				C216C04D19420EB7008DF648 /* 拜勒岗·鲁伊森邦.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,15 +353,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C216C0241941DE67008DF648 /* CFDetailView.m in Sources */,
-				C281CA421941CC0300D61F40 /* CFAddressBookViewController.m in Sources */,
-				C281CA401941CC0300D61F40 /* CFAddressBookModel.m in Sources */,
-				C281CA4C1941CC7800D61F40 /* CFPerson.m in Sources */,
-				C281CA411941CC0300D61F40 /* CFAddressBookView.m in Sources */,
-				C281CA441941CC0300D61F40 /* CFDetailViewController.m in Sources */,
+				C216C06119420ED0008DF648 /* CFAddressBookView.m in Sources */,
+				C216C06C19420EDF008DF648 /* CFDetaiModel.m in Sources */,
 				C281CA471941CC0300D61F40 /* main.m in Sources */,
+				C216C06A19420EDF008DF648 /* CFDetailView.m in Sources */,
 				C281CA431941CC0300D61F40 /* CFAppDelegate.m in Sources */,
-				C216C0271941DF3C008DF648 /* CFDetaiModel.m in Sources */,
+				C216C06219420ED0008DF648 /* CFAddressBookViewController.m in Sources */,
+				C216C06B19420EDF008DF648 /* CFDetailViewController.m in Sources */,
+				C216C06019420ED0008DF648 /* CFAddressBookModel.m in Sources */,
+				C216C06319420ED0008DF648 /* CFPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @class CFAddressBookModel;
-@class CFAddressBookView;
 @class CFDetailViewController;
 
 
