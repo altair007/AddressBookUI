@@ -10,6 +10,7 @@
 #import "CFAppDelegate.h"
 #import "CFAddressBookViewController.h"
 #import "CFAddressBookModel.h"
+#import "CFMainViewController.h"
 
 @implementation CFAppDelegate
 -(void)dealloc
@@ -31,20 +32,18 @@
     CFAddressBookModel * addressBookModel = [[CFAddressBookModel alloc] initWithFile:path];
     
     // 第一个页面
-    CFAddressBookViewController * mainVC = [[CFAddressBookViewController alloc] init];
-    mainVC.addressBookModel = addressBookModel;
+    CFAddressBookViewController * abVC = [[CFAddressBookViewController alloc] init];
+    abVC.addressBookModel = addressBookModel;
     [addressBookModel release];
     
-    UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController:mainVC];
-    [mainVC release];
+    CFMainViewController * mainVC = [[CFMainViewController alloc] initWithRootViewController: abVC];
+    [abVC release];
     
-    self.window.rootViewController = navController;
-    [navController release];
+    self.window.rootViewController = mainVC;
+    [mainVC release];
     
     [self.window makeKeyAndVisible];
     
-    
-
     return YES;
 }
 

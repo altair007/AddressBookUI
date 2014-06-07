@@ -9,6 +9,11 @@
 #import "CFDetaiModel.h"
 
 @implementation CFDetaiModel
+- (instancetype) init
+{
+    return [self initWithPerson:nil];
+}
+
 -(instancetype) initWithPerson: (CFPerson *) person
 {
     if (self = [super init]) {

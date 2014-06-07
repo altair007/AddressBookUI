@@ -12,9 +12,9 @@
 #import "CFPerson.h"
 #import "CFDetailViewController.h"
 #import "CFDetaiModel.h"
+#import "CFMainViewController.h"
 
 @interface CFAddressBookViewController ()
-@property (retain, nonatomic, readwrite) CFDetailViewController * detailVC;
 @end
 
 @implementation CFAddressBookViewController
@@ -25,7 +25,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.detailVC = [[[CFDetailViewController alloc] init] autorelease];
     }
     
     return self;
@@ -33,7 +32,7 @@
 
 - (void)loadView
 {
-    CFAddressBookView * addressBookView = [[CFAddressBookView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
+    CFAddressBookView * addressBookView = [[CFAddressBookView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
     addressBookView.dataSource = self;
     addressBookView.delegate = self;
     self.view = addressBookView;
@@ -57,6 +56,55 @@
     
 }
 
+- (NSArray *) personsInSection: (NSInteger)section
+{
+    // 获取按姓名首字母分组的字典
+    NSDictionary * personsDict = self.addressBookModel.personsByGroups;
+    
+    // 获取keys数组
+    NSArray * keys = personsDict.allKeys;
+    
+    // keys数组排序
+    keys = [keys sortedArrayUsingComparator:^NSComparisonResult(NSString * obj1, NSString * obj2) {
+        return [obj1 compare: obj2];
+    }];
+    
+    // 获取此分区对应的键
+    NSString * key = [keys objectAtIndex:section];
+    
+    // 获取某分区对应的通讯录成员
+    NSArray * personsArr = [personsDict objectForKey: key];
+
+    return personsArr;
+}
+
+- (CFPerson *)personAtIndexPath:(NSIndexPath *)indexPath
+{
+    CFPerson * person;
+    person = [[self personsInSection: indexPath.section] objectAtIndex: indexPath.row];
+
+    return person;
+}
+
+- (NSString *) groupNameInSection: (NSInteger) section
+{
+    // 获取按姓名首字母分组的字典
+    NSDictionary * personsDict = self.addressBookModel.personsByGroups;
+    
+    // 获取keys数组
+    NSArray * keys = personsDict.allKeys;
+    
+    // keys数组排序
+    keys = [keys sortedArrayUsingComparator:^NSComparisonResult(NSString * obj1, NSString * obj2) {
+        return [obj1 compare: obj2];
+    }];
+    
+    // 获取此分区对应的键
+    NSString * key = [keys objectAtIndex:section];
+    
+    return key;
+}
+
 -(void)dealloc
 {
     self.addressBookModel = nil;
@@ -64,14 +112,28 @@
     [super dealloc];
 }
 #pragma mark - UITableViewDataSource协议方法
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    NSInteger  count;
+    count = self.addressBookModel.personsByGroups.allKeys.count;
+    return count;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.addressBookModel.persons.count;
+    NSInteger  count;
+    count = [self personsInSection: section].count;
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString * identifier = @"person";
+    // 获取次分区对应的通讯录成员
+    CFPerson * person = [self personAtIndexPath: indexPath];
+    
+    // ???: 可以更改静态变量的值吗?
+    // FIXME: 此处不止一个分区,很明显,不应该再使用同一cell标识符.
+    static NSString * identifier = @"person";
     
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
@@ -79,7 +141,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
     }
     
-    CFPerson * person = [self.addressBookModel.persons objectAtIndex: indexPath.row];
+    // 设置cell属性
     cell.textLabel.text = person.name;
     cell.detailTextLabel.text = person.tel;
     cell.imageView.image = [UIImage imageNamed:person.avatar];
@@ -87,18 +149,26 @@
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString * title;
+    title = [self groupNameInSection: section];
+    return title;
+}
+
 #pragma mark - UITableViewDelegate协议方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CFPerson * dataPerson;
-    dataPerson = [self.addressBookModel.persons objectAtIndex:indexPath.row];
+    CFMainViewController * mainVC = (CFMainViewController *)self.navigationController;
     
-    CFDetaiModel * detailModel = [[CFDetaiModel alloc] initWithPerson:dataPerson];
+    if (nil == mainVC.detailVC) {
+        mainVC.detailVC = [[[CFDetailViewController alloc] init] autorelease];
+        mainVC.detailVC.detailModel = [[[CFDetaiModel alloc] init] autorelease];
+    }
     
-    self.detailVC.detailModel = detailModel;
-    [detailModel release];
+    mainVC.detailVC.detailModel.person = [self personAtIndexPath: indexPath];
     
-    [self.navigationController pushViewController:self.detailVC animated: YES];
+    [self.navigationController pushViewController:mainVC.detailVC animated: YES];
 }
 
 

@@ -40,4 +40,50 @@
     
     [super dealloc];
 }
+
+- (NSDictionary *) personsByGroups
+{
+    NSMutableDictionary * dict = [[NSMutableDictionary alloc] initWithCapacity:42];
+    
+    [self.persons enumerateObjectsUsingBlock:^(CFPerson * person, NSUInteger idx, BOOL *stop) {
+        // 获取联系人拼音首字母
+        NSString * firstChar = [self firstCharOfName: person.name];
+        
+        // 获取联系人对应的数组
+        NSMutableArray * persons = [dict objectForKey: firstChar];
+        
+        // 判断键是否存在于数组中,不存在则创建
+        if (nil == persons) {
+            [dict setObject: [[[NSMutableArray alloc] initWithCapacity:42] autorelease] forKey:firstChar];
+            
+            // 重新获取联系人对应的数组
+            persons = [dict objectForKey: firstChar];
+        }
+        
+        // 将联系人添加到对应数组中
+        [persons addObject: person];
+    }];
+    
+    return dict.autorelease;
+}
+
+- (NSString *) firstCharOfName: (NSString *) aChinenseName
+{
+    // !!!: 好好研究下,先用着!
+    NSMutableString * first = [[NSMutableString alloc] initWithString:[aChinenseName substringWithRange:NSMakeRange(0, 1)]];
+    
+    CFRange range = CFRangeMake(0, 1);
+    
+    // 汉字转换为拼音,并去除音调
+    if ( ! CFStringTransform((__bridge CFMutableStringRef) first, &range, kCFStringTransformMandarinLatin, NO) ||
+        ! CFStringTransform((__bridge CFMutableStringRef) first, &range, kCFStringTransformStripDiacritics, NO)) {
+        return @"";
+    }
+    
+    NSString * result;
+    result = [first substringWithRange:NSMakeRange(0, 1)];
+    
+    return result.uppercaseString;
+}
+
 @end

@@ -9,10 +9,36 @@
 #import <UIKit/UIKit.h>
 @class CFAddressBookModel;
 @class CFDetailViewController;
-
+@class CFPerson;
 
 @interface CFAddressBookViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (retain, nonatomic) CFAddressBookModel * addressBookModel; //!< 通讯录模型.
-@property (retain, nonatomic, readonly) CFDetailViewController * detailVC; //!< 联系人详情控制器.
+
+/**
+ *  获取分区对应的通讯录成员
+ *
+ *  @param section 第几分区
+ *
+ *  @return 分区对应的通讯录成员
+ */
+- (NSArray *) personsInSection: (NSInteger)section;
+
+/**
+ *  获取分区某一行对应的通讯录成员.
+ *
+ *  @param indexPath 分区信息.
+ *
+ *  @return 分区某一行对应的通讯录成员.
+ */
+- (CFPerson *) personAtIndexPath: (NSIndexPath *) indexPath;
+
+/**
+ *  获取某一分区对应的群组名称.
+ *
+ *  @param section 第几分区
+ *
+ *  @return 分区对应的群组名称.
+ */
+- (NSString *) groupNameInSection: (NSInteger) section;
 
 @end

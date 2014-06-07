@@ -35,6 +35,7 @@
 		C217ABA519408CFB0006784A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8D19408CFB0006784A /* UIKit.framework */; };
 		C217ABAD19408CFB0006784A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C217ABAB19408CFB0006784A /* InfoPlist.strings */; };
 		C217ABAF19408CFB0006784A /* AddressBookUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABAE19408CFB0006784A /* AddressBookUITests.m */; };
+		C22FF93A19431127004094DD /* CFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FF93919431127004094DD /* CFMainViewController.m */; };
 		C281CA3E1941CC0300D61F40 /* addressBookData in Resources */ = {isa = PBXBuildFile; fileRef = C281CA2B1941CC0300D61F40 /* addressBookData */; };
 		C281CA431941CC0300D61F40 /* CFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA351941CC0300D61F40 /* CFAppDelegate.m */; };
 		C281CA451941CC0300D61F40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C281CA381941CC0300D61F40 /* InfoPlist.strings */; };
@@ -90,6 +91,8 @@
 		C217ABAA19408CFB0006784A /* AddressBookUITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AddressBookUITests-Info.plist"; sourceTree = "<group>"; };
 		C217ABAC19408CFB0006784A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C217ABAE19408CFB0006784A /* AddressBookUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookUITests.m; sourceTree = "<group>"; };
+		C22FF93819431127004094DD /* CFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFMainViewController.h; sourceTree = "<group>"; };
+		C22FF93919431127004094DD /* CFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFMainViewController.m; sourceTree = "<group>"; };
 		C281CA2B1941CC0300D61F40 /* addressBookData */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = addressBookData; sourceTree = "<group>"; };
 		C281CA2D1941CC0300D61F40 /* AddressBookUI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AddressBookUI-Prefix.pch"; sourceTree = "<group>"; };
 		C281CA341941CC0300D61F40 /* CFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFAppDelegate.h; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				C281CA381941CC0300D61F40 /* InfoPlist.strings */,
 				C281CA3A1941CC0300D61F40 /* Images.xcassets */,
 				C281CA2D1941CC0300D61F40 /* AddressBookUI-Prefix.pch */,
+				C22FF93819431127004094DD /* CFMainViewController.h */,
+				C22FF93919431127004094DD /* CFMainViewController.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 			files = (
 				C216C06119420ED0008DF648 /* CFAddressBookView.m in Sources */,
 				C216C06C19420EDF008DF648 /* CFDetaiModel.m in Sources */,
+				C22FF93A19431127004094DD /* CFMainViewController.m in Sources */,
 				C281CA471941CC0300D61F40 /* main.m in Sources */,
 				C216C06A19420EDF008DF648 /* CFDetailView.m in Sources */,
 				C281CA431941CC0300D61F40 /* CFAppDelegate.m in Sources */,

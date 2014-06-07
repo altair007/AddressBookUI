@@ -35,7 +35,19 @@
 - (BOOL) update;
 
 /**
- *  释放实例变量
+ *  返回按姓名拼音首字母分组排序的字典,以首字母为键,以联系人数组为值
+ *
+ *  @return 分组后的联系人
  */
-- (void)dealloc;
+- (NSDictionary *) personsByGroups;
+
+/**
+ *  返回一个汉语名的拼音首字母
+ *
+ *  @param aChinenseName 一个汉语名字字符串
+ *
+ *  @return 汉语名字拼音首字母大写形式组成的字符串
+ */
+- (NSString *) firstCharOfName: (NSString *) aChinenseName;
+
 @end
