@@ -166,10 +166,34 @@
         mainVC.detailVC.detailModel = [[[CFDetaiModel alloc] init] autorelease];
     }
     
+    // !!!:直接操作model的属性,总觉得不符合OOP原则!
     mainVC.detailVC.detailModel.person = [self personAtIndexPath: indexPath];
     
     [self.navigationController pushViewController:mainVC.detailVC animated: YES];
 }
 
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 删除
+    if (UITableViewCellEditingStyleDelete == editingStyle) {
+        // 先获取此分区所有成员
+        NSArray * personsArray = [self personsInSection: indexPath.section];
+        
+        // 删除数据
+        [self.addressBookModel removePerson: [self personAtIndexPath: indexPath]];
+        
+        // 根据分区成员数量来决定是删除行,还是直接删除分区
+        if (1 == personsArray.count) { // 可以直接删除分区了
+            [tableView deleteSections:[NSIndexSet indexSetWithIndex: indexPath.section] withRowAnimation: UITableViewRowAnimationAutomatic];
+        }else{ // 只删除行
+            [tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+        }
+    }
+}
+//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return UITableViewCellEditingStyleNone;
+//}
 
 @end

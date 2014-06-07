@@ -50,4 +50,11 @@
  */
 - (NSString *) firstCharOfName: (NSString *) aChinenseName;
 
+/**
+ *  删除联系人
+ *
+ *  @param aPerson 要删除的联系人
+ */
+- (void) removePerson: (CFPerson *) aPerson;
+
 @end
