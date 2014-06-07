@@ -42,8 +42,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view
+    // 设置标题
     self.navigationItem.title = @"通讯录";
-
+    
+    // 设置"添加"按钮
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(didClickAddButtonItem:)];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,6 +107,11 @@
     NSString * key = [keys objectAtIndex:section];
     
     return key;
+}
+
+- (void) didClickAddButtonItem: (UIBarButtonItem *) aButtonItem
+{
+    
 }
 
 -(void)dealloc

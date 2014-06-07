@@ -41,4 +41,12 @@
  */
 - (NSString *) groupNameInSection: (NSInteger) section;
 
+/**
+ *  响应添加联系人事件
+ *
+ *  @param aButtonItem 被点击的buttonItem
+ *
+ */
+- (void) didClickAddButtonItem: (UIBarButtonItem *) aButtonItem;
+
 @end
