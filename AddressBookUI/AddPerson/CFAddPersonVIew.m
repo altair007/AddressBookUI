@@ -10,7 +10,7 @@
 
 @interface CFAddPersonView ()
 @property (retain, nonatomic, readwrite) NSString * nameOfdefaultImg; //!< 默认显示的图片
-@property (retain, nonatomic, readwrite) UIImageView * avatar; //!< 相片视图.
+@property (retain, nonatomic, readwrite) UIImageView * avatarView; //!< 相片视图.
 @property (retain, nonatomic, readwrite) UITextField * nameTF; //!< 姓名编辑框
 @property (retain, nonatomic, readwrite) UITextField * sexTF; //!< 性别编辑框
 @property (retain, nonatomic, readwrite) UITextField * ageTF; //!< 年龄编辑框
@@ -21,7 +21,7 @@
 -(void)dealloc
 {
     self.nameOfdefaultImg = nil;
-    self.avatar = nil;
+    self.avatarView = nil;
     self.nameTF = nil;
     self.sexTF = nil;
     self.ageTF = nil;
@@ -53,23 +53,23 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
-    if (nil == self.avatar) { // 初始化
+    if (nil == self.avatarView) { // 初始化
         // 头像
         CGFloat landscapeSpace = 30.0; // 头像距离边框的距离
         
         UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(landscapeSpace, 100, 80, 120)];
         
-        self.avatar= imageView;
+        self.avatarView= imageView;
         [imageView release];
         
-        [self addSubview: self.avatar];
+        [self addSubview: self.avatarView];
         
         //几个编辑框
         CGFloat portraitSpace = landscapeSpace / 3; // 编辑框竖直方向的间距
         
         NSArray * placeHolders = @[@"请输入姓名", @"请输入性别", @"请输入年龄", @"请输入联系方式"];
         
-        __block CGRect baseRect = CGRectMake(2 * self.avatar.frame.origin.x + self.avatar.frame.size.width, self.avatar.frame.origin.y, self.frame.size.width - self.avatar.frame.size.width - self.avatar.frame.origin.x - 2 * self.avatar.frame.origin.x, (self.avatar.frame.size.height - portraitSpace * 3) / 4);
+        __block CGRect baseRect = CGRectMake(2 * self.avatarView.frame.origin.x + self.avatarView.frame.size.width, self.avatarView.frame.origin.y, self.frame.size.width - self.avatarView.frame.size.width - self.avatarView.frame.origin.x - 2 * self.avatarView.frame.origin.x, (self.avatarView.frame.size.height - portraitSpace * 3) / 4);
         
         [placeHolders enumerateObjectsUsingBlock:^(NSString * placeHolder, NSUInteger idx, BOOL *stop) {
             UITextField * tempTF = [[UITextField alloc] initWithFrame:baseRect];
@@ -86,10 +86,12 @@
             }
             
             if ([placeHolder isEqualToString: @"请输入年龄"]) {
+                tempTF.keyboardType = UIKeyboardTypeNumberPad;
                 self.ageTF = tempTF;
             }
             
             if ([placeHolder isEqualToString: @"请输入联系方式"]) {
+                tempTF.keyboardType = UIKeyboardTypeNumberPad;
                 self.telTF = tempTF;
             }
             
@@ -102,7 +104,7 @@
     }
     
     // 恢复默认设置
-    self.avatar.image = [UIImage imageNamed: self.nameOfdefaultImg];
+    self.avatarView.image = [UIImage imageNamed: self.nameOfdefaultImg];
     
     self.nameTF.text = @"";
     self.sexTF.text = @"";
