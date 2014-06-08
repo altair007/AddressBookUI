@@ -9,7 +9,6 @@
 #import "CFDetailViewController.h"
 #import "CFPerson.h"
 #import "CFDetailView.h"
-#import "CFDetaiModel.h"
 
 @interface CFDetailViewController ()
 
@@ -19,7 +18,7 @@
 
 - (void)dealloc
 {
-    self.detailModel = nil;
+    self.person = nil;
     
     [super dealloc];
 }
@@ -41,20 +40,17 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated
-{
-    // 注意:因为会多次使用同一个CFDetailViewController对象,所以是在viewWillAppear:中设置而不是在loadView中.
-    // loadView只会在首次显示视图时被调用,不满足需求!
-    
+{    
     CFDetailView * detailView = (CFDetailView *)self.view;
-    detailView.avatar.image = [UIImage imageNamed: self.detailModel.person.name];
-    detailView.infoLabel.text = [[[NSString alloc] initWithFormat:@"%@\n%@\n%ld\n%@", self.detailModel.person.name, self.detailModel.person.sex, self.detailModel.person.age, self.detailModel.person.tel] autorelease];
+    detailView.avatar.image = [UIImage imageNamed: self.person.name];
+    detailView.infoLabel.text = [[[NSString alloc] initWithFormat:@"%@\n%@\n%ld\n%@", self.person.name, self.person.sex, self.person.age, self.person.tel] autorelease];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = self.detailModel.person.name;
+    self.navigationItem.title = self.person.name;
     
 }
 
@@ -62,6 +58,9 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    if ([self isViewLoaded] && nil == self.view.window) {
+        self.view = nil;
+    }
 }
 
 /*

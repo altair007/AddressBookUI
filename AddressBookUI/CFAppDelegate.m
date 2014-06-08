@@ -31,13 +31,12 @@
     path = [NSBundle pathForResource:@"addressBookData" ofType: nil inDirectory:[NSBundle mainBundle].bundlePath];
     CFAddressBookModel * addressBookModel = [[CFAddressBookModel alloc] initWithFile:path];
     
-    // 第一个页面
     CFAddressBookViewController * abVC = [[CFAddressBookViewController alloc] init];
-    abVC.addressBookModel = addressBookModel;
-    [addressBookModel release];
     
     CFMainViewController * mainVC = [[CFMainViewController alloc] initWithRootViewController: abVC];
+    mainVC.model = addressBookModel;
     [abVC release];
+    [addressBookModel release];
     
     self.window.rootViewController = mainVC;
     [mainVC release];

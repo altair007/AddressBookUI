@@ -11,7 +11,6 @@
 #import "CFAddressBookView.h"
 #import "CFPerson.h"
 #import "CFDetailViewController.h"
-#import "CFDetaiModel.h"
 #import "CFMainViewController.h"
 
 @interface CFAddressBookViewController ()
@@ -63,7 +62,10 @@
 - (NSArray *) personsInSection: (NSInteger)section
 {
     // 获取按姓名首字母分组的字典
-    NSDictionary * personsDict = self.addressBookModel.personsByGroups;
+//    NSDictionary * personsDict = self.addressBookModel.personsByGroups;
+    // ???: 每次使用都要做类型转换吗? 有没有更好地解决方案?
+    // ???: self.navigationController是不是在超类初始化后就可用了?
+    NSDictionary * personsDict = ((CFMainViewController *)self.navigationController).model.personsByGroups;
     
     // 获取keys数组
     NSArray * keys = personsDict.allKeys;
@@ -93,7 +95,7 @@
 - (NSString *) groupNameInSection: (NSInteger) section
 {
     // 获取按姓名首字母分组的字典
-    NSDictionary * personsDict = self.addressBookModel.personsByGroups;
+    NSDictionary * personsDict = ((CFMainViewController *)self.navigationController).model.personsByGroups;
     
     // 获取keys数组
     NSArray * keys = personsDict.allKeys;
@@ -116,7 +118,7 @@
 
 -(void)dealloc
 {
-    self.addressBookModel = nil;
+//    self.addressBookModel = nil;
     
     [super dealloc];
 }
@@ -124,7 +126,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSInteger  count;
-    count = self.addressBookModel.personsByGroups.allKeys.count;
+    count = ((CFMainViewController *)self.navigationController).model.personsByGroups.allKeys.count;
     return count;
 }
 
@@ -172,11 +174,9 @@
     
     if (nil == mainVC.detailVC) {
         mainVC.detailVC = [[[CFDetailViewController alloc] init] autorelease];
-        mainVC.detailVC.detailModel = [[[CFDetaiModel alloc] init] autorelease];
     }
     
-    // !!!:直接操作model的属性,总觉得不符合OOP原则!
-    mainVC.detailVC.detailModel.person = [self personAtIndexPath: indexPath];
+    mainVC.detailVC.person = [self personAtIndexPath: indexPath];
     
     [self.navigationController pushViewController:mainVC.detailVC animated: YES];
 }
@@ -190,7 +190,7 @@
         NSArray * personsArray = [self personsInSection: indexPath.section];
         
         // 删除数据
-        [self.addressBookModel removePerson: [self personAtIndexPath: indexPath]];
+        [((CFMainViewController *)self.navigationController).model removePerson: [self personAtIndexPath: indexPath]];
         
         // 根据分区成员数量来决定是删除行,还是直接删除分区
         if (1 == personsArray.count) { // 可以直接删除分区了

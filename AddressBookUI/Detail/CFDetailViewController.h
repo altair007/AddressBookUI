@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CFDetaiModel;
+@class CFPerson;
 
 /**
  *  联系人详情的视图控制器类
  */
 @interface CFDetailViewController : UIViewController
-@property (retain, nonatomic) CFDetaiModel * detailModel; //!< 联系人模型
+@property (retain, nonatomic) CFPerson * person; //!< 要展示其信息的联系人
 @end

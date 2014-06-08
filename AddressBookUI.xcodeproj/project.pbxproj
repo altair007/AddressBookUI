@@ -25,7 +25,6 @@
 		C216C06319420ED0008DF648 /* CFPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C05F19420ED0008DF648 /* CFPerson.m */; };
 		C216C06A19420EDF008DF648 /* CFDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C06519420EDF008DF648 /* CFDetailView.m */; };
 		C216C06B19420EDF008DF648 /* CFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C06719420EDF008DF648 /* CFDetailViewController.m */; };
-		C216C06C19420EDF008DF648 /* CFDetaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C216C06919420EDF008DF648 /* CFDetaiModel.m */; };
 		C216C06E194211AB008DF648 /* 作业需求(最新).jpg in Resources */ = {isa = PBXBuildFile; fileRef = C216C06D194211AB008DF648 /* 作业需求(最新).jpg */; };
 		C217AB8A19408CFB0006784A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8919408CFB0006784A /* Foundation.framework */; };
 		C217AB8C19408CFB0006784A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8B19408CFB0006784A /* CoreGraphics.framework */; };
@@ -37,7 +36,6 @@
 		C217ABAF19408CFB0006784A /* AddressBookUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABAE19408CFB0006784A /* AddressBookUITests.m */; };
 		C22FF93A19431127004094DD /* CFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FF93919431127004094DD /* CFMainViewController.m */; };
 		C22FF93E19435F04004094DD /* CFAddPersonVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FF93D19435F04004094DD /* CFAddPersonVIew.m */; };
-		C22FF94419435F3C004094DD /* CFAddPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FF94319435F3C004094DD /* CFAddPersonModel.m */; };
 		C22FF94719435F89004094DD /* CFAddPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FF94619435F89004094DD /* CFAddPersonViewController.m */; };
 		C281CA3E1941CC0300D61F40 /* addressBookData in Resources */ = {isa = PBXBuildFile; fileRef = C281CA2B1941CC0300D61F40 /* addressBookData */; };
 		C281CA431941CC0300D61F40 /* CFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA351941CC0300D61F40 /* CFAppDelegate.m */; };
@@ -82,8 +80,6 @@
 		C216C06519420EDF008DF648 /* CFDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFDetailView.m; path = Detail/CFDetailView.m; sourceTree = "<group>"; };
 		C216C06619420EDF008DF648 /* CFDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDetailViewController.h; path = Detail/CFDetailViewController.h; sourceTree = "<group>"; };
 		C216C06719420EDF008DF648 /* CFDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFDetailViewController.m; path = Detail/CFDetailViewController.m; sourceTree = "<group>"; };
-		C216C06819420EDF008DF648 /* CFDetaiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFDetaiModel.h; path = Detail/CFDetaiModel.h; sourceTree = "<group>"; };
-		C216C06919420EDF008DF648 /* CFDetaiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFDetaiModel.m; path = Detail/CFDetaiModel.m; sourceTree = "<group>"; };
 		C216C06D194211AB008DF648 /* 作业需求(最新).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "作业需求(最新).jpg"; sourceTree = "<group>"; };
 		C217AB8619408CFB0006784A /* AddressBookUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AddressBookUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C217AB8919408CFB0006784A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -98,8 +94,6 @@
 		C22FF93919431127004094DD /* CFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFMainViewController.m; sourceTree = "<group>"; };
 		C22FF93C19435F04004094DD /* CFAddPersonVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFAddPersonVIew.h; path = AddPerson/CFAddPersonVIew.h; sourceTree = "<group>"; };
 		C22FF93D19435F04004094DD /* CFAddPersonVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFAddPersonVIew.m; path = AddPerson/CFAddPersonVIew.m; sourceTree = "<group>"; };
-		C22FF94219435F3C004094DD /* CFAddPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFAddPersonModel.h; path = AddPerson/CFAddPersonModel.h; sourceTree = "<group>"; };
-		C22FF94319435F3C004094DD /* CFAddPersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFAddPersonModel.m; path = AddPerson/CFAddPersonModel.m; sourceTree = "<group>"; };
 		C22FF94519435F89004094DD /* CFAddPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFAddPersonViewController.h; path = AddPerson/CFAddPersonViewController.h; sourceTree = "<group>"; };
 		C22FF94619435F89004094DD /* CFAddPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFAddPersonViewController.m; path = AddPerson/CFAddPersonViewController.m; sourceTree = "<group>"; };
 		C281CA2B1941CC0300D61F40 /* addressBookData */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = addressBookData; sourceTree = "<group>"; };
@@ -143,8 +137,6 @@
 				C216C06519420EDF008DF648 /* CFDetailView.m */,
 				C216C06619420EDF008DF648 /* CFDetailViewController.h */,
 				C216C06719420EDF008DF648 /* CFDetailViewController.m */,
-				C216C06819420EDF008DF648 /* CFDetaiModel.h */,
-				C216C06919420EDF008DF648 /* CFDetaiModel.m */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -160,8 +152,6 @@
 				C281CA381941CC0300D61F40 /* InfoPlist.strings */,
 				C281CA3A1941CC0300D61F40 /* Images.xcassets */,
 				C281CA2D1941CC0300D61F40 /* AddressBookUI-Prefix.pch */,
-				C22FF93819431127004094DD /* CFMainViewController.h */,
-				C22FF93919431127004094DD /* CFMainViewController.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -237,8 +227,6 @@
 			children = (
 				C22FF93C19435F04004094DD /* CFAddPersonVIew.h */,
 				C22FF93D19435F04004094DD /* CFAddPersonVIew.m */,
-				C22FF94219435F3C004094DD /* CFAddPersonModel.h */,
-				C22FF94319435F3C004094DD /* CFAddPersonModel.m */,
 				C22FF94519435F89004094DD /* CFAddPersonViewController.h */,
 				C22FF94619435F89004094DD /* CFAddPersonViewController.m */,
 			);
@@ -248,10 +236,16 @@
 		C281CA2A1941CC0300D61F40 /* AddressBookUI */ = {
 			isa = PBXGroup;
 			children = (
-				C22FF93B19435E50004094DD /* AddPerson */,
-				C216C02B194200CD008DF648 /* img */,
 				C281CA341941CC0300D61F40 /* CFAppDelegate.h */,
 				C281CA351941CC0300D61F40 /* CFAppDelegate.m */,
+				C22FF93819431127004094DD /* CFMainViewController.h */,
+				C22FF93919431127004094DD /* CFMainViewController.m */,
+				C216C05819420ED0008DF648 /* CFAddressBookModel.h */,
+				C216C05919420ED0008DF648 /* CFAddressBookModel.m */,
+				C216C05E19420ED0008DF648 /* CFPerson.h */,
+				C216C05F19420ED0008DF648 /* CFPerson.m */,
+				C22FF93B19435E50004094DD /* AddPerson */,
+				C216C02B194200CD008DF648 /* img */,
 				C281CA4D1941CC9800D61F40 /* AddressBook */,
 				C216C0211941DE22008DF648 /* Detail */,
 				C216C02A1941F351008DF648 /* Supporting Files */,
@@ -262,14 +256,10 @@
 		C281CA4D1941CC9800D61F40 /* AddressBook */ = {
 			isa = PBXGroup;
 			children = (
-				C216C05819420ED0008DF648 /* CFAddressBookModel.h */,
-				C216C05919420ED0008DF648 /* CFAddressBookModel.m */,
 				C216C05A19420ED0008DF648 /* CFAddressBookView.h */,
 				C216C05B19420ED0008DF648 /* CFAddressBookView.m */,
 				C216C05C19420ED0008DF648 /* CFAddressBookViewController.h */,
 				C216C05D19420ED0008DF648 /* CFAddressBookViewController.m */,
-				C216C05E19420ED0008DF648 /* CFPerson.h */,
-				C216C05F19420ED0008DF648 /* CFPerson.m */,
 			);
 			name = AddressBook;
 			sourceTree = "<group>";
@@ -386,10 +376,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C216C06119420ED0008DF648 /* CFAddressBookView.m in Sources */,
-				C216C06C19420EDF008DF648 /* CFDetaiModel.m in Sources */,
 				C22FF93A19431127004094DD /* CFMainViewController.m in Sources */,
 				C22FF94719435F89004094DD /* CFAddPersonViewController.m in Sources */,
-				C22FF94419435F3C004094DD /* CFAddPersonModel.m in Sources */,
 				C281CA471941CC0300D61F40 /* main.m in Sources */,
 				C22FF93E19435F04004094DD /* CFAddPersonVIew.m in Sources */,
 				C216C06A19420EDF008DF648 /* CFDetailView.m in Sources */,

@@ -12,7 +12,6 @@
 @class CFPerson;
 
 @interface CFAddressBookViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (retain, nonatomic) CFAddressBookModel * addressBookModel; //!< 通讯录模型.
 
 /**
  *  获取分区对应的通讯录成员
