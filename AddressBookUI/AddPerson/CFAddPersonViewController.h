@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CFAddPersonViewController : UIViewController <UITextFieldDelegate>
+@interface CFAddPersonViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 /**
  *  保存联系人信息
  *
@@ -22,4 +22,12 @@
  *  @param aButtonItem 一个按钮项
  */
 - (void) didClickReverseBackButtonItemAction: (UIBarButtonItem *) aButtonItem;
+
+/**
+ *  响应头像视图的触摸手势
+ *
+ *  @param tapGesture 手势
+ */
+- (void) handlAvatarViewTapGesture: (UITapGestureRecognizer *) tapGesture;
+
 @end

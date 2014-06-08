@@ -96,4 +96,10 @@
     [self.persons removeObject: aPerson];
 }
 
+- (BOOL) addPerson: (CFPerson *) aPerson
+{
+    [self.persons addObject: aPerson];
+    
+    return YES;
+}
 @end

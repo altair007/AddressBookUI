@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C212855E19443973004EC639 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C212855D19443973004EC639 /* readme.md */; };
-		C212856619443D31004EC639 /* CFAddPersonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C212856519443D31004EC639 /* CFAddPersonView.m */; };
 		C212856A194458BC004EC639 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2128569194458BC004EC639 /* default.jpg */; };
+		C212856C194494C2004EC639 /* CFAddPersonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C212856B194494C2004EC639 /* CFAddPersonView.m */; };
 		C216C0291941F283008DF648 /* AddressBookUI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C216C0281941F283008DF648 /* AddressBookUI-Info.plist */; };
 		C216C04D19420EB7008DF648 /* 拜勒岗·鲁伊森邦.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04219420EB7008DF648 /* 拜勒岗·鲁伊森邦.png */; };
 		C216C04E19420EB7008DF648 /* 蒂雅·赫丽贝尔.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04319420EB7008DF648 /* 蒂雅·赫丽贝尔.png */; };
@@ -59,8 +59,8 @@
 /* Begin PBXFileReference section */
 		C212855D19443973004EC639 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = SOURCE_ROOT; };
 		C212856219443D01004EC639 /* CFAddPersonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFAddPersonView.h; path = AddPerson/CFAddPersonView.h; sourceTree = "<group>"; };
-		C212856519443D31004EC639 /* CFAddPersonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFAddPersonView.m; path = AddPerson/CFAddPersonView.m; sourceTree = "<group>"; };
 		C2128569194458BC004EC639 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = default.jpg; path = Resources/default.jpg; sourceTree = "<group>"; };
+		C212856B194494C2004EC639 /* CFAddPersonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFAddPersonView.m; path = AddPerson/CFAddPersonView.m; sourceTree = "<group>"; };
 		C216C0281941F283008DF648 /* AddressBookUI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AddressBookUI-Info.plist"; path = "Resources/AddressBookUI-Info.plist"; sourceTree = "<group>"; };
 		C216C04219420EB7008DF648 /* 拜勒岗·鲁伊森邦.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "拜勒岗·鲁伊森邦.png"; path = "Resources/拜勒岗·鲁伊森邦.png"; sourceTree = "<group>"; };
 		C216C04319420EB7008DF648 /* 蒂雅·赫丽贝尔.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "蒂雅·赫丽贝尔.png"; path = "Resources/蒂雅·赫丽贝尔.png"; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				C212856219443D01004EC639 /* CFAddPersonView.h */,
-				C212856519443D31004EC639 /* CFAddPersonView.m */,
+				C212856B194494C2004EC639 /* CFAddPersonView.m */,
 				C22FF94519435F89004094DD /* CFAddPersonViewController.h */,
 				C22FF94619435F89004094DD /* CFAddPersonViewController.m */,
 			);
@@ -381,7 +381,7 @@
 			files = (
 				C216C06119420ED0008DF648 /* CFAddressBookView.m in Sources */,
 				C22FF93A19431127004094DD /* CFMainViewController.m in Sources */,
-				C212856619443D31004EC639 /* CFAddPersonView.m in Sources */,
+				C212856C194494C2004EC639 /* CFAddPersonView.m in Sources */,
 				C22FF94719435F89004094DD /* CFAddPersonViewController.m in Sources */,
 				C281CA471941CC0300D61F40 /* main.m in Sources */,
 				C216C06A19420EDF008DF648 /* CFDetailView.m in Sources */,

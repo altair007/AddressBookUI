@@ -12,7 +12,8 @@
 @property (assign, nonatomic, readwrite) id<UITextFieldDelegate> delegate; //!< 代理
 @property (retain, nonatomic, readonly) NSString * nameOfdefaultImg; //!< 默认显示的图片
 // !!!: 需要一个自定义的ImageView来保存文件的路径信息.
-@property (retain, nonatomic, readonly) UIImageView * avatar; //!< 相片视图
+@property (retain, nonatomic) NSString * avatar; //!< 联系人头像路径
+@property (retain, nonatomic, readonly) UIImageView * avatarView; //!< 相片视图
 @property (retain, nonatomic, readonly) UITextField * nameTF; //!< 姓名编辑框
 @property (retain, nonatomic, readonly) UITextField * sexTF; //!< 性别编辑框
 @property (retain, nonatomic, readonly) UITextField * ageTF; //!< 年龄编辑框
@@ -20,4 +21,8 @@
 
 - (instancetype) initWithFrame:(CGRect) frame
            andNameOfDefaultImg:(NSString *) aImgName;
+
+// 恢复默认设置
+- (void) reset;
+
 @end

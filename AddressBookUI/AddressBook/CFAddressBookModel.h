@@ -57,4 +57,13 @@
  */
 - (void) removePerson: (CFPerson *) aPerson;
 
+/**
+ *  添加联系人
+ *
+ *  @param aPerson 一个联系人
+ *
+ *  @return YES,添加成功;NO,添加失败
+ */
+- (BOOL) addPerson: (CFPerson *) aPerson;
+
 @end

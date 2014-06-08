@@ -7,6 +7,7 @@
 //
 
 #import "CFAddPersonView.h"
+#import "CFAddPersonViewController.h"
 
 @interface CFAddPersonView ()
 @property (retain, nonatomic, readwrite) NSString * nameOfdefaultImg; //!< 默认显示的图片
@@ -58,11 +59,20 @@
         CGFloat landscapeSpace = 30.0; // 头像距离边框的距离
         
         UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(landscapeSpace, 100, 80, 120)];
-        
+        imageView.image = [UIImage imageNamed: self.nameOfdefaultImg];
         self.avatarView= imageView;
         [imageView release];
         
         [self addSubview: self.avatarView];
+        
+        // 给头像视图添加手势
+        self.avatarView.userInteractionEnabled = YES;
+        
+        UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self.delegate action:@selector(handlAvatarViewTapGesture:)];
+        
+        [self.avatarView addGestureRecognizer: tapGesture];
+        [tapGesture release];
+        
         
         //几个编辑框
         CGFloat portraitSpace = landscapeSpace / 3; // 编辑框竖直方向的间距
@@ -102,16 +112,15 @@
             baseRect = CGRectMake(baseRect.origin.x, baseRect.origin.y + baseRect.size.height + portraitSpace, baseRect.size.width, baseRect.size.height);
         }];
     }
-    
-    // 恢复默认设置
+}
+
+- (void) reset
+{
     self.avatarView.image = [UIImage imageNamed: self.nameOfdefaultImg];
     
     self.nameTF.text = @"";
     self.sexTF.text = @"";
     self.ageTF.text = @"";
     self.telTF.text = @"";
-    
 }
-
-
 @end

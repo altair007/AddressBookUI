@@ -112,6 +112,7 @@
     return key;
 }
 
+
 - (void) didClickAddButtonItem: (UIBarButtonItem *) aButtonItem
 {
     CFMainViewController * mainVC = (CFMainViewController *)self.navigationController;
@@ -121,6 +122,11 @@
     }
     
     [self.navigationController pushViewController: mainVC.addPersonVC animated: YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [(CFAddressBookView *)(self.view) reloadData];
 }
 
 -(void)dealloc
