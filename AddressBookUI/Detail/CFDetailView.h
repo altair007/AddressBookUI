@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CFPerson;
 
 /**
  *  联系人详细信息视图
  */
 @interface CFDetailView : UIView
-#pragma mark - 属性
+@property (retain ,nonatomic) CFPerson * person; //!< 联系人
 @property (retain, nonatomic, readonly) UIImageView * avatar; //!< 头像.
 @property (retain, nonatomic, readonly) UILabel * infoLabel; //!< 练习人详细信息.
 

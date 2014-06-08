@@ -12,6 +12,7 @@
 #import "CFPerson.h"
 #import "CFDetailViewController.h"
 #import "CFMainViewController.h"
+#import "CFAddPersonViewController.h"
 
 @interface CFAddressBookViewController ()
 @end
@@ -113,7 +114,13 @@
 
 - (void) didClickAddButtonItem: (UIBarButtonItem *) aButtonItem
 {
+    CFMainViewController * mainVC = (CFMainViewController *)self.navigationController;
     
+    if (nil == mainVC.addPersonVC) {
+        mainVC.addPersonVC = [[[CFAddPersonViewController alloc] init] autorelease];
+    }
+    
+    [self.navigationController pushViewController: mainVC.addPersonVC animated: YES];
 }
 
 -(void)dealloc
@@ -178,7 +185,7 @@
     
     mainVC.detailVC.person = [self personAtIndexPath: indexPath];
     
-    [self.navigationController pushViewController:mainVC.detailVC animated: YES];
+    [self.navigationController pushViewController: mainVC.detailVC animated: YES];
 }
 
 

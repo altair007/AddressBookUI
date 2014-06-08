@@ -40,10 +40,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated
-{    
+{
     CFDetailView * detailView = (CFDetailView *)self.view;
-    detailView.avatar.image = [UIImage imageNamed: self.person.name];
-    detailView.infoLabel.text = [[[NSString alloc] initWithFormat:@"%@\n%@\n%ld\n%@", self.person.name, self.person.sex, self.person.age, self.person.tel] autorelease];
+    detailView.person = self.person;
+    [detailView setNeedsDisplay];
 }
 
 - (void)viewDidLoad

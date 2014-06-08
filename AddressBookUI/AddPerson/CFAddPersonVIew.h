@@ -1,13 +1,23 @@
 //
-//  CFAddPersonVIew.h
+//  CFAddPersonView.h
 //  AddressBookUI
 //
-//  Created by   颜风 on 14-6-7.
+//  Created by   颜风 on 14-6-8.
 //  Copyright (c) 2014年 Shadow. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CFAddPersonVIew : UIView
+@interface CFAddPersonView : UIView
+@property (assign, nonatomic, readwrite) id<UITextFieldDelegate> delegate; //!< 代理
+@property (retain, nonatomic, readonly) NSString * nameOfdefaultImg; //!< 默认显示的图片
+// !!!: 需要一个自定义的ImageView来保存文件的路径信息.
+@property (retain, nonatomic, readonly) UIImageView * avatar; //!< 相片视图
+@property (retain, nonatomic, readonly) UITextField * nameTF; //!< 姓名编辑框
+@property (retain, nonatomic, readonly) UITextField * sexTF; //!< 性别编辑框
+@property (retain, nonatomic, readonly) UITextField * ageTF; //!< 年龄编辑框
+@property (retain, nonatomic, readonly) UITextField * telTF; //!< 联系方式编辑框
 
+- (instancetype) initWithFrame:(CGRect) frame
+           andNameOfDefaultImg:(NSString *) aImgName;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "CFAddPersonViewController.h"
+#import "CFAddPersonView.h"
 
 @interface CFAddPersonViewController ()
 
@@ -23,10 +24,23 @@
     return self;
 }
 
+- (void)loadView
+{
+    CFAddPersonView * addPersonView = [[CFAddPersonView alloc] init];
+    addPersonView.delegate = self;
+    
+    self.view = addPersonView;
+    [addPersonView release];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(didClickReverseBackButtonItemAction:)];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(didClickSaveButtonItemAction:)];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,15 +52,26 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void) didClickSaveButtonItemAction: (UIBarButtonItem *) aButtonItem
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
 }
-*/
+
+- (void) didClickReverseBackButtonItemAction: (UIBarButtonItem *) aButtonItem
+{
+    [self.navigationController popViewControllerAnimated: YES];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.view setNeedsDisplay];
+}
+
+
+#pragma mark - <UITextFieldDelegate>协议方法
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 @end

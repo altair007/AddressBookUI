@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CFAddPersonViewController : UIViewController
+@interface CFAddPersonViewController : UIViewController <UITextFieldDelegate>
+/**
+ *  保存联系人信息
+ *
+ *  @param aButtonItem 一个按钮项
+ */
+-(void) didClickSaveButtonItemAction: (UIBarButtonItem *) aButtonItem;
 
+/**
+ *  返回通讯录主页面
+ *
+ *  @param aButtonItem 一个按钮项
+ */
+- (void) didClickReverseBackButtonItemAction: (UIBarButtonItem *) aButtonItem;
 @end
