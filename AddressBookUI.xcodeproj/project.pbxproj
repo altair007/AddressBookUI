@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C212855E19443973004EC639 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C212855D19443973004EC639 /* readme.md */; };
 		C216C0291941F283008DF648 /* AddressBookUI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C216C0281941F283008DF648 /* AddressBookUI-Info.plist */; };
 		C216C04D19420EB7008DF648 /* 拜勒岗·鲁伊森邦.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04219420EB7008DF648 /* 拜勒岗·鲁伊森邦.png */; };
 		C216C04E19420EB7008DF648 /* 蒂雅·赫丽贝尔.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04319420EB7008DF648 /* 蒂雅·赫丽贝尔.png */; };
@@ -42,7 +43,6 @@
 		C281CA451941CC0300D61F40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C281CA381941CC0300D61F40 /* InfoPlist.strings */; };
 		C281CA461941CC0300D61F40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C281CA3A1941CC0300D61F40 /* Images.xcassets */; };
 		C281CA471941CC0300D61F40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA3B1941CC0300D61F40 /* main.m */; };
-		C281CA481941CC0300D61F40 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C281CA3C1941CC0300D61F40 /* readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C212855D19443973004EC639 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = SOURCE_ROOT; };
 		C216C0281941F283008DF648 /* AddressBookUI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AddressBookUI-Info.plist"; path = "Resources/AddressBookUI-Info.plist"; sourceTree = "<group>"; };
 		C216C04219420EB7008DF648 /* 拜勒岗·鲁伊森邦.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "拜勒岗·鲁伊森邦.png"; path = "Resources/拜勒岗·鲁伊森邦.png"; sourceTree = "<group>"; };
 		C216C04319420EB7008DF648 /* 蒂雅·赫丽贝尔.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "蒂雅·赫丽贝尔.png"; path = "Resources/蒂雅·赫丽贝尔.png"; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		C281CA391941CC0300D61F40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C281CA3A1941CC0300D61F40 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C281CA3B1941CC0300D61F40 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C281CA3C1941CC0300D61F40 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,9 +144,9 @@
 		C216C02A1941F351008DF648 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C212855D19443973004EC639 /* readme.md */,
 				C281CA3B1941CC0300D61F40 /* main.m */,
 				C216C06D194211AB008DF648 /* 作业需求(最新).jpg */,
-				C281CA3C1941CC0300D61F40 /* readme.md */,
 				C281CA2B1941CC0300D61F40 /* addressBookData */,
 				C216C0281941F283008DF648 /* AddressBookUI-Info.plist */,
 				C281CA381941CC0300D61F40 /* InfoPlist.strings */,
@@ -351,11 +351,11 @@
 				C216C05619420EB7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png in Resources */,
 				C216C06E194211AB008DF648 /* 作业需求(最新).jpg in Resources */,
 				C216C05219420EB7008DF648 /* 诺伊特拉·吉尔加.png in Resources */,
-				C281CA481941CC0300D61F40 /* readme.md in Resources */,
 				C216C05319420EB7008DF648 /* 萨尔阿波罗·格兰兹.png in Resources */,
 				C281CA3E1941CC0300D61F40 /* addressBookData in Resources */,
 				C216C04F19420EB7008DF648 /* 葛力姆乔·贾卡杰克.png in Resources */,
 				C216C05419420EB7008DF648 /* 乌尔奇奥拉·西法.png in Resources */,
+				C212855E19443973004EC639 /* readme.md in Resources */,
 				C216C04D19420EB7008DF648 /* 拜勒岗·鲁伊森邦.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
