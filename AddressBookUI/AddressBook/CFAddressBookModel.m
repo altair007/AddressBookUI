@@ -98,6 +98,14 @@
 
 - (BOOL) addPerson: (CFPerson *) aPerson
 {
+    if([aPerson.name isEqualToString: @""] || [aPerson.tel isEqualToString: @""]){
+        return NO;
+    }
+    
+    if ([self.persons containsObject:aPerson]) { // 联系人已存在,直接返回.
+        return YES;
+    }
+    
     [self.persons addObject: aPerson];
     
     return YES;

@@ -7,6 +7,9 @@
 //
 #import <Foundation/Foundation.h>
 
+// 默认头像名称
+#define DEFAULT_AVATAR_NAME @"default.jpg"
+
 #pragma mark - 编码键常量
 #define kAvatarKey @"avatar"
 #define kNameKey @"name"

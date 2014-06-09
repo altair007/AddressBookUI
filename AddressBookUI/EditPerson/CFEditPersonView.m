@@ -11,7 +11,7 @@
 #import "CFPerson.h"
 
 @interface CFEditPersonView ()
-@property (retain, nonatomic, readwrite) UIImageView * avatarView; //!< 相片视图.
+@property (retain, nonatomic, readwrite) UIImageView * avatarImageView; //!< 相片视图.
 @property (retain, nonatomic, readwrite) UITextField * nameTF; //!< 姓名编辑框
 @property (retain, nonatomic, readwrite) UITextField * sexTF; //!< 性别编辑框
 @property (retain, nonatomic, readwrite) UITextField * ageTF; //!< 年龄编辑框
@@ -22,7 +22,7 @@
 -(void)dealloc
 {
     self.person = nil;
-    self.avatarView = nil;
+    self.avatarImageView = nil;
     self.nameTF = nil;
     self.sexTF = nil;
     self.ageTF = nil;
@@ -31,36 +31,37 @@
     [super dealloc];
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype) initWithFrame: (CGRect)frame
+                      delegate: (id) delegate
 {
-    self = [super initWithFrame:frame];
     if (self = [super initWithFrame:frame]) {
         // Initialization code
-        self.backgroundColor = [UIColor whiteColor];
+        self.delegate = delegate;
+        [self setupSubviews: frame];
     }
     return self;
 }
 
-- (void)drawRect:(CGRect)rect
+- (void)setupSubviews: (CGRect) rect
 {
-    // Drawing code
-    if (nil == self.avatarView) { // 初始化
+    if (nil == self.avatarImageView) { // 初始化
+        self.backgroundColor = [UIColor whiteColor];
+        
         // 头像
         CGFloat landscapeSpace = 30.0; // 头像距离边框的距离
         
         UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(landscapeSpace, 100, 80, 120)];
-        imageView.image = [UIImage imageNamed: self.person.nameOfdefaultImg];
-        self.avatarView= imageView;
+        self.avatarImageView= imageView;
         [imageView release];
         
-        [self addSubview: self.avatarView];
+        [self addSubview: self.avatarImageView];
         
         // 给头像视图添加手势
-        self.avatarView.userInteractionEnabled = YES;
+        self.avatarImageView.userInteractionEnabled = YES;
         
         UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self.delegate action:@selector(handlAvatarViewTapGesture:)];
         
-        [self.avatarView addGestureRecognizer: tapGesture];
+        [self.avatarImageView addGestureRecognizer: tapGesture];
         [tapGesture release];
         
         
@@ -69,7 +70,7 @@
         
         NSArray * placeHolders = @[@"请输入姓名", @"请输入性别", @"请输入年龄", @"请输入联系方式"];
         
-        __block CGRect baseRect = CGRectMake(2 * self.avatarView.frame.origin.x + self.avatarView.frame.size.width, self.avatarView.frame.origin.y, self.frame.size.width - self.avatarView.frame.size.width - self.avatarView.frame.origin.x - 2 * self.avatarView.frame.origin.x, (self.avatarView.frame.size.height - portraitSpace * 3) / 4);
+        __block CGRect baseRect = CGRectMake(2 * self.avatarImageView.frame.origin.x + self.avatarImageView.frame.size.width, self.avatarImageView.frame.origin.y, rect.size.width - self.avatarImageView.frame.size.width - self.avatarImageView.frame.origin.x - 2 * self.avatarImageView.frame.origin.x, (self.avatarImageView.frame.size.height - portraitSpace * 3) / 4);
         
         [placeHolders enumerateObjectsUsingBlock:^(NSString * placeHolder, NSUInteger idx, BOOL *stop) {
             UITextField * tempTF = [[UITextField alloc] initWithFrame:baseRect];
@@ -104,26 +105,21 @@
     }
 }
 
-- (void) reset
-{
-//    self.avatarView.image = [UIImage imageNamed: self.person.nameOfdefaultImg];
-//    
-//    self.nameTF.text = @"";
-//    self.sexTF.text = @"";
-//    self.ageTF.text = @"";
-//    self.telTF.text = @"";
-}
-
 - (void)setPerson:(CFPerson *)person
 {
     [person retain];
     [_person release];
     _person = person;
     
-    self.avatarView.image = self.person.avatarImage;
+    self.avatarImageView.image = self.person.avatarImage;
     self.nameTF.text = self.person.name;
     self.sexTF.text = self.person.sex;
     self.ageTF.text = [NSString stringWithFormat: @"%ld", self.person.age];
     self.telTF.text = self.person.tel;
+    
+    if (YES == self.ageTF.enabled && 0 == person.age) {
+        self.ageTF.text = @"";
+    }
 }
+
 @end

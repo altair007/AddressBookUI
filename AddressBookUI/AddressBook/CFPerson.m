@@ -15,6 +15,7 @@
 @end
 
 @implementation CFPerson
+
 -(void)dealloc
 {
     self.avatar = nil;
@@ -48,9 +49,7 @@
         self.sex = sex;
         self.age = age;
         self.tel = tel;
-        // FIXME:此处或updateAvatarImage少了一个逻辑!avatar,不建议使用nil,最好更新下!
-        self.nameOfdefaultImg = (nil != nameOfdefaultImg) ? nameOfdefaultImg : @"default.jpg";
-        [self updateAvatarImage];
+        self.nameOfdefaultImg = nameOfdefaultImg;
     }
     
     return self;
@@ -72,15 +71,13 @@
 - (void) updateAvatarImage
 {
     // 是否是应用内置图片?
-    // ???: 两种获取图片的方式,不等效吗?为什么?
-//    self.avatarImage = [[UIImage alloc] initWithContentsOfFile: self.person.avatar];
     self.avatarImage = [UIImage imageNamed: self.avatar];
     if (nil != self.avatarImage) {
         return;
     }
     
     // 是否是本地图片?
-    ALAssetsLibrary   *lib = [[ALAssetsLibrary alloc] init];
+    ALAssetsLibrary   *lib = [[[ALAssetsLibrary alloc] init] autorelease];
     [lib assetForURL:[NSURL URLWithString:self.avatar] resultBlock:^(ALAsset *asset)
      {
          // 使用asset来获取本地图片
@@ -96,9 +93,32 @@
          self.avatarImage = [[UIImage alloc] initWithContentsOfFile: self.nameOfdefaultImg];
      }
      ];
-    // ???: 异步执行的代码,此处释放lib,合适吗?
-    [lib release];
 }
+
+- (void)setAvatar:(NSString *)avatar
+{
+    [avatar retain];
+    [_avatar release];
+    _avatar = avatar;
+    
+    [self updateAvatarImage];
+}
+
+- (void)setNameOfdefaultImg:(NSString *)nameOfdefaultImg
+{
+    [nameOfdefaultImg retain];
+    [_nameOfdefaultImg release];
+    _nameOfdefaultImg = nameOfdefaultImg;
+    
+    if (nil == _nameOfdefaultImg) {
+        _nameOfdefaultImg = DEFAULT_AVATAR_NAME;
+    }
+    
+    if (nil == self.avatar) {
+        self.avatar = _nameOfdefaultImg;
+    }
+}
+
 #pragma mark - NSCoding协议方法
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -109,7 +129,6 @@
         self.age = [aDecoder decodeIntegerForKey: kAgeKey];
         self.tel = [aDecoder decodeObjectForKey: kTelKey];
         self.nameOfdefaultImg = [aDecoder decodeObjectForKey: kNameOfDefaultImg];
-        [self updateAvatarImage];
     }
 
     return self;

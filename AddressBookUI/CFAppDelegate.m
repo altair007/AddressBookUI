@@ -35,6 +35,7 @@
     
     CFMainViewController * mainVC = [[CFMainViewController alloc] initWithRootViewController: abVC];
     mainVC.model = addressBookModel;
+    mainVC.addressBookVC = abVC;
     [abVC release];
     [addressBookModel release];
     

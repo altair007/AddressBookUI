@@ -66,7 +66,6 @@
     // 获取按姓名首字母分组的字典
 //    NSDictionary * personsDict = self.addressBookModel.personsByGroups;
     // ???: 每次使用都要做类型转换吗? 有没有更好地解决方案?
-    // ???: self.navigationController是不是在超类初始化后就可用了?
     NSDictionary * personsDict = ((CFMainViewController *)self.navigationController).model.personsByGroups;
     
     // 获取keys数组
@@ -123,14 +122,12 @@
     
     CFPerson * person = [[CFPerson alloc] init];
     mainVC.editPersonVC.person = person;
+    [person release];
+    
+    [mainVC.editPersonVC setEditing: YES animated:YES];
     
     [self.navigationController pushViewController: mainVC.editPersonVC animated: YES];
 
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [(CFAddressBookView *)(self.view) reloadData];
 }
 
 -(void)dealloc
@@ -138,6 +135,7 @@
     
     [super dealloc];
 }
+
 #pragma mark - UITableViewDataSource协议方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -158,8 +156,6 @@
     // 获取次分区对应的通讯录成员
     CFPerson * person = [self personAtIndexPath: indexPath];
     
-    // ???: 可以更改静态变量的值吗?
-    // FIXME: 此处不止一个分区,很明显,不应该再使用同一cell标识符.
     static NSString * identifier = @"person";
     
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -186,15 +182,20 @@
 #pragma mark - UITableViewDelegate协议方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
+    // !!!:两个页面可以合并为一个方法
     CFMainViewController * mainVC = (CFMainViewController *)self.navigationController;
     
-    if (nil == mainVC.detailVC) {
-        mainVC.detailVC = [[[CFDetailViewController alloc] init] autorelease];
+    if (nil == mainVC.editPersonVC) {
+        mainVC.editPersonVC = [[[CFEditPersonViewController alloc] init] autorelease];
     }
     
-    mainVC.detailVC.person = [self personAtIndexPath: indexPath];
+    CFPerson * person = [self personAtIndexPath: indexPath];
+    mainVC.editPersonVC.person = person;
     
-    [self.navigationController pushViewController: mainVC.detailVC animated: YES];
+    [mainVC.editPersonVC setEditing: NO animated:YES];
+    
+    [self.navigationController pushViewController: mainVC.editPersonVC animated: YES];
 }
 
 

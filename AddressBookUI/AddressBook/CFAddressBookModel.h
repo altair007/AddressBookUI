@@ -58,7 +58,7 @@
 - (void) removePerson: (CFPerson *) aPerson;
 
 /**
- *  添加联系人
+ *  添加联系人,姓名或电话号不能为空
  *
  *  @param aPerson 一个联系人
  *
