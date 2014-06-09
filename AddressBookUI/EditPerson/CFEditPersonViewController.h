@@ -21,6 +21,13 @@
 @property (retain, nonatomic) CFPerson * person;
 
 /**
+ *  获取单例
+ *
+ *  @return 单例
+ */
++ (instancetype) sharedInstance;
+
+/**
  *  保存联系人信息
  *
  *  @param aButtonItem 一个按钮项

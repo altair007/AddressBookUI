@@ -222,7 +222,6 @@
 		C281CA2A1941CC0300D61F40 /* AddressBookUI */ = {
 			isa = PBXGroup;
 			children = (
-				C20FB7D219455C0C0003DB70 /* EditPerson */,
 				C281CA341941CC0300D61F40 /* CFAppDelegate.h */,
 				C281CA351941CC0300D61F40 /* CFAppDelegate.m */,
 				C22FF93819431127004094DD /* CFMainViewController.h */,
@@ -233,6 +232,7 @@
 				C216C05F19420ED0008DF648 /* CFPerson.m */,
 				C216C02B194200CD008DF648 /* img */,
 				C281CA4D1941CC9800D61F40 /* AddressBook */,
+				C20FB7D219455C0C0003DB70 /* EditPerson */,
 				C216C02A1941F351008DF648 /* Supporting Files */,
 			);
 			path = AddressBookUI;

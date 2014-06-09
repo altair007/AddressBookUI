@@ -15,10 +15,7 @@
 @implementation CFMainViewController
 -(void)dealloc
 {
-    self.addressBookVC = nil;
-    self.detailVC = nil;
     self.model = nil;
-    self.editPersonVC = nil;
     
     [super dealloc];
 }
@@ -47,16 +44,5 @@
         self.view = nil;
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

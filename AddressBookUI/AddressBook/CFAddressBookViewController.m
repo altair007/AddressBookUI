@@ -16,9 +16,64 @@
 @interface CFAddressBookViewController ()
 @end
 
+static CFAddressBookViewController * sharedObj = nil;
 @implementation CFAddressBookViewController
++ (instancetype) sharedInstance
+{
+    @synchronized(self)
+    {
+        if (nil == sharedObj) {
+            [[self alloc] init];
+        }
+    }
+    
+    return sharedObj;
+}
 
-#pragma mark - 实例方法
++ (instancetype) allocWithZone:(struct _NSZone *)zone
+{
+    @synchronized(self){
+        if (nil == sharedObj) {
+            sharedObj = [super allocWithZone:zone];
+            return sharedObj;
+        }
+    }
+    return nil;
+}
+
+- (instancetype) copyWithZone: (NSZone *) zone
+{
+    return  self;
+}
+
+- (instancetype)retain
+{
+    return self;
+}
+
+- (NSUInteger)retainCount
+{
+    return UINT_MAX;
+}
+
+- (oneway void)release
+{
+    
+}
+
+- (instancetype) autorelease
+{
+    return self;
+}
+
+- (id)init
+{
+    @synchronized(self){
+        self = [self initWithNibName:nil bundle:nil];
+        return self;
+    }
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -118,18 +173,11 @@
 - (void) switchToEditViewWithData: (CFPerson *) aPerson
                           editing: (BOOL) editing
 {
-    CFMainViewController * mainVC = (CFMainViewController *)self.navigationController;
+    CFEditPersonViewController * editPersonVC = [CFEditPersonViewController sharedInstance];
+    editPersonVC.person = aPerson;
+    [editPersonVC setEditing: editing animated: YES];
+    [self.navigationController pushViewController: editPersonVC animated:YES];
     
-    if (nil == mainVC.editPersonVC) {
-        mainVC.editPersonVC = [[[CFEditPersonViewController alloc] init] autorelease];
-    }
-    
-    mainVC.editPersonVC.person = aPerson;
-    
-    [mainVC.editPersonVC setEditing: editing animated:YES];
-    
-    [self.navigationController pushViewController: mainVC.editPersonVC animated: YES];
-
 }
 
 -(void)dealloc

@@ -13,14 +13,71 @@
 #import "CFPerson.h"
 #import "CFMainViewController.h"
 #import "CFAddressBookModel.h"
-#include "CFAddressBookViewController.h"
-#include "CFAddressBookView.h"
+#import "CFAddressBookViewController.h"
+#import "CFAddressBookView.h"
 
 @interface CFEditPersonViewController ()
 
 @end
 
+static CFEditPersonViewController * sharedObj = nil;
 @implementation CFEditPersonViewController
++ (instancetype) sharedInstance
+{
+    @synchronized(self)
+    {
+        if (nil == sharedObj) {
+            [[self alloc] init];
+        }
+    }
+    
+    return sharedObj;
+}
+
++ (instancetype) allocWithZone:(struct _NSZone *)zone
+{
+    @synchronized(self){
+        if (nil == sharedObj) {
+            sharedObj = [super allocWithZone:zone];
+            return sharedObj;
+        }
+    }
+    return nil;
+}
+
+- (instancetype) copyWithZone: (NSZone *) zone
+{
+    return  self;
+}
+
+- (instancetype)retain
+{
+    return self;
+}
+
+- (NSUInteger)retainCount
+{
+    return UINT_MAX;
+}
+
+- (oneway void)release
+{
+    
+}
+
+- (instancetype) autorelease
+{
+    return self;
+}
+
+- (id)init
+{
+    @synchronized(self){
+        self = [self initWithNibName:nil bundle:nil];
+        return self;
+    }
+}
+
 -(void)dealloc
 {
     self.person = nil;
@@ -30,10 +87,13 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    @synchronized(self){
+        self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+        if (self) {
+            // Custom initialization
+        }
     }
+    
     return self;
 }
 
@@ -208,7 +268,6 @@
 }
 
 #pragma mark - <UIAlertViewDelegate>协议方法
-// Called when a button is clicked. The view will be automatically dismissed after this call returns
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (TAG_ALERTVIEW_REVERSEBACK == alertView.tag) {
@@ -218,46 +277,17 @@
     }
 }
 
-// Called when we cancel a view (eg. the user clicks the Home button). This is not called when the user clicks the cancel button.
-// If not defined in the delegate, we simulate a click in the cancel button
-- (void)alertViewCancel:(UIAlertView *)alertView
-{
-    
-}
-
-// before animation and showing view
-- (void)willPresentAlertView:(UIAlertView *)alertView
-{
-    
-}
-
-// after animation
 - (void)didPresentAlertView:(UIAlertView *)alertView
 {
     if (TAG_ALERTVIEW_SAVE == alertView.tag) {
         if (NO == self.editing) {
-            CFMainViewController * mainVC = (CFMainViewController *)(self.navigationController);
-            [(CFAddressBookView *)(mainVC.addressBookVC.view) reloadData];
+            CFAddressBookViewController * addressBookVC = [CFAddressBookViewController sharedInstance];
+            // ???:有没有必要把视图,也单例化?
+            [(CFAddressBookView *)(addressBookVC.view) reloadData];
+//            CFMainViewController * mainVC = (CFMainViewController *)(self.navigationController);
+//            [(CFAddressBookView *)(mainVC.addressBookVC.view) reloadData];
         }
     }
-}
-
-// before animation and hiding view
-- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    
-}
-
-// after animation
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    
-}
-
-// Called after edits in any of the default fields added by the style
-- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
-{
-    return YES;
 }
 
 @end
