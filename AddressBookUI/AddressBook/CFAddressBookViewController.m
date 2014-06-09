@@ -13,6 +13,7 @@
 #import "CFDetailViewController.h"
 #import "CFMainViewController.h"
 #import "CFAddPersonViewController.h"
+#import "CFEditPersonViewController.h"
 
 @interface CFAddressBookViewController ()
 @end
@@ -112,16 +113,19 @@
     return key;
 }
 
-
 - (void) didClickAddButtonItem: (UIBarButtonItem *) aButtonItem
 {
     CFMainViewController * mainVC = (CFMainViewController *)self.navigationController;
     
-    if (nil == mainVC.addPersonVC) {
-        mainVC.addPersonVC = [[[CFAddPersonViewController alloc] init] autorelease];
+    if (nil == mainVC.editPersonVC) {
+        mainVC.editPersonVC = [[[CFEditPersonViewController alloc] init] autorelease];
     }
     
-    [self.navigationController pushViewController: mainVC.addPersonVC animated: YES];
+    CFPerson * person = [[CFPerson alloc] init];
+    mainVC.editPersonVC.person = person;
+    
+    [self.navigationController pushViewController: mainVC.editPersonVC animated: YES];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -131,7 +135,6 @@
 
 -(void)dealloc
 {
-//    self.addressBookModel = nil;
     
     [super dealloc];
 }
@@ -168,7 +171,7 @@
     // 设置cell属性
     cell.textLabel.text = person.name;
     cell.detailTextLabel.text = person.tel;
-    cell.imageView.image = [UIImage imageNamed:person.avatar];
+    cell.imageView.image = person.avatarImage;
     
     return cell;
 }
@@ -213,9 +216,5 @@
         }
     }
 }
-//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return UITableViewCellEditingStyleNone;
-//}
 
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20FB7D519455C2B0003DB70 /* CFEditPersonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C20FB7D419455C2B0003DB70 /* CFEditPersonView.m */; };
+		C20FB7D819455C400003DB70 /* CFEditPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20FB7D719455C400003DB70 /* CFEditPersonViewController.m */; };
 		C212855E19443973004EC639 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C212855D19443973004EC639 /* readme.md */; };
 		C212856A194458BC004EC639 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2128569194458BC004EC639 /* default.jpg */; };
 		C212856C194494C2004EC639 /* CFAddPersonView.m in Sources */ = {isa = PBXBuildFile; fileRef = C212856B194494C2004EC639 /* CFAddPersonView.m */; };
@@ -57,6 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C20FB7D319455C2B0003DB70 /* CFEditPersonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFEditPersonView.h; path = EditPerson/CFEditPersonView.h; sourceTree = "<group>"; };
+		C20FB7D419455C2B0003DB70 /* CFEditPersonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFEditPersonView.m; path = EditPerson/CFEditPersonView.m; sourceTree = "<group>"; };
+		C20FB7D619455C400003DB70 /* CFEditPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFEditPersonViewController.h; path = EditPerson/CFEditPersonViewController.h; sourceTree = "<group>"; };
+		C20FB7D719455C400003DB70 /* CFEditPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFEditPersonViewController.m; path = EditPerson/CFEditPersonViewController.m; sourceTree = "<group>"; };
 		C212855D19443973004EC639 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = SOURCE_ROOT; };
 		C212856219443D01004EC639 /* CFAddPersonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFAddPersonView.h; path = AddPerson/CFAddPersonView.h; sourceTree = "<group>"; };
 		C2128569194458BC004EC639 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = default.jpg; path = Resources/default.jpg; sourceTree = "<group>"; };
@@ -132,6 +138,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C20FB7D219455C0C0003DB70 /* EditPerson */ = {
+			isa = PBXGroup;
+			children = (
+				C20FB7D319455C2B0003DB70 /* CFEditPersonView.h */,
+				C20FB7D419455C2B0003DB70 /* CFEditPersonView.m */,
+				C20FB7D619455C400003DB70 /* CFEditPersonViewController.h */,
+				C20FB7D719455C400003DB70 /* CFEditPersonViewController.m */,
+			);
+			name = EditPerson;
+			sourceTree = "<group>";
+		};
 		C216C0211941DE22008DF648 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +256,7 @@
 		C281CA2A1941CC0300D61F40 /* AddressBookUI */ = {
 			isa = PBXGroup;
 			children = (
+				C20FB7D219455C0C0003DB70 /* EditPerson */,
 				C281CA341941CC0300D61F40 /* CFAppDelegate.h */,
 				C281CA351941CC0300D61F40 /* CFAppDelegate.m */,
 				C22FF93819431127004094DD /* CFMainViewController.h */,
@@ -379,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C20FB7D819455C400003DB70 /* CFEditPersonViewController.m in Sources */,
 				C216C06119420ED0008DF648 /* CFAddressBookView.m in Sources */,
 				C22FF93A19431127004094DD /* CFMainViewController.m in Sources */,
 				C212856C194494C2004EC639 /* CFAddPersonView.m in Sources */,
@@ -389,6 +408,7 @@
 				C216C06219420ED0008DF648 /* CFAddressBookViewController.m in Sources */,
 				C216C06B19420EDF008DF648 /* CFDetailViewController.m in Sources */,
 				C216C06019420ED0008DF648 /* CFAddressBookModel.m in Sources */,
+				C20FB7D519455C2B0003DB70 /* CFEditPersonView.m in Sources */,
 				C216C06319420ED0008DF648 /* CFPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

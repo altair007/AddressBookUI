@@ -18,6 +18,7 @@
     self.addressBookVC = nil;
     self.detailVC = nil;
     self.model = nil;
+    self.editPersonVC = nil;
     
     [super dealloc];
 }

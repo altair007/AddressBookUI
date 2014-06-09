@@ -1,23 +1,30 @@
 //
-//  CFAddPersonViewController.m
+//  CFEditPersonViewController.m
 //  AddressBookUI
 //
-//  Created by   颜风 on 14-6-7.
+//  Created by   颜风 on 14-6-9.
 //  Copyright (c) 2014年 Shadow. All rights reserved.
 //
 
-#import "CFAddPersonViewController.h"
-#import "CFAddPersonView.h"
+
+#import <AssetsLibrary/AssetsLibrary.h>
+#import "CFEditPersonViewController.h"
+#import "CFEditPersonView.h"
 #import "CFPerson.h"
 #import "CFMainViewController.h"
 #import "CFAddressBookModel.h"
-#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface CFAddPersonViewController ()
+@interface CFEditPersonViewController ()
 
 @end
 
-@implementation CFAddPersonViewController
+@implementation CFEditPersonViewController
+-(void)dealloc
+{
+    self.person = nil;
+    
+    [super dealloc];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,11 +37,11 @@
 
 - (void)loadView
 {
-    CFAddPersonView * addPersonView = [[CFAddPersonView alloc] init];
-    addPersonView.delegate = self;
+    CFEditPersonView * editPersonView = [[CFEditPersonView alloc] init];
+    editPersonView.delegate = self;
     
-    self.view = addPersonView;
-    [addPersonView release];
+    self.view = editPersonView;
+    [editPersonView release];
 }
 
 - (void)viewDidLoad
@@ -44,7 +51,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(didClickReverseBackButtonItemAction:)];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(didClickSaveButtonItemAction:)];
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,12 +66,12 @@
 -(void) didClickSaveButtonItemAction: (UIBarButtonItem *) aButtonItem
 {
     // 获取信息
-    CFAddPersonView * addPersonView = (CFAddPersonView *) self.view;
-    NSString * name = addPersonView.nameTF.text;
-    NSString * avatar = addPersonView.avatar;
-    NSString * sex = addPersonView.sexTF.text;
-    NSInteger age = [addPersonView.ageTF.text integerValue];
-    NSString * tel = addPersonView.telTF.text;
+    CFEditPersonView * editPersonView = (CFEditPersonView *) self.view;
+    NSString * name = editPersonView.nameTF.text;
+    NSString * avatar = editPersonView.person.avatar;
+    NSString * sex = editPersonView.sexTF.text;
+    NSInteger age = [editPersonView.ageTF.text integerValue];
+    NSString * tel = editPersonView.telTF.text;
     
     // 创建联系人
     CFPerson * person = [[CFPerson alloc] initWithName:name avatar:avatar sex:sex age:age tel:tel];
@@ -86,14 +93,27 @@
 - (void) didClickReverseBackButtonItemAction: (UIBarButtonItem *) aButtonItem
 {
     // 视图恢复默认设置
-    CFAddPersonView * addPersonView = (CFAddPersonView *)self.view;
+    CFEditPersonView * editPersonView = (CFEditPersonView *)self.view;
     
     // 恢复默认设置
-    [addPersonView reset];
+    [editPersonView reset];
     
     // 返回上一级
     [self.navigationController popViewControllerAnimated: YES];
 }
+
+-(void)setPerson:(CFPerson *)person
+{
+    // 设置实例变量
+    [person retain];
+    [_person release];
+    _person = person;
+    
+    // 向视图传值
+    ((CFEditPersonView *)(self.view)).person = _person;
+}
+
+// ???:应该可以删了!
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.view setNeedsDisplay];
@@ -119,12 +139,11 @@
 #pragma mark - <UIImagePickerControllerDelegate>协议方法
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    CFAddPersonView * addPersonView = ((CFAddPersonView *) self.view);
+    CFEditPersonView * editPersonView = ((CFEditPersonView *) self.view);
     
-    addPersonView.avatarView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    editPersonView.avatarView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    addPersonView.avatar = ((NSURL *)[info objectForKey:UIImagePickerControllerMediaURL]).description;
-    addPersonView.avatar = ((NSURL *)[info objectForKey:UIImagePickerControllerReferenceURL]).description;
+    editPersonView.person.avatar = ((NSURL *)[info objectForKey:UIImagePickerControllerMediaURL]).description;
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }

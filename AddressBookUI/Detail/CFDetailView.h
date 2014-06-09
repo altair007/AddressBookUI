@@ -14,7 +14,8 @@
  */
 @interface CFDetailView : UIView
 @property (retain ,nonatomic) CFPerson * person; //!< 联系人
-@property (retain, nonatomic, readonly) UIImageView * avatar; //!< 头像.
+@property (retain, nonatomic, readonly) NSString * nameOfdefaultImg; //!< 默认显示的图片
+@property (retain, nonatomic, readonly) UIImageView * avatarImageView; //!< 头像.
 @property (retain, nonatomic, readonly) UILabel * infoLabel; //!< 练习人详细信息.
 
 @end
