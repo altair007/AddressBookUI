@@ -48,4 +48,13 @@
  */
 - (void) didClickAddButtonItem: (UIBarButtonItem *) aButtonItem;
 
+/**
+ *  转向编辑页面
+ *
+ *  @param aPerson 传给编辑页面的数据
+ *  @param editing 设置编辑页面的初始编辑状态.YES,初始可编辑;NO,初始不可编辑.
+ */
+- (void) switchToEditViewWithData: (CFPerson *) aPerson
+                          editing: (BOOL) editing;
+
 @end

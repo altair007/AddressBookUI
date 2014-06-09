@@ -101,6 +101,10 @@
     [_avatar release];
     _avatar = avatar;
     
+    if (nil == _avatar) {
+        return;
+    }
+    
     [self updateAvatarImage];
 }
 

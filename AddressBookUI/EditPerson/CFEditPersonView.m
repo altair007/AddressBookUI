@@ -117,9 +117,17 @@
     self.ageTF.text = [NSString stringWithFormat: @"%ld", self.person.age];
     self.telTF.text = self.person.tel;
     
-    if (YES == self.ageTF.enabled && 0 == person.age) {
+    if (YES == [self isAddPerson]  && 0 == person.age) {
         self.ageTF.text = @"";
     }
 }
 
+- (BOOL) isAddPerson
+{
+    if (nil == self.person.name) {
+        return YES;
+    }
+    
+    return NO;
+}
 @end

@@ -10,9 +10,7 @@
 #import "CFAddressBookModel.h"
 #import "CFAddressBookView.h"
 #import "CFPerson.h"
-#import "CFDetailViewController.h"
 #import "CFMainViewController.h"
-#import "CFAddPersonViewController.h"
 #import "CFEditPersonViewController.h"
 
 @interface CFAddressBookViewController ()
@@ -64,8 +62,6 @@
 - (NSArray *) personsInSection: (NSInteger)section
 {
     // 获取按姓名首字母分组的字典
-//    NSDictionary * personsDict = self.addressBookModel.personsByGroups;
-    // ???: 每次使用都要做类型转换吗? 有没有更好地解决方案?
     NSDictionary * personsDict = ((CFMainViewController *)self.navigationController).model.personsByGroups;
     
     // 获取keys数组
@@ -114,17 +110,23 @@
 
 - (void) didClickAddButtonItem: (UIBarButtonItem *) aButtonItem
 {
+    CFPerson * person = [[CFPerson alloc] init];
+    [self switchToEditViewWithData: person editing: YES];
+    [person release];
+}
+
+- (void) switchToEditViewWithData: (CFPerson *) aPerson
+                          editing: (BOOL) editing
+{
     CFMainViewController * mainVC = (CFMainViewController *)self.navigationController;
     
     if (nil == mainVC.editPersonVC) {
         mainVC.editPersonVC = [[[CFEditPersonViewController alloc] init] autorelease];
     }
     
-    CFPerson * person = [[CFPerson alloc] init];
-    mainVC.editPersonVC.person = person;
-    [person release];
+    mainVC.editPersonVC.person = aPerson;
     
-    [mainVC.editPersonVC setEditing: YES animated:YES];
+    [mainVC.editPersonVC setEditing: editing animated:YES];
     
     [self.navigationController pushViewController: mainVC.editPersonVC animated: YES];
 
@@ -182,20 +184,8 @@
 #pragma mark - UITableViewDelegate协议方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    // !!!:两个页面可以合并为一个方法
-    CFMainViewController * mainVC = (CFMainViewController *)self.navigationController;
-    
-    if (nil == mainVC.editPersonVC) {
-        mainVC.editPersonVC = [[[CFEditPersonViewController alloc] init] autorelease];
-    }
-    
-    CFPerson * person = [self personAtIndexPath: indexPath];
-    mainVC.editPersonVC.person = person;
-    
-    [mainVC.editPersonVC setEditing: NO animated:YES];
-    
-    [self.navigationController pushViewController: mainVC.editPersonVC animated: YES];
+    CFPerson * person= [self personAtIndexPath: indexPath];
+    [self switchToEditViewWithData: person editing: NO];
 }
 
 

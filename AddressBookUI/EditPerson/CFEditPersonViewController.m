@@ -52,7 +52,6 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(didClickReverseBackButtonItemAction:)];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(didClickSaveButtonItemAction:)];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,10 +65,8 @@
 
 -(void) didClickSaveButtonItemAction: (UIBarButtonItem *) aButtonItem
 {
-    // 该变页面编辑状态
-    [self setEditing: ! self.editing animated:YES];
-    
-    if (YES == self.editing) { // 页面原处于"不可编辑"状态,则直接返回.
+    if (NO == self.editing) { // 页面处于"不可编辑"状态
+        [self setEditing: ! self.editing animated:YES];
         return;
     }
     
@@ -96,8 +93,8 @@
     BOOL result =  [mainVC.model  addPerson: person];
     
     // 提示信息
-    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"提示" message:@"保存成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-    
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"提示" message:@"保存成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    alertView.tag = TAG_ALERTVIEW_SAVE;
     if (NO == result) {
         alertView.message = @"保存失败";
     }
@@ -105,16 +102,24 @@
     [alertView show];
     
     // 更新通讯录主视图
-    // FIXME:点击保存时,有一个明显的延迟!到底应该在何处重载数据?设置状态里面?
-    // ???:视图默认编辑状态是什么?
     if (YES == result) {
-        [(CFAddressBookView *)(mainVC.addressBookVC.view) reloadData];
+        [self setEditing: ! self.editing animated:YES];
     }
-
+    
+    // 更新导航栏
+    [self updateTitle];
  }
 
 - (void) didClickReverseBackButtonItemAction: (UIBarButtonItem *) aButtonItem
 {
+    // 是否是用户的误操作?
+    if (YES == self.editing) {
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您正在编辑联系人信息,确定离开?" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
+        alertView.tag = TAG_ALERTVIEW_REVERSEBACK;
+        [alertView show];
+        return;
+    }
+    
     // 返回上一级
     [self.navigationController popViewControllerAnimated: YES];
 }
@@ -125,6 +130,9 @@
     [person retain];
     [_person release];
     _person = person;
+    
+    // 更新导航栏
+    [self updateTitle];
     
     // 向视图传值
     ((CFEditPersonView *)(self.view)).person = _person;
@@ -166,6 +174,13 @@
     
 }
 
+- (void) updateTitle
+{
+    self.navigationItem.title = self.person.name;
+    if (nil == self.navigationItem.title) {
+        self.navigationItem.title = @"添加联系人";
+    }
+}
 #pragma mark - <UITextFieldDelegate>协议方法
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -190,6 +205,59 @@
     [alertView show];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+#pragma mark - <UIAlertViewDelegate>协议方法
+// Called when a button is clicked. The view will be automatically dismissed after this call returns
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (TAG_ALERTVIEW_REVERSEBACK == alertView.tag) {
+        if (INDEX_CONFIRM_BUTTON == buttonIndex) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+}
+
+// Called when we cancel a view (eg. the user clicks the Home button). This is not called when the user clicks the cancel button.
+// If not defined in the delegate, we simulate a click in the cancel button
+- (void)alertViewCancel:(UIAlertView *)alertView
+{
+    
+}
+
+// before animation and showing view
+- (void)willPresentAlertView:(UIAlertView *)alertView
+{
+    
+}
+
+// after animation
+- (void)didPresentAlertView:(UIAlertView *)alertView
+{
+    if (TAG_ALERTVIEW_SAVE == alertView.tag) {
+        if (NO == self.editing) {
+            CFMainViewController * mainVC = (CFMainViewController *)(self.navigationController);
+            [(CFAddressBookView *)(mainVC.addressBookVC.view) reloadData];
+        }
+    }
+}
+
+// before animation and hiding view
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    
+}
+
+// after animation
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    
+}
+
+// Called after edits in any of the default fields added by the style
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
+{
+    return YES;
 }
 
 @end

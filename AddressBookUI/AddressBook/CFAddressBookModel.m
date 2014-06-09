@@ -15,13 +15,8 @@
 {
     if (self = [super init]) {
         self.pathOfData = path;
-        
-        // !!!: 暂时先不能用下面这句,因为数据文件存储的是不变数组.
-//        self.persons = [NSKeyedUnarchiver unarchiveObjectWithFile: self.pathOfData];
-        
-        // FIXME: 为了使用现有数据进行测试,先用下面代码获取persons.
-        NSArray * personsTemp = [NSKeyedUnarchiver unarchiveObjectWithFile: self.pathOfData];
-        self.persons = [[[NSMutableArray alloc] initWithArray: personsTemp] autorelease];
+
+        self.persons = [NSKeyedUnarchiver unarchiveObjectWithFile: self.pathOfData];
         
         if (nil == self.persons) {
             return nil;
@@ -74,7 +69,6 @@
 
 - (NSString *) firstCharOfName: (NSString *) aChinenseName
 {
-    // !!!: 好好研究下,先用着!
     NSMutableString * first = [[[NSMutableString alloc] initWithString:[aChinenseName substringWithRange:NSMakeRange(0, 1)]] autorelease];
     
     CFRange range = CFRangeMake(0, 1);
@@ -94,6 +88,7 @@
 - (void) removePerson: (CFPerson *) aPerson
 {
     [self.persons removeObject: aPerson];
+    [self update];
 }
 
 - (BOOL) addPerson: (CFPerson *) aPerson
@@ -102,12 +97,12 @@
         return NO;
     }
     
-    if ([self.persons containsObject:aPerson]) { // 联系人已存在,直接返回.
-        return YES;
+    if ([self.persons containsObject:aPerson]) { // 联系人已存在,直接修改.
+        return [self update];
     }
     
     [self.persons addObject: aPerson];
     
-    return YES;
+    return [self update];
 }
 @end
