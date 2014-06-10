@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class CFPerson;
+@class CFMainViewController;
 
 // 点击"返回"和"保存"按钮弹出的视图的tag值
 #define TAG_ALERTVIEW_REVERSEBACK 100
@@ -19,7 +20,7 @@
 
 @interface CFEditPersonViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 @property (retain, nonatomic) CFPerson * person;
-
+@property (retain, nonatomic, readonly) CFMainViewController * navigationController;
 /**
  *  获取单例
  *

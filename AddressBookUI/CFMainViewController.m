@@ -7,6 +7,8 @@
 //
 
 #import "CFMainViewController.h"
+#import "CFEditPersonViewController.h"
+#import "CFPerson.h"
 
 @interface CFMainViewController ()
 
@@ -43,6 +45,27 @@
     if ([self isViewLoaded] && nil == self.view.window) {
         self.view = nil;
     }
+}
+
+- (void) switchToEditViewWithPerson: (CFPerson *) aPerson
+                          editing: (BOOL) editing
+{
+    CFEditPersonViewController * editPersonVC = [CFEditPersonViewController sharedInstance];
+    editPersonVC.person = aPerson;
+    [editPersonVC setEditing: editing animated: YES];
+    [self pushViewController: editPersonVC animated:YES];
+}
+
+- (void) switchToAddPersonView
+{
+    CFPerson * person = [[CFPerson alloc] init];
+    [self switchToEditViewWithPerson: person editing: YES];
+    [person release];
+}
+
+- (void) switchToPersonDetailViewWithPerson: (CFPerson *) aPerson
+{
+    [self switchToEditViewWithPerson: aPerson editing: NO];
 }
 
 @end

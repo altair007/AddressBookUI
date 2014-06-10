@@ -131,7 +131,7 @@ static CFEditPersonViewController * sharedObj = nil;
     }
     
     // 保存数据
-    CFMainViewController * mainVC = (CFMainViewController *)(self.navigationController);
+    CFMainViewController * mainVC = self.navigationController;
     
     // 获取信息
     CFEditPersonView * editPersonView = (CFEditPersonView *) self.view;
@@ -241,6 +241,17 @@ static CFEditPersonViewController * sharedObj = nil;
         self.navigationItem.title = @"添加联系人";
     }
 }
+
+- (CFMainViewController *)navigationController
+{
+    // ???: 如此重写navigationController会不会有什么潜在问题?
+    CFMainViewController * navigtionController;
+    if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
+        navigtionController =  (CFMainViewController *)self.parentViewController;
+    }
+    
+    return navigtionController;
+}
 #pragma mark - <UITextFieldDelegate>协议方法
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -284,8 +295,6 @@ static CFEditPersonViewController * sharedObj = nil;
             CFAddressBookViewController * addressBookVC = [CFAddressBookViewController sharedInstance];
             // ???:有没有必要把视图,也单例化?
             [(CFAddressBookView *)(addressBookVC.view) reloadData];
-//            CFMainViewController * mainVC = (CFMainViewController *)(self.navigationController);
-//            [(CFAddressBookView *)(mainVC.addressBookVC.view) reloadData];
         }
     }
 }

@@ -117,7 +117,7 @@ static CFAddressBookViewController * sharedObj = nil;
 - (NSArray *) personsInSection: (NSInteger)section
 {
     // 获取按姓名首字母分组的字典
-    NSDictionary * personsDict = ((CFMainViewController *)self.navigationController).model.personsByGroups;
+    NSDictionary * personsDict = self.navigationController.model.personsByGroups;
     
     // 获取keys数组
     NSArray * keys = personsDict.allKeys;
@@ -147,7 +147,7 @@ static CFAddressBookViewController * sharedObj = nil;
 - (NSString *) groupNameInSection: (NSInteger) section
 {
     // 获取按姓名首字母分组的字典
-    NSDictionary * personsDict = ((CFMainViewController *)self.navigationController).model.personsByGroups;
+    NSDictionary * personsDict = self.navigationController.model.personsByGroups;
     
     // 获取keys数组
     NSArray * keys = personsDict.allKeys;
@@ -165,19 +165,18 @@ static CFAddressBookViewController * sharedObj = nil;
 
 - (void) didClickAddButtonItem: (UIBarButtonItem *) aButtonItem
 {
-    CFPerson * person = [[CFPerson alloc] init];
-    [self switchToEditViewWithData: person editing: YES];
-    [person release];
+    [self.navigationController switchToAddPersonView];
 }
 
-- (void) switchToEditViewWithData: (CFPerson *) aPerson
-                          editing: (BOOL) editing
+- (CFMainViewController *)navigationController
 {
-    CFEditPersonViewController * editPersonVC = [CFEditPersonViewController sharedInstance];
-    editPersonVC.person = aPerson;
-    [editPersonVC setEditing: editing animated: YES];
-    [self.navigationController pushViewController: editPersonVC animated:YES];
+    // ???: 如此重写navigationController会不会有什么潜在问题?
+    CFMainViewController * navigtionController;
+    if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
+        navigtionController =  (CFMainViewController *)self.parentViewController;
+    }
     
+    return navigtionController;
 }
 
 -(void)dealloc
@@ -190,7 +189,7 @@ static CFAddressBookViewController * sharedObj = nil;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSInteger  count;
-    count = ((CFMainViewController *)self.navigationController).model.personsByGroups.allKeys.count;
+    count = self.navigationController.model.personsByGroups.allKeys.count;
     return count;
 }
 
@@ -233,7 +232,7 @@ static CFAddressBookViewController * sharedObj = nil;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CFPerson * person= [self personAtIndexPath: indexPath];
-    [self switchToEditViewWithData: person editing: NO];
+    [self.navigationController switchToPersonDetailViewWithPerson: person];
 }
 
 
@@ -245,7 +244,7 @@ static CFAddressBookViewController * sharedObj = nil;
         NSArray * personsArray = [self personsInSection: indexPath.section];
         
         // 删除数据
-        [((CFMainViewController *)self.navigationController).model removePerson: [self personAtIndexPath: indexPath]];
+        [self.navigationController.model removePerson: [self personAtIndexPath: indexPath]];
         
         // 根据分区成员数量来决定是删除行,还是直接删除分区
         if (1 == personsArray.count) { // 可以直接删除分区了

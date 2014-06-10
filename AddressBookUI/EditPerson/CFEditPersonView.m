@@ -114,7 +114,7 @@
     self.avatarImageView.image = self.person.avatarImage;
     self.nameTF.text = self.person.name;
     self.sexTF.text = self.person.sex;
-    self.ageTF.text = [NSString stringWithFormat: @"%ld", self.person.age];
+    self.ageTF.text = [NSString stringWithFormat: @"%lu", self.person.age];
     self.telTF.text = self.person.tel;
     
     if (YES == [self isAddPerson]  && 0 == person.age) {
