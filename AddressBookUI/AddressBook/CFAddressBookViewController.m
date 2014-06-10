@@ -9,6 +9,9 @@
 #import "CFAddressBookViewController.h"
 #import "CFAddressBookModel.h"
 #import "CFPerson.h"
+#import "CFPersonTableViewCell.h"
+#import "CFMaleTableViewCell.h"
+#import "CFFemaleTableViewCell.h"
 
 @interface CFAddressBookViewController ()
 @end
@@ -143,19 +146,15 @@
     // 获取次分区对应的通讯录成员
     CFPerson * person = [self personAtIndexPath: indexPath];
     
-    static NSString * identifier = @"person";
-    
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    static NSString * identifierOfMale = @"person";
+    CFPersonTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifierOfMale];
     
     if (nil == cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
+        cell = [[[CFPersonTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifierOfMale] autorelease];
     }
     
     // 设置cell属性
-    cell.textLabel.text = person.name;
-    cell.detailTextLabel.text = person.tel;
-    cell.imageView.image = person.avatarImage;
-    
+    cell.person = person;
     return cell;
 }
 
@@ -193,4 +192,14 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CFPerson * person = [self personAtIndexPath: indexPath];
+    // FIXME:此处应该区分男女
+    static NSString * identifier = @"person";
+    CFPersonTableViewCell * cell = [[CFPersonTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    cell.person = person;
+    CGFloat height = cell.height;
+    return height;
+}
 @end

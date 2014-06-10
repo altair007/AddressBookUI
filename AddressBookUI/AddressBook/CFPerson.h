@@ -24,7 +24,7 @@
 
 #pragma mark - 属性
 @property (copy, nonatomic) NSString * name; //!< 姓名.
-@property (copy, nonatomic) NSString * avatar; //!< 头像图片名称.
+@property (copy, nonatomic) NSString * avatarName; //!< 头像图片名称.
 @property (copy, nonatomic) NSString * sex; //!< 性别.
 @property (assign, nonatomic) NSUInteger age; //!< 年龄.
 @property (copy, nonatomic) NSString * tel; //!< 电话.
@@ -44,13 +44,13 @@
  *  @return 初始化后的对象
  */
 - (instancetype) initWithName: (NSString *) name
-                       avatar: (NSString *) avatar
+                   avatarName: (NSString *) avatarName
                           sex: (NSString *) sex
                           age: (NSUInteger) age
                           tel: (NSString *) tel;
 
 - (instancetype) initWithName: (NSString *) name
-                       avatar: (NSString *) avatar
+                   avatarName: (NSString *) avatarName
                           sex: (NSString *) sex
                           age: (NSUInteger) age
                           tel: (NSString *) tel

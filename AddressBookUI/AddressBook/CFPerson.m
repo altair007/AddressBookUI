@@ -18,7 +18,7 @@
 
 -(void)dealloc
 {
-    self.avatar = nil;
+    self.avatarName = nil;
     self.name = nil;
     self.tel = nil;
     self.nameOfdefaultImg = nil;
@@ -31,14 +31,14 @@
 #pragma mark - 便利初始化
 - (instancetype) init
 {
-    if (self = [self initWithName:nil avatar:nil sex:nil age:0 tel:nil nameOfdefaultImg:nil]) {
+    if (self = [self initWithName:nil avatarName:nil sex:nil age:0 tel:nil nameOfdefaultImg:nil]) {
         
     }
     
     return self;
 }
 - (instancetype) initWithName: (NSString *) name
-                       avatar: (NSString *) avatar
+                   avatarName: (NSString *) avatarName
                           sex: (NSString *) sex
                           age: (NSUInteger) age
                           tel: (NSString *) tel
@@ -46,7 +46,7 @@
 {
     if (self = [super init]) {
         self.name = name;
-        self.avatar = avatar;
+        self.avatarName = avatarName;
         self.sex = sex;
         self.age = age;
         self.tel = tel;
@@ -57,12 +57,12 @@
 }
 
 - (instancetype) initWithName: (NSString *) name
-                       avatar: (NSString *) avatar
+                   avatarName: (NSString *) avatarName
                           sex: (NSString *) sex
                           age: (NSUInteger) age
                           tel: (NSString *) tel
 {
-    if (self = [self initWithName: name avatar: avatar sex: sex age: age tel: tel nameOfdefaultImg: nil]) {
+    if (self = [self initWithName: name avatarName: avatarName sex: sex age: age tel: tel nameOfdefaultImg: nil]) {
         
     }
     
@@ -72,14 +72,14 @@
 - (void) updateAvatarImage
 {
     // 是否是应用内置图片?
-    self.avatarImage = [UIImage imageNamed: self.avatar];
+    self.avatarImage = [UIImage imageNamed: self.avatarName];
     if (nil != self.avatarImage) {
         return;
     }
     
     // 是否是本地图片?
     ALAssetsLibrary   *lib = [[[ALAssetsLibrary alloc] init] autorelease];
-    [lib assetForURL:[NSURL URLWithString:self.avatar] resultBlock:^(ALAsset *asset)
+    [lib assetForURL:[NSURL URLWithString:self.avatarName] resultBlock:^(ALAsset *asset)
      {
          // 使用asset来获取本地图片
          ALAssetRepresentation *assetRep = [asset defaultRepresentation];
@@ -96,13 +96,13 @@
      ];
 }
 
-- (void)setAvatar:(NSString *)avatar
+- (void)setAvatarName:(NSString *)avatar
 {
     [avatar retain];
-    [_avatar release];
-    _avatar = avatar;
+    [_avatarName release];
+    _avatarName = avatar;
     
-    if (nil == _avatar) {
+    if (nil == _avatarName) {
         return;
     }
     
@@ -119,8 +119,8 @@
         _nameOfdefaultImg = DEFAULT_AVATAR_NAME;
     }
     
-    if (nil == self.avatar) {
-        self.avatar = _nameOfdefaultImg;
+    if (nil == self.avatarName) {
+        self.avatarName = _nameOfdefaultImg;
     }
 }
 
@@ -129,7 +129,7 @@
 {
     if (self = [super init]) {
         self.name = [aDecoder decodeObjectForKey: kNameKey];
-        self.avatar = [aDecoder decodeObjectForKey: kAvatarKey];
+        self.avatarName = [aDecoder decodeObjectForKey: kAvatarKey];
         self.sex = [aDecoder decodeObjectForKey: kSexKey];
         self.age = [aDecoder decodeIntegerForKey: kAgeKey];
         self.tel = [aDecoder decodeObjectForKey: kTelKey];
@@ -142,7 +142,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject: self.name forKey: kNameKey];
-    [aCoder encodeObject: self.avatar forKey: kAvatarKey];
+    [aCoder encodeObject: self.avatarName forKey: kAvatarKey];
     [aCoder encodeObject: self.sex forKey: kSexKey];
     [aCoder encodeInteger: self.age forKey: kAgeKey];
     [aCoder encodeObject: self.tel forKey: kTelKey];

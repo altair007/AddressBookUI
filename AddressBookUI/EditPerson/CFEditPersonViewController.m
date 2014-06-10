@@ -131,7 +131,7 @@ static CFEditPersonViewController * sharedObj = nil;
     // 获取视图关联的联系人
     CFPerson * person = self.view.person;
     person.name = self.view.nameTF.text;
-    person.avatar = self.view.person.avatar;
+    person.avatarName = self.view.person.avatarName;
     person.sex = self.view.sexTF.text;
     person.age = [self.view.ageTF.text integerValue];
     person.tel = self.view.telTF.text;
@@ -262,7 +262,7 @@ static CFEditPersonViewController * sharedObj = nil;
 {
     self.view.avatarImageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    self.view.person.avatar = ((NSURL *)[info objectForKey:UIImagePickerControllerReferenceURL]).description;
+    self.view.person.avatarName = ((NSURL *)[info objectForKey:UIImagePickerControllerReferenceURL]).description;
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
