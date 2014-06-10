@@ -27,14 +27,6 @@
 @property (retain, nonatomic, readonly) UILabel * telLabel; //!< 联系方式.
 @property (retain, nonatomic, readonly) UILabel * introLabel; //!< 简介.
 
-// !!!: 一个猜想:在其他位置创建的cell也可以被重用,所以先不实现此工厂方法.
-///**
-// *  根据不同的联系人,动态计算单元格高度.
-// *
-// *  @param person 联系人
-// */
-//+ (CGFloat) heightWithPerson: (CFPerson *) person;
-
 /**
  *  返回单元格高度.
  *

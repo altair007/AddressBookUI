@@ -146,15 +146,29 @@
     // 获取次分区对应的通讯录成员
     CFPerson * person = [self personAtIndexPath: indexPath];
     
-    static NSString * identifierOfMale = @"person";
-    CFPersonTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifierOfMale];
+    if ([person.sex isEqualToString: @"男"]) {
+        static NSString * identifierOfMale = @"person";
+        CFMaleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifierOfMale];
+        
+        if (nil == cell) {
+            cell = [[[CFMaleTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifierOfMale] autorelease];
+        }
+        
+        // 设置cell属性
+        cell.person = person;
+        return cell;
+    }
+    
+    static NSString * identifierOfFemale = @"person";
+    CFFemaleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifierOfFemale];
     
     if (nil == cell) {
-        cell = [[[CFPersonTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifierOfMale] autorelease];
+        cell = [[[CFFemaleTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifierOfFemale] autorelease];
     }
     
     // 设置cell属性
     cell.person = person;
+    
     return cell;
 }
 
@@ -194,11 +208,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CFPerson * person = [self personAtIndexPath: indexPath];
-    // FIXME:此处应该区分男女
-    static NSString * identifier = @"person";
-    CFPersonTableViewCell * cell = [[CFPersonTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    cell.person = person;
+    CFPersonTableViewCell * cell = (CFPersonTableViewCell *)[self tableView: tableView cellForRowAtIndexPath: indexPath];
     CGFloat height = cell.height;
     return height;
 }

@@ -63,7 +63,6 @@
     
     UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(landscapeSpace, 15, 80, 120)];
     
-    imageView.backgroundColor = [UIColor cyanColor];
     self.avatarIV= imageView;
     [imageView release];
     
@@ -78,7 +77,7 @@
     
     NSArray * contents = @[kNameLabel, kTelLabel, kIntroLabel];
     
-    CGFloat portraitSpace = landscapeSpace / (contents.count - 1); // 编辑框竖直方向的间距
+    CGFloat portraitSpace = 0; // 编辑框竖直方向的间距
     
     // ???: 动态计算信息视图的算法需要优化.
     CGRect originalRectOfInfoView = CGRectMake(2 * self.avatarIV.frame.origin.x + self.avatarIV.frame.size.width, self.avatarIV.frame.origin.y, rect.size.width - self.avatarIV.frame.size.width - self.avatarIV.frame.origin.x - 2 * self.avatarIV.frame.origin.x, (self.avatarIV.frame.size.height - portraitSpace * (contents.count - 1)) / contents.count);
@@ -86,7 +85,6 @@
     [contents enumerateObjectsUsingBlock:^(NSString * aKey, NSUInteger idx, BOOL *stop) {
         UILabel * tempLabel = [[UILabel alloc] initWithFrame:baseRect];
         
-        tempLabel.backgroundColor = [UIColor redColor];
         tempLabel.numberOfLines = 0;
         tempLabel.font = [UIFont systemFontOfSize: 15.0];
         
