@@ -6,15 +6,12 @@
 //  Copyright (c) 2014年 Shadow. All rights reserved.
 //
 
-
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "CFEditPersonViewController.h"
-#import "CFEditPersonView.h"
-#import "CFPerson.h"
-#import "CFMainViewController.h"
-#import "CFAddressBookModel.h"
 #import "CFAddressBookViewController.h"
+#import "CFEditPersonViewController.h"
 #import "CFAddressBookView.h"
+#import "CFAddressBookModel.h"
+#import "CFPerson.h"
 
 @interface CFEditPersonViewController ()
 
@@ -131,18 +128,16 @@ static CFEditPersonViewController * sharedObj = nil;
     }
     
     // 保存数据
-    CFMainViewController * mainVC = self.navigationController;
     
     // 获取信息
-    CFEditPersonView * editPersonView = (CFEditPersonView *) self.view;
-    NSString * name = editPersonView.nameTF.text;
-    NSString * avatar = editPersonView.person.avatar;
-    NSString * sex = editPersonView.sexTF.text;
-    NSInteger age = [editPersonView.ageTF.text integerValue];
-    NSString * tel = editPersonView.telTF.text;
+    NSString * name = self.view.nameTF.text;
+    NSString * avatar = self.view.person.avatar;
+    NSString * sex = self.view.sexTF.text;
+    NSInteger age = [self.view.ageTF.text integerValue];
+    NSString * tel = self.view.telTF.text;
     
     // 获取视图关联的联系人,并更新属性信息
-    CFPerson * person = ((CFEditPersonView *)(self.view)).person;
+    CFPerson * person = self.view.person;
     person.name = name;
     person.avatar = avatar;
     person.sex = sex;
@@ -150,7 +145,7 @@ static CFEditPersonViewController * sharedObj = nil;
     person.tel = tel;
     
     // 保存联系人信息
-    BOOL result =  [mainVC.model  addPerson: person];
+    BOOL result =  [self.navigationController.model  addPerson: person];
     
     // 提示信息
     UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"提示" message:@"保存成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
@@ -181,7 +176,7 @@ static CFEditPersonViewController * sharedObj = nil;
     }
     
     // 返回上一级
-    [self.navigationController popViewControllerAnimated: YES];
+    [self.navigationController switchToAddressBookView];
 }
 
 -(void)setPerson:(CFPerson *)person
@@ -195,7 +190,7 @@ static CFEditPersonViewController * sharedObj = nil;
     [self updateTitle];
     
     // 向视图传值
-    ((CFEditPersonView *)(self.view)).person = _person;
+    self.view.person = _person;
 }
 
 - (void) handlAvatarViewTapGesture: (UITapGestureRecognizer *) tapGesture
@@ -212,25 +207,24 @@ static CFEditPersonViewController * sharedObj = nil;
 {
     [super setEditing:editing animated: animated];
     
-    CFEditPersonView * editPersonView = (CFEditPersonView *)self.view;
-    
+    // FIXME: 应该封装为两个方法.
     if (YES == self.editing) {// 转换至编辑状态
         self.navigationItem.rightBarButtonItem.title = @"保存";
-        editPersonView.avatarImageView.userInteractionEnabled = YES;
-        editPersonView.nameTF.enabled = YES;
-        editPersonView.sexTF.enabled = YES;
-        editPersonView.ageTF.enabled = YES;
-        editPersonView.telTF.enabled = YES;
+        self.view.avatarImageView.userInteractionEnabled = YES;
+        self.view.nameTF.enabled = YES;
+        self.view.sexTF.enabled = YES;
+        self.view.ageTF.enabled = YES;
+        self.view.telTF.enabled = YES;
         return;
     }
     
     // 转换至不可编辑状态
     self.navigationItem.rightBarButtonItem.title = @"编辑";
-    editPersonView.avatarImageView.userInteractionEnabled = NO;
-    editPersonView.nameTF.enabled = NO;
-    editPersonView.sexTF.enabled = NO;
-    editPersonView.ageTF.enabled = NO;
-    editPersonView.telTF.enabled = NO;
+    self.view.avatarImageView.userInteractionEnabled = NO;
+    self.view.nameTF.enabled = NO;
+    self.view.sexTF.enabled = NO;
+    self.view.ageTF.enabled = NO;
+    self.view.telTF.enabled = NO;
     
 }
 
@@ -244,7 +238,6 @@ static CFEditPersonViewController * sharedObj = nil;
 
 - (CFMainViewController *)navigationController
 {
-    // ???: 如此重写navigationController会不会有什么潜在问题?
     CFMainViewController * navigtionController;
     if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
         navigtionController =  (CFMainViewController *)self.parentViewController;
@@ -262,11 +255,9 @@ static CFEditPersonViewController * sharedObj = nil;
 #pragma mark - <UIImagePickerControllerDelegate>协议方法
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    CFEditPersonView * editPersonView = ((CFEditPersonView *) self.view);
+    self.view.avatarImageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    editPersonView.avatarImageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    editPersonView.person.avatar = ((NSURL *)[info objectForKey:UIImagePickerControllerReferenceURL]).description;
+    self.view.person.avatar = ((NSURL *)[info objectForKey:UIImagePickerControllerReferenceURL]).description;
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -283,18 +274,7 @@ static CFEditPersonViewController * sharedObj = nil;
 {
     if (TAG_ALERTVIEW_REVERSEBACK == alertView.tag) {
         if (INDEX_CONFIRM_BUTTON == buttonIndex) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-    }
-}
-
-- (void)didPresentAlertView:(UIAlertView *)alertView
-{
-    if (TAG_ALERTVIEW_SAVE == alertView.tag) {
-        if (NO == self.editing) {
-            CFAddressBookViewController * addressBookVC = [CFAddressBookViewController sharedInstance];
-            // ???:有没有必要把视图,也单例化?
-            [(CFAddressBookView *)(addressBookVC.view) reloadData];
+            [self.navigationController switchToAddressBookView];
         }
     }
 }

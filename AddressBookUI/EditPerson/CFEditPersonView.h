@@ -12,7 +12,6 @@
 @interface CFEditPersonView : UIView
 @property (retain ,nonatomic) CFPerson * person; //!< 联系人
 @property (assign, nonatomic, readwrite) id<UITextFieldDelegate> delegate; //!< 代理
-// FIXME:应该把属性放到字典里,以便于扩展程序!
 @property (retain, nonatomic, readonly) UIImageView * avatarImageView; //!< 相片视图
 @property (retain, nonatomic, readonly) UITextField * nameTF; //!< 姓名编辑框
 @property (retain, nonatomic, readonly) UITextField * sexTF; //!< 性别编辑框

@@ -9,6 +9,11 @@
 #import "CFAddressBookModel.h"
 #import "CFPerson.h"
 
+@interface CFAddressBookModel ()
+@property (nonatomic, retain, readwrite) NSMutableDictionary * personsByGroups; //!: 按姓名拼音首字母分组排序的字典,以首字母为键,以联系人数组为值
+
+@end
+
 @implementation CFAddressBookModel
 #pragma mark - 实例方法
 - (instancetype)initWithFile:(NSString *)path
@@ -37,34 +42,25 @@
 {
     self.persons = nil;
     self.pathOfData = nil;
+    self.personsByGroups = nil;
     
     [super dealloc];
 }
 
-- (NSDictionary *) personsByGroups
+- (void) setupPersonsByGroups
 {
-    NSMutableDictionary * dict = [[NSMutableDictionary alloc] initWithCapacity:42];
-    
-    [self.persons enumerateObjectsUsingBlock:^(CFPerson * person, NSUInteger idx, BOOL *stop) {
-        // 获取联系人拼音首字母
-        NSString * firstChar = [self firstCharOfName: person.name];
-        
-        // 获取联系人对应的数组
-        NSMutableArray * persons = [dict objectForKey: firstChar];
-        
-        // 判断键是否存在于数组中,不存在则创建
-        if (nil == persons) {
-            [dict setObject: [[[NSMutableArray alloc] initWithCapacity:42] autorelease] forKey:firstChar];
-            
-            // 重新获取联系人对应的数组
-            persons = [dict objectForKey: firstChar];
-        }
-        
-        // 将联系人添加到对应数组中
-        [persons addObject: person];
+    [self.persons enumerateObjectsUsingBlock:^(CFPerson * aPerson, NSUInteger idx, BOOL *stop) {
+        [self addToPersonsByGroupsWithPerson: aPerson];
     }];
+}
+
+- (void)setPersons:(NSMutableArray *)persons
+{
+    [persons retain];
+    [_persons release];
+    _persons = persons;
     
-    return dict.autorelease;
+    [self setupPersonsByGroups];
 }
 
 - (NSString *) firstCharOfName: (NSString *) aChinenseName
@@ -93,6 +89,7 @@
 
 - (BOOL) addPerson: (CFPerson *) aPerson
 {
+    
     if([aPerson.name isEqualToString: @""] || [aPerson.tel isEqualToString: @""]){
         return NO;
     }
@@ -104,5 +101,31 @@
     [self.persons addObject: aPerson];
     
     return [self update];
+}
+
+// ???: 需要处理personsByGroups与addPerson,removePerson的协作,与persons的互相影响.
+// ???:kvo的时机有问题,非增加,则没必要reload!
+- (void) addToPersonsByGroupsWithPerson: (CFPerson *) aPerson
+{
+    if (nil == self.personsByGroups) {
+        self.personsByGroups = [[NSMutableDictionary alloc] initWithCapacity:42];
+    }
+    
+    // 获取联系人拼音首字母
+    NSString * firstChar = [self firstCharOfName: aPerson.name];
+    
+    // 获取联系人对应的数组
+    NSMutableArray * persons = [self.personsByGroups objectForKey: firstChar];
+    
+    // 判断键是否存在于数组中,不存在则创建
+    if (nil == persons) {
+        [self.personsByGroups setObject: [[[NSMutableArray alloc] initWithCapacity:42] autorelease] forKey:firstChar];
+        // 重新获取联系人对应的数组
+        persons = [self.personsByGroups objectForKey: firstChar];
+    }
+    
+    // 将联系人添加到对应数组中
+    // ???: 先判断判断是否存在
+    [persons addObject: aPerson];
 }
 @end

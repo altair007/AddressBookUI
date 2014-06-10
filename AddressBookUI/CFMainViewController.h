@@ -8,16 +8,18 @@
 
 #import <UIKit/UIKit.h>
 @class CFAddressBookViewController;
-@class CFDetailViewController;
-@class CFAddressBookModel;
-@class CFAddPersonViewController;
 @class CFEditPersonViewController;
+@class CFAddressBookModel;
 @class CFPerson;
+
+#define PATH_KVO_PERSONSBYGROUPS @"personsByGroups"
 
 /**
  *  主控制器
  */
 @interface CFMainViewController : UINavigationController
+@property (assign, nonatomic) CFAddressBookViewController * addressBookVC; //!< 通讯录视图控制器
+@property (assign, nonatomic) CFEditPersonViewController * editPersonVC; //!< 编辑联系人页面视图控制器
 @property (retain, nonatomic) CFAddressBookModel * model; //!< 通讯录数据模型
 
 /**
@@ -40,4 +42,26 @@
  *  @param aPerson 要查看此联系人的详细信息.
  */
 - (void) switchToPersonDetailViewWithPerson: (CFPerson *) aPerson;
+
+/**
+ *  转向通讯录视图
+ */
+- (void) switchToAddressBookView;
+
+/**
+ *  添加联系人,姓名或电话号不能为空
+ *
+ *  @param aPerson 一个联系人
+ *
+ *  @return YES,添加成功;NO,添加失败
+ */
+- (BOOL) addPerson: (CFPerson *) aPerson;
+
+/**
+ *  删除联系人
+ *
+ *  @param aPerson 要删除的联系人
+ */
+- (void) removePerson: (CFPerson *) aPerson;
+
 @end

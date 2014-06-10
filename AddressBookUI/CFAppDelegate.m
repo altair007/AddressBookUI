@@ -6,11 +6,11 @@
 //  Copyright (c) 2014年 Shadow. All rights reserved.
 //
 
-// !!!: 清除各个类多余的头文件
 #import "CFAppDelegate.h"
 #import "CFAddressBookViewController.h"
 #import "CFAddressBookModel.h"
 #import "CFMainViewController.h"
+#import "CFEditPersonViewController.h"
 
 @implementation CFAppDelegate
 -(void)dealloc
@@ -31,11 +31,19 @@
     path = [NSBundle pathForResource:@"addressBookData" ofType: nil inDirectory:[NSBundle mainBundle].bundlePath];
     CFAddressBookModel * addressBookModel = [[CFAddressBookModel alloc] initWithFile:path];
     
-    CFAddressBookViewController * addressBookVC = [CFAddressBookViewController sharedInstance];
+    CFAddressBookViewController * addressBookVC = [[CFAddressBookViewController alloc] init];
     
     CFMainViewController * mainVC = [[CFMainViewController alloc] initWithRootViewController: addressBookVC];
+    
+    mainVC.addressBookVC = addressBookVC;
+    [addressBookVC release];
+    
     mainVC.model = addressBookModel;
     [addressBookModel release];
+    
+    CFEditPersonViewController * editPersonVC = [[CFEditPersonViewController alloc] init];
+    mainVC.editPersonVC = editPersonVC;
+    [editPersonVC release];
     
     self.window.rootViewController = mainVC;
     [mainVC release];

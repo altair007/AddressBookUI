@@ -8,72 +8,12 @@
 
 #import "CFAddressBookViewController.h"
 #import "CFAddressBookModel.h"
-#import "CFAddressBookView.h"
 #import "CFPerson.h"
-#import "CFMainViewController.h"
-#import "CFEditPersonViewController.h"
 
 @interface CFAddressBookViewController ()
 @end
 
-static CFAddressBookViewController * sharedObj = nil;
 @implementation CFAddressBookViewController
-+ (instancetype) sharedInstance
-{
-    @synchronized(self)
-    {
-        if (nil == sharedObj) {
-            [[self alloc] init];
-        }
-    }
-    
-    return sharedObj;
-}
-
-+ (instancetype) allocWithZone:(struct _NSZone *)zone
-{
-    @synchronized(self){
-        if (nil == sharedObj) {
-            sharedObj = [super allocWithZone:zone];
-            return sharedObj;
-        }
-    }
-    return nil;
-}
-
-- (instancetype) copyWithZone: (NSZone *) zone
-{
-    return  self;
-}
-
-- (instancetype)retain
-{
-    return self;
-}
-
-- (NSUInteger)retainCount
-{
-    return UINT_MAX;
-}
-
-- (oneway void)release
-{
-    
-}
-
-- (instancetype) autorelease
-{
-    return self;
-}
-
-- (id)init
-{
-    @synchronized(self){
-        self = [self initWithNibName:nil bundle:nil];
-        return self;
-    }
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -169,9 +109,7 @@ static CFAddressBookViewController * sharedObj = nil;
 }
 
 - (CFMainViewController *)navigationController
-{
-    // ???: 如此重写navigationController会不会有什么潜在问题?
-    CFMainViewController * navigtionController;
+{    CFMainViewController * navigtionController;
     if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
         navigtionController =  (CFMainViewController *)self.parentViewController;
     }
@@ -244,7 +182,7 @@ static CFAddressBookViewController * sharedObj = nil;
         NSArray * personsArray = [self personsInSection: indexPath.section];
         
         // 删除数据
-        [self.navigationController.model removePerson: [self personAtIndexPath: indexPath]];
+        [self.navigationController removePerson: [self personAtIndexPath: indexPath]];
         
         // 根据分区成员数量来决定是删除行,还是直接删除分区
         if (1 == personsArray.count) { // 可以直接删除分区了

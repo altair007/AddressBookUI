@@ -7,22 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "CFMainViewController.h"
+#import "CFAddressBookView.h"
+
 @class CFAddressBookModel;
 @class CFDetailViewController;
 @class CFPerson;
-@class CFMainViewController;
-#import "CFMainViewController.h"
+
 
 @interface CFAddressBookViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (retain, nonatomic, readonly) CFMainViewController * navigationController;
-
-/**
- *  获取单例
- *
- *  @return 单例
- */
-+ (instancetype) sharedInstance;
-
+@property (retain, nonatomic) CFAddressBookView * view;
 /**
  *  获取分区对应的通讯录成员
  *

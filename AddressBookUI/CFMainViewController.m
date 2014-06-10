@@ -7,7 +7,9 @@
 //
 
 #import "CFMainViewController.h"
+#import "CFAddressBookViewController.h"
 #import "CFEditPersonViewController.h"
+#import "CFAddressBookModel.h"
 #import "CFPerson.h"
 
 @interface CFMainViewController ()
@@ -17,7 +19,10 @@
 @implementation CFMainViewController
 -(void)dealloc
 {
+    [self.model removeObserver:self forKeyPath:PATH_KVO_PERSONSBYGROUPS];
     self.model = nil;
+    self.editPersonVC = nil;
+    self.addressBookVC = nil;
     
     [super dealloc];
 }
@@ -35,7 +40,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    
+    [self.addressBookVC.view reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,10 +60,9 @@
 - (void) switchToEditViewWithPerson: (CFPerson *) aPerson
                           editing: (BOOL) editing
 {
-    CFEditPersonViewController * editPersonVC = [CFEditPersonViewController sharedInstance];
-    editPersonVC.person = aPerson;
-    [editPersonVC setEditing: editing animated: YES];
-    [self pushViewController: editPersonVC animated:YES];
+    self.editPersonVC.person = aPerson;
+    [self.editPersonVC setEditing: editing animated: YES];
+    [self pushViewController: self.editPersonVC animated:YES];
 }
 
 - (void) switchToAddPersonView
@@ -66,6 +75,31 @@
 - (void) switchToPersonDetailViewWithPerson: (CFPerson *) aPerson
 {
     [self switchToEditViewWithPerson: aPerson editing: NO];
+}
+
+- (void) switchToAddressBookView
+{
+    [self popToViewController:self.addressBookVC animated:YES];
+}
+
+- (void)setModel:(CFAddressBookModel *)model
+{
+    [model retain];
+    [_model release];
+    _model = model;
+    [self.model addObserver:self forKeyPath:PATH_KVO_PERSONSBYGROUPS options:NSKeyValueObservingOptionNew context: NULL];
+}
+
+- (BOOL) addPerson: (CFPerson *) aPerson
+{
+    BOOL result = [self.model addPerson: aPerson];
+    
+    return result;
+}
+
+- (void) removePerson: (CFPerson *) aPerson
+{
+    [self.model removePerson: aPerson];
 }
 
 @end
