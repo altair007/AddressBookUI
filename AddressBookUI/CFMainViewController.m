@@ -44,17 +44,17 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    NSInteger countOfOld = 0;
-    NSInteger countOfNew = 0;
+    __block NSInteger countOfOld = 0; // 原通讯录中的联系人个数
+    __block NSInteger countOfNew = 0;// 新通讯录中的联系人个数
     NSDictionary * dictOld = [change objectForKey: @"old"];
-    if (nil != dictOld) {
-        countOfOld = dictOld.count;
-    }
+    [dictOld enumerateKeysAndObjectsUsingBlock:^(id key, NSArray * arr, BOOL *stop) {
+        countOfOld += arr.count;
+    }];
     
     NSDictionary * dictNew = [change objectForKey: @"new"];
-    if (nil != dictNew) {
-        countOfNew = dictNew.count;
-    }
+    [dictNew enumerateKeysAndObjectsUsingBlock:^(id key, NSArray * arr, BOOL *stop) {
+        countOfNew += arr.count;
+    }];
     
     if (countOfNew < countOfOld) {// 说明是在删除联系人,不需要通讯录视图重新加载数据
         return;
