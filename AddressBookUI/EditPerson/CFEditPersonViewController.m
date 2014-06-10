@@ -128,21 +128,14 @@ static CFEditPersonViewController * sharedObj = nil;
     }
     
     // 保存数据
-    
-    // 获取信息
-    NSString * name = self.view.nameTF.text;
-    NSString * avatar = self.view.person.avatar;
-    NSString * sex = self.view.sexTF.text;
-    NSInteger age = [self.view.ageTF.text integerValue];
-    NSString * tel = self.view.telTF.text;
-    
-    // 获取视图关联的联系人,并更新属性信息
+    // 获取视图关联的联系人
     CFPerson * person = self.view.person;
-    person.name = name;
-    person.avatar = avatar;
-    person.sex = sex;
-    person.age = age;
-    person.tel = tel;
+    person.name = self.view.nameTF.text;
+    person.avatar = self.view.person.avatar;
+    person.sex = self.view.sexTF.text;
+    person.age = [self.view.ageTF.text integerValue];
+    person.tel = self.view.telTF.text;
+    person.intro = self.view.introTV.text;
     
     // 保存联系人信息
     BOOL result =  [self.navigationController.model  addPerson: person];
@@ -207,25 +200,17 @@ static CFEditPersonViewController * sharedObj = nil;
 {
     [super setEditing:editing animated: animated];
     
-    // FIXME: 应该封装为两个方法.
     if (YES == self.editing) {// 转换至编辑状态
         self.navigationItem.rightBarButtonItem.title = @"保存";
-        self.view.avatarImageView.userInteractionEnabled = YES;
-        self.view.nameTF.enabled = YES;
-        self.view.sexTF.enabled = YES;
-        self.view.ageTF.enabled = YES;
-        self.view.telTF.enabled = YES;
+        
+        [self enableViewEdit];
+        
         return;
     }
     
     // 转换至不可编辑状态
     self.navigationItem.rightBarButtonItem.title = @"编辑";
-    self.view.avatarImageView.userInteractionEnabled = NO;
-    self.view.nameTF.enabled = NO;
-    self.view.sexTF.enabled = NO;
-    self.view.ageTF.enabled = NO;
-    self.view.telTF.enabled = NO;
-    
+    [self disableViewEdit];
 }
 
 - (void) updateTitle
@@ -244,6 +229,26 @@ static CFEditPersonViewController * sharedObj = nil;
     }
     
     return navigtionController;
+}
+
+- (void) enableViewEdit
+{
+    self.view.avatarImageView.userInteractionEnabled = YES;
+    self.view.nameTF.enabled = YES;
+    self.view.sexTF.enabled = YES;
+    self.view.ageTF.enabled = YES;
+    self.view.telTF.enabled = YES;
+    self.view.introTV.editable = YES;
+}
+
+- (void) disableViewEdit
+{
+    self.view.avatarImageView.userInteractionEnabled = NO;
+    self.view.nameTF.enabled = NO;
+    self.view.sexTF.enabled = NO;
+    self.view.ageTF.enabled = NO;
+    self.view.telTF.enabled = NO;
+    self.view.introTV.editable = NO;
 }
 #pragma mark - <UITextFieldDelegate>协议方法
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

@@ -16,19 +16,19 @@
 #define kSexKey @"key"
 #define kAgeKey @"age"
 #define kTelKey @"tel"
-#define kNameOfDefaultImg @"nameOfdefaultImg"
-
+#define kIntro @"intro"
 /**
  * 通讯录成员类,用作通讯录成员
  */
 @interface CFPerson : NSObject <NSCoding>
 
 #pragma mark - 属性
-@property (nonatomic, copy) NSString * name; //!< 姓名.
-@property (retain, nonatomic) NSString * avatar; //!< 头像图片名称
-@property (nonatomic, retain) NSString * sex; //!< 性别
-@property (assign, nonatomic) NSUInteger age; //!< 年龄
-@property (nonatomic, copy) NSString * tel; //!< 电话.
+@property (copy, nonatomic) NSString * name; //!< 姓名.
+@property (copy, nonatomic) NSString * avatar; //!< 头像图片名称.
+@property (copy, nonatomic) NSString * sex; //!< 性别.
+@property (assign, nonatomic) NSUInteger age; //!< 年龄.
+@property (copy, nonatomic) NSString * tel; //!< 电话.
+@property (copy, nonatomic) NSString * intro; //!< 简介.
 @property (retain, nonatomic, readonly) NSString * nameOfdefaultImg; //!< 默认头像名称.
 @property (retain, nonatomic, readonly) UIImage * avatarImage; //!< 头像图片,根据头像名称动态获取.
 

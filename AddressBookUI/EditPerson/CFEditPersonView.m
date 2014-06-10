@@ -16,6 +16,7 @@
 @property (retain, nonatomic, readwrite) UITextField * sexTF; //!< 性别编辑框
 @property (retain, nonatomic, readwrite) UITextField * ageTF; //!< 年龄编辑框
 @property (retain, nonatomic, readwrite) UITextField * telTF; //!< 联系方式编辑框
+@property (retain, nonatomic, readwrite) UITextView * introTV; //!< 简介编辑
 @end
 
 @implementation CFEditPersonView
@@ -44,65 +45,71 @@
 
 - (void)setupSubviews: (CGRect) rect
 {
-    if (nil == self.avatarImageView) { // 初始化
-        self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor whiteColor];
+    
+    // 头像
+    CGFloat landscapeSpace = 30.0; // 头像距离边框的距离
+    
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(landscapeSpace, 100, 80, 120)];
+    self.avatarImageView= imageView;
+    [imageView release];
+    
+    [self addSubview: self.avatarImageView];
+    
+    // 给头像视图添加手势
+    self.avatarImageView.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self.delegate action:@selector(handlAvatarViewTapGesture:)];
+    
+    [self.avatarImageView addGestureRecognizer: tapGesture];
+    [tapGesture release];
+    
+    
+    //头像左边的几个编辑框
+    NSArray * placeHolders = @[@"请输入姓名", @"请输入性别", @"请输入年龄", @"请输入联系方式"];
+    
+    CGFloat portraitSpace = landscapeSpace / (placeHolders.count - 1); // 编辑框竖直方向的间距
+    
+    __block CGRect baseRect = CGRectMake(2 * self.avatarImageView.frame.origin.x + self.avatarImageView.frame.size.width, self.avatarImageView.frame.origin.y, rect.size.width - self.avatarImageView.frame.size.width - self.avatarImageView.frame.origin.x - 2 * self.avatarImageView.frame.origin.x, (self.avatarImageView.frame.size.height - portraitSpace * (placeHolders.count - 1)) / placeHolders.count);
+    
+    [placeHolders enumerateObjectsUsingBlock:^(NSString * placeHolder, NSUInteger idx, BOOL *stop) {
+        UITextField * tempTF = [[UITextField alloc] initWithFrame:baseRect];
+        tempTF.placeholder = placeHolder;
+        tempTF.borderStyle = UITextBorderStyleRoundedRect;
+        tempTF.delegate = self.delegate;
         
-        // 头像
-        CGFloat landscapeSpace = 30.0; // 头像距离边框的距离
+        if ([placeHolder isEqualToString: @"请输入姓名"]) {
+            self.nameTF = tempTF;
+        }
         
-        UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(landscapeSpace, 100, 80, 120)];
-        self.avatarImageView= imageView;
-        [imageView release];
+        if ([placeHolder isEqualToString: @"请输入性别"]) {
+            self.sexTF = tempTF;
+        }
         
-        [self addSubview: self.avatarImageView];
+        if ([placeHolder isEqualToString: @"请输入年龄"]) {
+            tempTF.keyboardType = UIKeyboardTypeNumberPad;
+            self.ageTF = tempTF;
+        }
         
-        // 给头像视图添加手势
-        self.avatarImageView.userInteractionEnabled = YES;
+        if ([placeHolder isEqualToString: @"请输入联系方式"]) {
+            tempTF.keyboardType = UIKeyboardTypeNumberPad;
+            self.telTF = tempTF;
+        }
         
-        UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self.delegate action:@selector(handlAvatarViewTapGesture:)];
+        [self addSubview: tempTF];
         
-        [self.avatarImageView addGestureRecognizer: tapGesture];
-        [tapGesture release];
+        [tempTF release];
         
-        
-        //几个编辑框
-        CGFloat portraitSpace = landscapeSpace / 3; // 编辑框竖直方向的间距
-        
-        NSArray * placeHolders = @[@"请输入姓名", @"请输入性别", @"请输入年龄", @"请输入联系方式"];
-        
-        __block CGRect baseRect = CGRectMake(2 * self.avatarImageView.frame.origin.x + self.avatarImageView.frame.size.width, self.avatarImageView.frame.origin.y, rect.size.width - self.avatarImageView.frame.size.width - self.avatarImageView.frame.origin.x - 2 * self.avatarImageView.frame.origin.x, (self.avatarImageView.frame.size.height - portraitSpace * 3) / 4);
-        
-        [placeHolders enumerateObjectsUsingBlock:^(NSString * placeHolder, NSUInteger idx, BOOL *stop) {
-            UITextField * tempTF = [[UITextField alloc] initWithFrame:baseRect];
-            tempTF.placeholder = placeHolder;
-            tempTF.borderStyle = UITextBorderStyleRoundedRect;
-            tempTF.delegate = self.delegate;
-            
-            if ([placeHolder isEqualToString: @"请输入姓名"]) {
-                self.nameTF = tempTF;
-            }
-            
-            if ([placeHolder isEqualToString: @"请输入性别"]) {
-                self.sexTF = tempTF;
-            }
-            
-            if ([placeHolder isEqualToString: @"请输入年龄"]) {
-                tempTF.keyboardType = UIKeyboardTypeNumberPad;
-                self.ageTF = tempTF;
-            }
-            
-            if ([placeHolder isEqualToString: @"请输入联系方式"]) {
-                tempTF.keyboardType = UIKeyboardTypeNumberPad;
-                self.telTF = tempTF;
-            }
-            
-            [self addSubview: tempTF];
-            
-            [tempTF release];
-            
-            baseRect = CGRectMake(baseRect.origin.x, baseRect.origin.y + baseRect.size.height + portraitSpace, baseRect.size.width, baseRect.size.height);
-        }];
-    }
+        baseRect = CGRectMake(baseRect.origin.x, baseRect.origin.y + baseRect.size.height + portraitSpace, baseRect.size.width, baseRect.size.height);
+    }];
+    
+    // 个人简介编辑框
+    CGRect rectOfIntro = CGRectMake(self.avatarImageView.frame.origin.x, self.avatarImageView.frame.origin.y + self.avatarImageView.frame.size.height + portraitSpace, rect.size.width - 2 * self.avatarImageView.frame.origin.x, rect.size.height - self.avatarImageView.frame.size.height - self.avatarImageView.frame.origin.y - 2 * portraitSpace - 215.0);
+    UITextView * introTV = [[UITextView alloc] initWithFrame: rectOfIntro];
+    introTV.backgroundColor = [UIColor lightGrayColor];
+    self.introTV = introTV;
+    [self addSubview: introTV];
+    [introTV release];
 }
 
 - (void)setPerson:(CFPerson *)person
@@ -116,9 +123,17 @@
     self.sexTF.text = self.person.sex;
     self.ageTF.text = [NSString stringWithFormat: @"%lu", self.person.age];
     self.telTF.text = self.person.tel;
+    self.introTV.text = self.person.intro;
     
-    if (YES == [self isAddPerson]  && 0 == person.age) {
-        self.ageTF.text = @"";
+    if (YES == [self isAddPerson]) {
+        // 逻辑有误!
+        if (0 == person.age) {
+            self.ageTF.text = @"";
+        }
+        
+        if (nil == self.telTF.text || [@"" isEqualToString: self.telTF.text]) {
+            self.introTV.text = [NSString stringWithFormat:@"请简单描述一下这个人吧"];
+        }
     }
 }
 

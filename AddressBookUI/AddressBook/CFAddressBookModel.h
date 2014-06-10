@@ -14,9 +14,9 @@
  */
 @interface CFAddressBookModel : NSObject
 #pragma mark - 属性
-@property (nonatomic, retain) NSMutableArray * persons; //!< 联系人
-@property (nonatomic, retain) NSString * pathOfData; //!< 数据文件
-@property (nonatomic, retain, readonly) NSMutableDictionary * personsByGroups; //!: 按姓名拼音首字母分组排序的字典,以首字母为键,以联系人数组为值
+@property (retain, nonatomic, readonly) NSMutableArray * persons; //!< 联系人
+@property (retain, nonatomic, readonly) NSString * pathOfData; //!< 数据文件
+@property (retain, nonatomic, readonly) NSMutableDictionary * personsByGroups; //!: 按姓名拼音首字母分组排序的字典,以首字母为键,以联系人数组为值
 #pragma mark - 实例方法
 /**
  *  从文件中获取数据,进行初始化
@@ -32,14 +32,13 @@
  *
  *  @return YES,成功;NO,写入失败.
  */
-// FIXME:命名似乎不妥!
 - (BOOL) update;
 
 /**
  *  初始设置peronsByGroups属性
  *
  */
-- (void) setupPersonsByGroups;
+- (void) updatePersonsByGroups;
 
 /**
  *  返回一个汉语名的拼音首字母
@@ -65,12 +64,5 @@
  *  @return YES,添加成功;NO,添加失败
  */
 - (BOOL) addPerson: (CFPerson *) aPerson;
-
-/**
- *  添加联系人至personsByGroups属性
- *
- *  @param aPerson 联系人
- */
-- (void) addToPersonsByGroupsWithPerson: (CFPerson *) aPerson;
 
 @end

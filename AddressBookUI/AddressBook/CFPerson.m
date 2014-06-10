@@ -23,6 +23,7 @@
     self.tel = nil;
     self.nameOfdefaultImg = nil;
     self.avatarImage = nil;
+    self.intro = nil;
     
     [super dealloc];
 }
@@ -132,7 +133,8 @@
         self.sex = [aDecoder decodeObjectForKey: kSexKey];
         self.age = [aDecoder decodeIntegerForKey: kAgeKey];
         self.tel = [aDecoder decodeObjectForKey: kTelKey];
-        self.nameOfdefaultImg = [aDecoder decodeObjectForKey: kNameOfDefaultImg];
+        self.intro = [aDecoder decodeObjectForKey: kIntro];
+        self.nameOfdefaultImg = DEFAULT_AVATAR_NAME;
     }
 
     return self;
@@ -144,6 +146,6 @@
     [aCoder encodeObject: self.sex forKey: kSexKey];
     [aCoder encodeInteger: self.age forKey: kAgeKey];
     [aCoder encodeObject: self.tel forKey: kTelKey];
-    [aCoder encodeObject: self.nameOfdefaultImg forKey: kNameOfDefaultImg];
+    [aCoder encodeObject: self.intro forKey: kIntro];
 }
 @end

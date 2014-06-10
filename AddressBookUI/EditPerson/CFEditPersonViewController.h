@@ -55,4 +55,14 @@
  *  更新导航栏标题.
  */
 - (void) updateTitle;
+
+/**
+ *  使视图处于可编辑状态
+ */
+- (void) enableViewEdit;
+
+/**
+ *  使视图处于不可编辑状态
+ */
+- (void) disableViewEdit;
 @end

@@ -11,12 +11,13 @@
 
 @interface CFEditPersonView : UIView
 @property (retain ,nonatomic) CFPerson * person; //!< 联系人
-@property (assign, nonatomic, readwrite) id<UITextFieldDelegate> delegate; //!< 代理
+@property (assign, nonatomic) id<UITextFieldDelegate> delegate; //!< 代理
 @property (retain, nonatomic, readonly) UIImageView * avatarImageView; //!< 相片视图
 @property (retain, nonatomic, readonly) UITextField * nameTF; //!< 姓名编辑框
 @property (retain, nonatomic, readonly) UITextField * sexTF; //!< 性别编辑框
 @property (retain, nonatomic, readonly) UITextField * ageTF; //!< 年龄编辑框
 @property (retain, nonatomic, readonly) UITextField * telTF; //!< 联系方式编辑框
+@property (retain, nonatomic, readonly) UITextView * introTV; //!< 简介编辑
 
 - (instancetype) initWithFrame: (CGRect)frame
                       delegate: (id) delegate;

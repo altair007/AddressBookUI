@@ -44,6 +44,21 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+    NSInteger countOfOld = 0;
+    NSInteger countOfNew = 0;
+    NSDictionary * dictOld = [change objectForKey: @"old"];
+    if (nil != dictOld) {
+        countOfOld = dictOld.count;
+    }
+    
+    NSDictionary * dictNew = [change objectForKey: @"new"];
+    if (nil != dictNew) {
+        countOfNew = dictNew.count;
+    }
+    
+    if (countOfNew < countOfOld) {// 说明是在删除联系人,不需要通讯录视图重新加载数据
+        return;
+    }
     
     [self.addressBookVC.view reloadData];
 }
@@ -87,7 +102,7 @@
     [model retain];
     [_model release];
     _model = model;
-    [self.model addObserver:self forKeyPath:PATH_KVO_PERSONSBYGROUPS options:NSKeyValueObservingOptionNew context: NULL];
+    [self.model addObserver:self forKeyPath:PATH_KVO_PERSONSBYGROUPS options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context: NULL];
 }
 
 - (BOOL) addPerson: (CFPerson *) aPerson
