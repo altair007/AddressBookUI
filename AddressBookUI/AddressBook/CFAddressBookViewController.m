@@ -17,6 +17,12 @@
 @end
 
 @implementation CFAddressBookViewController
+-(void)dealloc
+{
+    
+    [super dealloc];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -62,19 +68,10 @@
     // 获取按姓名首字母分组的字典
     NSDictionary * personsDict = self.navigationController.model.personsByGroups;
     
-    // 获取keys数组
-    NSArray * keys = personsDict.allKeys;
-    
-    // keys数组排序
-    keys = [keys sortedArrayUsingComparator:^NSComparisonResult(NSString * obj1, NSString * obj2) {
-        return [obj1 compare: obj2];
-    }];
-    
-    // 获取此分区对应的键
-    NSString * key = [keys objectAtIndex:section];
+    NSString * groupName = [self groupNameInSection: section];
     
     // 获取某分区对应的通讯录成员
-    NSArray * personsArr = [personsDict objectForKey: key];
+    NSArray * personsArr = [personsDict objectForKey: groupName];
 
     return personsArr;
 }
@@ -82,28 +79,18 @@
 - (CFPerson *)personAtIndexPath:(NSIndexPath *)indexPath
 {
     CFPerson * person;
-    person = [[self personsInSection: indexPath.section] objectAtIndex: indexPath.row];
+    NSArray * persons = [self personsInSection: indexPath.section];
+    person = persons[indexPath.row];
 
     return person;
 }
 
 - (NSString *) groupNameInSection: (NSInteger) section
 {
-    // 获取按姓名首字母分组的字典
-    NSDictionary * personsDict = self.navigationController.model.personsByGroups;
+    // 获取此分区对应的组名
+    NSString * groupName = [self.groups objectAtIndex:section];
     
-    // 获取keys数组
-    NSArray * keys = personsDict.allKeys;
-    
-    // keys数组排序
-    keys = [keys sortedArrayUsingComparator:^NSComparisonResult(NSString * obj1, NSString * obj2) {
-        return [obj1 compare: obj2];
-    }];
-    
-    // 获取此分区对应的键
-    NSString * key = [keys objectAtIndex:section];
-    
-    return key;
+    return groupName;
 }
 
 - (void) didClickAddButtonItem: (UIBarButtonItem *) aButtonItem
@@ -120,10 +107,19 @@
     return navigtionController;
 }
 
--(void)dealloc
+- (NSArray *) groups
 {
+    // 获取按姓名首字母分组的字典
+    NSDictionary * personsDict = self.navigationController.model.personsByGroups;
     
-    [super dealloc];
+    // 获取keys数组
+    NSArray * groups = personsDict.allKeys;
+
+    groups = [groups sortedArrayUsingComparator:^NSComparisonResult(NSString * obj1, NSString * obj2) {
+        return [obj1 compare: obj2];
+    }];
+    
+    return groups;
 }
 
 #pragma mark - UITableViewDataSource协议方法
@@ -179,10 +175,10 @@
     return title;
 }
 
-//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-//{
-//    
-//}
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return  self.groups;
+}
 
 #pragma mark - UITableViewDelegate协议方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -258,8 +258,8 @@
 				C2149F28194721A80059C623 /* CFPersonTableViewCell.m */,
 				C23F26A41947FAFD005C67B2 /* CFPersonCellInfoView.h */,
 				C23F26A51947FAFD005C67B2 /* CFPersonCellInfoView.m */,
-				C220EB5019470E6700D9796F /* CFMaleTableViewCell.h */,
 				C220EB5119470E6700D9796F /* CFMaleTableViewCell.m */,
+				C220EB5019470E6700D9796F /* CFMaleTableViewCell.h */,
 				C220EB5319470EEF00D9796F /* CFFemaleTableViewCell.h */,
 				C220EB5419470EEF00D9796F /* CFFemaleTableViewCell.m */,
 			);

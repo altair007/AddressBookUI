@@ -10,6 +10,16 @@
 @class CFPerson;
 @class CFPersonCellInfoView;
 
+// ???: 定义成类变量,更合适些吧?不同页面间,已经开始混乱了!
+
+// 默认头像图片高度和高度
+#define HEIGHT_AVATAR   120.0
+#define WIDTH_AVATAR    80.0
+
+// 图像默认距离左边界和上边界的内间距.
+#define PADDING_LEFT_AVATAR WIDTH_AVATAR / 3
+#define PADDING_UP_AVATAR   PADDING_LEFT_AVATAR / 2
+
 /**
  *  用于显示联系人的单元格
  */
@@ -40,5 +50,15 @@
  *  @param rect 边框
  */
 - (void)setupSubviews: (CGRect) rect;
+
+/**
+ *  更新视图内容.通常在设置person之后,会向对象发送此消息.
+ */
+- (void) updateContentOfView;
+
+/**
+ *  更新视图边框信息,通常在更新视图内容后,向对象发送此消息.
+ */
+- (void) updateFrameOfView;
 
 @end

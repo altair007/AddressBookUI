@@ -161,6 +161,7 @@ static CFEditPersonViewController * sharedObj = nil;
 - (void) didClickReverseBackButtonItemAction: (UIBarButtonItem *) aButtonItem
 {
     // 是否是用户的误操作?
+    // ???: 临时删除!
     if (YES == self.editing) {
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您正在编辑联系人信息,确定离开?" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
         alertView.tag = TAG_ALERTVIEW_REVERSEBACK;

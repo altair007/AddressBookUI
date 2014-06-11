@@ -18,7 +18,16 @@
 @implementation CFPersonTableViewCell
 + (CGFloat) heightWithPerson: (CFPerson *) aPerson
 {
-    return 300;
+    CGFloat height;
+    height = [CFPersonCellInfoView heightWithPerson: aPerson];
+    
+    if (height < HEIGHT_AVATAR) {
+        height = HEIGHT_AVATAR;
+    }
+    
+    height += 2 * PADDING_UP_AVATAR;
+    
+    return height;
 }
 
 -(void)dealloc
@@ -58,19 +67,17 @@
 {
     self.backgroundColor = [UIColor whiteColor];
     
-    // 头像
-    // ???:不应该存在魔数!
-    CGFloat landscapeSpace = 30.0; // 头像距离边框的距离
-    
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(landscapeSpace, 15, 80, 120)];
+    // 头像视图
+    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(PADDING_LEFT_AVATAR, PADDING_UP_AVATAR, WIDTH_AVATAR, HEIGHT_AVATAR)];
     
     self.avatarIV= imageView;
     [imageView release];
     
     [self addSubview: self.avatarIV];
     
-    //头像旁边的几个编辑框
-    CFPersonCellInfoView * infoView = [[CFPersonCellInfoView alloc] initWithFrame:CGRectMake(2 * self.avatarIV.frame.origin.x + self.avatarIV.frame.size.width, self.avatarIV.frame.origin.y, rect.size.width - self.avatarIV.frame.size.width - self.avatarIV.frame.origin.x - 2 * self.avatarIV.frame.origin.x, 0)];
+    // 信息视图
+    CFPersonCellInfoView * infoView = [[CFPersonCellInfoView alloc] initWithFrame:CGRectMake(rect.size.width - DEFAULT_WIDTH - PADDING_LEFT_AVATAR, self.avatarIV.frame.origin.y, DEFAULT_WIDTH, DEFAULT_HEIGHT)];
+    
     self.infoView = infoView;
     [self addSubview: self.infoView];
     [infoView release];
@@ -84,26 +91,29 @@
     [_person release];
     _person = person;
     
-    // 设置视图
-    self.avatarIV.image = person.avatarImage;
-    
-    // ???:此处应该动态设置其高度!根据头像和标签的相对大小.
-//    // 设置信息视图的边框.
-//    CGRect originalOfInfowView = self.infoView.frame;
-    
-//    NSDictionary * textDic = @{NSFontAttributeName: [UIFont systemFontOfSize:15.0]};
-//    CGRect rect  = [person.intro boundingRectWithSize:CGSizeMake(self.introLabel.frame.size.width, 10000) options:NSStringDrawingUsesLineFragmentOrigin attributes:textDic context:nil];
-//    
-//    self.introLabel.frame = CGRectMake(originalOfIntrofoLabel.origin.x, originalOfIntrofoLabel.origin.y, originalOfIntrofoLabel.size.width, rect.size.height);
-//    
-//    self.infoView.frame = CGRectMake(originalOfInfowView.origin.x, originalOfInfowView.origin.y, originalOfInfowView.size.width, originalOfInfowView.size.height + self.introLabel.frame.size.height - originalOfIntrofoLabel.size.height);
+    // 更新视图内容
+    [self updateContentOfView];
 }
 
 - (CGFloat) height
 {
-    // ???: 存在太多魔数,非常不妥!
-    CGFloat height = 2 * self.infoView.frame.origin.y + self.infoView.frame.size.height;
+    CGFloat height = [[self class] heightWithPerson: self.person];
+    
     return height;
 }
 
+- (void) updateContentOfView
+{
+    self.avatarIV.image = self.person.avatarImage;
+    self.infoView.person = self.person;
+    
+    // 更新视图边框信息.
+    [self updateFrameOfView];
+}
+
+- (void)updateFrameOfView
+{    
+    // 更新视图的边框信息
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.height);
+}
 @end

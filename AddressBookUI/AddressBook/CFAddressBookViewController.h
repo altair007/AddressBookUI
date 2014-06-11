@@ -54,4 +54,10 @@
  */
 - (void) didClickAddButtonItem: (UIBarButtonItem *) aButtonItem;
 
+/**
+ *  获取分组名数组.
+ *
+ *  @return 获取分组.
+ */
+- (NSArray *) groups;
 @end

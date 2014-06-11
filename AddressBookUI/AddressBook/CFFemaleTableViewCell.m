@@ -7,6 +7,7 @@
 //
 
 #import "CFFemaleTableViewCell.h"
+#import "CFPersonCellInfoView.h"
 
 @implementation CFFemaleTableViewCell
 
@@ -15,10 +16,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-//        CGFloat xOfAvater = self.avatarIV.frame.origin.x;
-//        CGFloat xOfInfoView = self.infoView.frame.origin.x;
-//        self.infoView.frame = CGRectMake(xOfAvater, self.infoView.frame.origin.y, self.infoView.frame.size.width, self.infoView.frame.size.height);
-//        self.avatarIV.frame = CGRectMake(xOfInfoView + self.infoView.frame.size.width - self.avatarIV.frame.size.width, self.avatarIV.frame.origin.y, self.avatarIV.frame.size.width, self.avatarIV.frame.size.height);
+        CGFloat xOfAvater = self.avatarIV.frame.origin.x;
+        CGFloat xOfInfoView = self.infoView.frame.origin.x;
+        self.infoView.frame = CGRectMake(xOfAvater, self.infoView.frame.origin.y, self.infoView.frame.size.width, self.infoView.frame.size.height);
+        self.avatarIV.frame = CGRectMake(xOfInfoView + self.infoView.frame.size.width - self.avatarIV.frame.size.width, self.avatarIV.frame.origin.y, self.avatarIV.frame.size.width, self.avatarIV.frame.size.height);
     }
     return self;
 }
