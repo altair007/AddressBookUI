@@ -189,6 +189,7 @@
 				C217AB8719408CFB0006784A /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		C217AB8719408CFB0006784A /* Products */ = {
 			isa = PBXGroup;
