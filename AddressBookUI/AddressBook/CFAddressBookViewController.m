@@ -147,7 +147,7 @@
     CFPerson * person = [self personAtIndexPath: indexPath];
     
     if ([person.sex isEqualToString: @"男"]) {
-        static NSString * identifierOfMale = @"person";
+        static NSString * identifierOfMale = @"male";
         CFMaleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifierOfMale];
         
         if (nil == cell) {
@@ -159,7 +159,7 @@
         return cell;
     }
     
-    static NSString * identifierOfFemale = @"person";
+    static NSString * identifierOfFemale = @"female";
     CFFemaleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifierOfFemale];
     
     if (nil == cell) {
@@ -178,6 +178,11 @@
     title = [self groupNameInSection: section];
     return title;
 }
+
+//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+//{
+//    
+//}
 
 #pragma mark - UITableViewDelegate协议方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -208,8 +213,19 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CFPersonTableViewCell * cell = (CFPersonTableViewCell *)[self tableView: tableView cellForRowAtIndexPath: indexPath];
-    CGFloat height = cell.height;
+    CFPerson * person = [self personAtIndexPath: indexPath]; // 联系人
+
+    CGFloat height = 0.0; // 行高
+    
+    // 不同性别的人行高可能不同.
+    if ( [person.sex isEqualToString: @"男"]) {
+        height = [CFMaleTableViewCell heightWithPerson: person];
+        
+        return height;
+    }
+    
+    height = [CFFemaleTableViewCell heightWithPerson: person];
+    
     return height;
 }
 @end

@@ -39,6 +39,7 @@
 		C220EB5219470E6700D9796F /* CFMaleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C220EB5119470E6700D9796F /* CFMaleTableViewCell.m */; };
 		C220EB5519470EEF00D9796F /* CFFemaleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C220EB5419470EEF00D9796F /* CFFemaleTableViewCell.m */; };
 		C22FF93A19431127004094DD /* CFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FF93919431127004094DD /* CFMainViewController.m */; };
+		C23F26A61947FAFD005C67B2 /* CFPersonCellInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F26A51947FAFD005C67B2 /* CFPersonCellInfoView.m */; };
 		C281CA3E1941CC0300D61F40 /* addressBookData in Resources */ = {isa = PBXBuildFile; fileRef = C281CA2B1941CC0300D61F40 /* addressBookData */; };
 		C281CA431941CC0300D61F40 /* CFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C281CA351941CC0300D61F40 /* CFAppDelegate.m */; };
 		C281CA451941CC0300D61F40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C281CA381941CC0300D61F40 /* InfoPlist.strings */; };
@@ -100,6 +101,8 @@
 		C220EB5419470EEF00D9796F /* CFFemaleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFFemaleTableViewCell.m; path = AddressBook/CFFemaleTableViewCell.m; sourceTree = "<group>"; };
 		C22FF93819431127004094DD /* CFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFMainViewController.h; sourceTree = "<group>"; };
 		C22FF93919431127004094DD /* CFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFMainViewController.m; sourceTree = "<group>"; };
+		C23F26A41947FAFD005C67B2 /* CFPersonCellInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPersonCellInfoView.h; path = AddressBook/CFPersonCellInfoView.h; sourceTree = "<group>"; };
+		C23F26A51947FAFD005C67B2 /* CFPersonCellInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFPersonCellInfoView.m; path = AddressBook/CFPersonCellInfoView.m; sourceTree = "<group>"; };
 		C281CA2B1941CC0300D61F40 /* addressBookData */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = addressBookData; sourceTree = "<group>"; };
 		C281CA2D1941CC0300D61F40 /* AddressBookUI-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AddressBookUI-Prefix.pch"; sourceTree = "<group>"; };
 		C281CA341941CC0300D61F40 /* CFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFAppDelegate.h; sourceTree = "<group>"; };
@@ -253,6 +256,8 @@
 				C216C05D19420ED0008DF648 /* CFAddressBookViewController.m */,
 				C2149F27194721A80059C623 /* CFPersonTableViewCell.h */,
 				C2149F28194721A80059C623 /* CFPersonTableViewCell.m */,
+				C23F26A41947FAFD005C67B2 /* CFPersonCellInfoView.h */,
+				C23F26A51947FAFD005C67B2 /* CFPersonCellInfoView.m */,
 				C220EB5019470E6700D9796F /* CFMaleTableViewCell.h */,
 				C220EB5119470E6700D9796F /* CFMaleTableViewCell.m */,
 				C220EB5319470EEF00D9796F /* CFFemaleTableViewCell.h */,
@@ -381,6 +386,7 @@
 				C281CA431941CC0300D61F40 /* CFAppDelegate.m in Sources */,
 				C216C06219420ED0008DF648 /* CFAddressBookViewController.m in Sources */,
 				C216C06019420ED0008DF648 /* CFAddressBookModel.m in Sources */,
+				C23F26A61947FAFD005C67B2 /* CFPersonCellInfoView.m in Sources */,
 				C220EB5519470EEF00D9796F /* CFFemaleTableViewCell.m in Sources */,
 				C20FB7D519455C2B0003DB70 /* CFEditPersonView.m in Sources */,
 				C216C06319420ED0008DF648 /* CFPerson.m in Sources */,

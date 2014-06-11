@@ -192,6 +192,21 @@ static CFEditPersonViewController * sharedObj = nil;
         UIImagePickerController * imagePC = [[UIImagePickerController alloc] init];
         imagePC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         imagePC.delegate = self;
+        // ???: 老师的代码写为 nil非常不妥吧?
+        // http://www.cnblogs.com/zhulin/archive/2012/10/18/2729627.html
+        // il: A null pointer to an Objective-C object.  ( #define nil ((id)0)  )
+//
+//        nil 是一个对象值。
+//        
+//        
+//        
+//        Nil: A null pointer to an Objective-C class.
+//        
+//        
+//        
+//        NULL: A null pointer to anything else.  ( #define NULL ((void *)0)  )
+//            
+//            NULL是一个通用指针（泛型指针）。
         [self presentViewController:imagePC animated:YES completion:NULL];
     }
 }
