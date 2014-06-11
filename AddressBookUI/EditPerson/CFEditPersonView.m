@@ -47,6 +47,7 @@
 {
     self.backgroundColor = [UIColor whiteColor];
     
+    // ???: 好多魔数,怎么回事?!
     // 头像
     CGFloat landscapeSpace = 30.0; // 头像距离边框的距离
     
@@ -107,6 +108,7 @@
     CGRect rectOfIntro = CGRectMake(self.avatarImageView.frame.origin.x, self.avatarImageView.frame.origin.y + self.avatarImageView.frame.size.height + portraitSpace, rect.size.width - 2 * self.avatarImageView.frame.origin.x, rect.size.height - self.avatarImageView.frame.size.height - self.avatarImageView.frame.origin.y - 2 * portraitSpace - 215.0);
     UITextView * introTV = [[UITextView alloc] initWithFrame: rectOfIntro];
     introTV.backgroundColor = [UIColor lightGrayColor];
+    introTV.delegate = self.delegate;
     self.introTV = introTV;
     [self addSubview: introTV];
     [introTV release];

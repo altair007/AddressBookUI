@@ -12,6 +12,8 @@
 #import "CFPersonTableViewCell.h"
 #import "CFMaleTableViewCell.h"
 #import "CFFemaleTableViewCell.h"
+#import "RIButtonItem.h"
+#import "UIActionSheet+Blocks.h"
 
 @interface CFAddressBookViewController ()
 @end
@@ -192,18 +194,30 @@
 {
     // 删除
     if (UITableViewCellEditingStyleDelete == editingStyle) {
-        // 先获取此分区所有成员
-        NSArray * personsArray = [self personsInSection: indexPath.section];
+        // 获取要操作的数据.
+        CFPerson * person = [self personAtIndexPath: indexPath];
         
-        // 删除数据
-        [self.navigationController removePerson: [self personAtIndexPath: indexPath]];
-        
-        // 根据分区成员数量来决定是删除行,还是直接删除分区
-        if (1 == personsArray.count) { // 可以直接删除分区了
-            [tableView deleteSections:[NSIndexSet indexSetWithIndex: indexPath.section] withRowAnimation: UITableViewRowAnimationAutomatic];
-        }else{ // 只删除行
-            [tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
-        }
+        // 是不是用户的误操作?
+        RIButtonItem * cancelItem = [RIButtonItem itemWithLabel:@"取消"
+                                        action:^{/* 不做任何操作 */}];
+        RIButtonItem * deleteItem = [RIButtonItem itemWithLabel: @"确定"
+                                                         action:^{            //删除联系人
+             // 先获取此分区所有成员
+             NSArray * personsArray = [self personsInSection: indexPath.section];
+             
+             // 删除数据
+             [self.navigationController removePerson: person];
+             
+             // 根据分区成员数量来决定是删除行,还是直接删除分区
+             if (1 == personsArray.count) { // 可以直接删除分区了
+                 [tableView deleteSections:[NSIndexSet indexSetWithIndex: indexPath.section] withRowAnimation: UITableViewRowAnimationAutomatic];
+             }else{ // 只删除行
+                 [tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
+             }}];
+        UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString    stringWithFormat:@"确定删除联系人 %@ ?", person.name]
+                                                          cancelButtonItem:cancelItem
+                                                     destructiveButtonItem:deleteItem otherButtonItems: nil];
+        [actionSheet showInView: self.view];
     }
 }
 

@@ -19,7 +19,7 @@
 #define INDEX_CONFIRM_BUTTON 0
 #define INDEX_CANCEL_BUTTON 1
 
-@interface CFEditPersonViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
+@interface CFEditPersonViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, UITextViewDelegate>
 @property (retain, nonatomic) CFPerson * person;
 @property (retain, nonatomic, readonly) CFMainViewController * navigationController;
 @property (retain, nonatomic) CFEditPersonView * view;

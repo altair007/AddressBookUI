@@ -11,6 +11,12 @@
 		C20FB7D819455C400003DB70 /* CFEditPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20FB7D719455C400003DB70 /* CFEditPersonViewController.m */; };
 		C212855E19443973004EC639 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C212855D19443973004EC639 /* readme.md */; };
 		C212856A194458BC004EC639 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2128569194458BC004EC639 /* default.jpg */; };
+		C213072819488A9C00E5FA0B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C213071F19488A9C00E5FA0B /* LICENSE */; };
+		C213072919488A9C00E5FA0B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C213072019488A9C00E5FA0B /* README.md */; };
+		C213072A19488A9C00E5FA0B /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C213072219488A9C00E5FA0B /* RIButtonItem.m */; };
+		C213072B19488A9C00E5FA0B /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = C213072419488A9C00E5FA0B /* UIActionSheet+Blocks.m */; };
+		C213072C19488A9C00E5FA0B /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = C213072619488A9C00E5FA0B /* UIAlertView+Blocks.m */; };
+		C213072D19488A9C00E5FA0B /* UIAlertView-Blocks.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C213072719488A9C00E5FA0B /* UIAlertView-Blocks.podspec */; };
 		C2149F29194721A80059C623 /* CFPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2149F28194721A80059C623 /* CFPersonTableViewCell.m */; };
 		C216C0291941F283008DF648 /* AddressBookUI-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C216C0281941F283008DF648 /* AddressBookUI-Info.plist */; };
 		C216C04D19420EB7008DF648 /* 拜勒岗·鲁伊森邦.png in Resources */ = {isa = PBXBuildFile; fileRef = C216C04219420EB7008DF648 /* 拜勒岗·鲁伊森邦.png */; };
@@ -64,6 +70,15 @@
 		C20FB7D719455C400003DB70 /* CFEditPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFEditPersonViewController.m; path = EditPerson/CFEditPersonViewController.m; sourceTree = "<group>"; };
 		C212855D19443973004EC639 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = SOURCE_ROOT; };
 		C2128569194458BC004EC639 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = default.jpg; path = Resources/default.jpg; sourceTree = "<group>"; };
+		C213071F19488A9C00E5FA0B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C213072019488A9C00E5FA0B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		C213072119488A9C00E5FA0B /* RIButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIButtonItem.h; sourceTree = "<group>"; };
+		C213072219488A9C00E5FA0B /* RIButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RIButtonItem.m; sourceTree = "<group>"; };
+		C213072319488A9C00E5FA0B /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
+		C213072419488A9C00E5FA0B /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
+		C213072519488A9C00E5FA0B /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		C213072619488A9C00E5FA0B /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		C213072719488A9C00E5FA0B /* UIAlertView-Blocks.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UIAlertView-Blocks.podspec"; sourceTree = "<group>"; };
 		C2149F27194721A80059C623 /* CFPersonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFPersonTableViewCell.h; path = AddressBook/CFPersonTableViewCell.h; sourceTree = "<group>"; };
 		C2149F28194721A80059C623 /* CFPersonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFPersonTableViewCell.m; path = AddressBook/CFPersonTableViewCell.m; sourceTree = "<group>"; };
 		C216C0281941F283008DF648 /* AddressBookUI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AddressBookUI-Info.plist"; path = "Resources/AddressBookUI-Info.plist"; sourceTree = "<group>"; };
@@ -145,6 +160,22 @@
 				C20FB7D719455C400003DB70 /* CFEditPersonViewController.m */,
 			);
 			name = EditPerson;
+			sourceTree = "<group>";
+		};
+		C213071E19488A9C00E5FA0B /* UIAlertView-Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				C213071F19488A9C00E5FA0B /* LICENSE */,
+				C213072019488A9C00E5FA0B /* README.md */,
+				C213072119488A9C00E5FA0B /* RIButtonItem.h */,
+				C213072219488A9C00E5FA0B /* RIButtonItem.m */,
+				C213072319488A9C00E5FA0B /* UIActionSheet+Blocks.h */,
+				C213072419488A9C00E5FA0B /* UIActionSheet+Blocks.m */,
+				C213072519488A9C00E5FA0B /* UIAlertView+Blocks.h */,
+				C213072619488A9C00E5FA0B /* UIAlertView+Blocks.m */,
+				C213072719488A9C00E5FA0B /* UIAlertView-Blocks.podspec */,
+			);
+			path = "UIAlertView-Blocks";
 			sourceTree = "<group>";
 		};
 		C216C02A1941F351008DF648 /* Supporting Files */ = {
@@ -242,6 +273,7 @@
 				C216C05F19420ED0008DF648 /* CFPerson.m */,
 				C281CA4D1941CC9800D61F40 /* AddressBook */,
 				C20FB7D219455C0C0003DB70 /* EditPerson */,
+				C213071E19488A9C00E5FA0B /* UIAlertView-Blocks */,
 				C216C02B194200CD008DF648 /* img */,
 				C216C02A1941F351008DF648 /* Supporting Files */,
 			);
@@ -349,12 +381,15 @@
 				C216C04E19420EB7008DF648 /* 蒂雅·赫丽贝尔.png in Resources */,
 				C216C05019420EB7008DF648 /* 柯雅泰·史塔克.png in Resources */,
 				C212856A194458BC004EC639 /* default.jpg in Resources */,
+				C213072819488A9C00E5FA0B /* LICENSE in Resources */,
 				C216C05519420EB7008DF648 /* 牙密·里亚尔戈.png in Resources */,
 				C216C05719420EB7008DF648 /* 佐马利·路鲁.png in Resources */,
 				C216C05119420EB7008DF648 /* 妮莉艾露·杜·欧德修凡克.png in Resources */,
 				C216C05619420EB7008DF648 /* 亚罗尼洛·艾鲁鲁耶利.png in Resources */,
 				C216C05219420EB7008DF648 /* 诺伊特拉·吉尔加.png in Resources */,
 				C216C05319420EB7008DF648 /* 萨尔阿波罗·格兰兹.png in Resources */,
+				C213072919488A9C00E5FA0B /* README.md in Resources */,
+				C213072D19488A9C00E5FA0B /* UIAlertView-Blocks.podspec in Resources */,
 				C281CA3E1941CC0300D61F40 /* addressBookData in Resources */,
 				C216C04F19420EB7008DF648 /* 葛力姆乔·贾卡杰克.png in Resources */,
 				C216C05419420EB7008DF648 /* 乌尔奇奥拉·西法.png in Resources */,
@@ -381,15 +416,18 @@
 				C20FB7D819455C400003DB70 /* CFEditPersonViewController.m in Sources */,
 				C220EB5219470E6700D9796F /* CFMaleTableViewCell.m in Sources */,
 				C216C06119420ED0008DF648 /* CFAddressBookView.m in Sources */,
+				C213072A19488A9C00E5FA0B /* RIButtonItem.m in Sources */,
 				C22FF93A19431127004094DD /* CFMainViewController.m in Sources */,
 				C281CA471941CC0300D61F40 /* main.m in Sources */,
 				C2149F29194721A80059C623 /* CFPersonTableViewCell.m in Sources */,
 				C281CA431941CC0300D61F40 /* CFAppDelegate.m in Sources */,
 				C216C06219420ED0008DF648 /* CFAddressBookViewController.m in Sources */,
+				C213072C19488A9C00E5FA0B /* UIAlertView+Blocks.m in Sources */,
 				C216C06019420ED0008DF648 /* CFAddressBookModel.m in Sources */,
 				C23F26A61947FAFD005C67B2 /* CFPersonCellInfoView.m in Sources */,
 				C220EB5519470EEF00D9796F /* CFFemaleTableViewCell.m in Sources */,
 				C20FB7D519455C2B0003DB70 /* CFEditPersonView.m in Sources */,
+				C213072B19488A9C00E5FA0B /* UIActionSheet+Blocks.m in Sources */,
 				C216C06319420ED0008DF648 /* CFPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

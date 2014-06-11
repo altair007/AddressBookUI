@@ -161,7 +161,6 @@ static CFEditPersonViewController * sharedObj = nil;
 - (void) didClickReverseBackButtonItemAction: (UIBarButtonItem *) aButtonItem
 {
     // 是否是用户的误操作?
-    // ???: 临时删除!
     if (YES == self.editing) {
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您正在编辑联系人信息,确定离开?" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
         alertView.tag = TAG_ALERTVIEW_REVERSEBACK;
@@ -193,21 +192,7 @@ static CFEditPersonViewController * sharedObj = nil;
         UIImagePickerController * imagePC = [[UIImagePickerController alloc] init];
         imagePC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         imagePC.delegate = self;
-        // ???: 老师的代码写为 nil非常不妥吧?
-        // http://www.cnblogs.com/zhulin/archive/2012/10/18/2729627.html
-        // il: A null pointer to an Objective-C object.  ( #define nil ((id)0)  )
-//
-//        nil 是一个对象值。
-//        
-//        
-//        
-//        Nil: A null pointer to an Objective-C class.
-//        
-//        
-//        
-//        NULL: A null pointer to anything else.  ( #define NULL ((void *)0)  )
-//            
-//            NULL是一个通用指针（泛型指针）。
+        
         [self presentViewController:imagePC animated:YES completion:NULL];
     }
 }
@@ -273,6 +258,11 @@ static CFEditPersonViewController * sharedObj = nil;
     return YES;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
+{
+    
+    return NO;
+}
 #pragma mark - <UIImagePickerControllerDelegate>协议方法
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -300,4 +290,24 @@ static CFEditPersonViewController * sharedObj = nil;
     }
 }
 
+#pragma mark - <UITextViewDelegate> 协议方法
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+//    [self selectAll: nil];
+    return YES;
+}
+
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    [self selectAll: nil];
+//    textView.selectedRange = NSMakeRange(0, 11);
+//    NSRange range = textView.selectedRange;
+//    int a;
+}
+
+- (void)textViewDidChangeSelection:(UITextView *)textView
+{
+    NSRange range = textView.selectedRange;
+    int a;
+}
 @end

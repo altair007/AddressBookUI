@@ -11,7 +11,7 @@
 
 @interface CFEditPersonView : UIView
 @property (retain ,nonatomic) CFPerson * person; //!< 联系人
-@property (assign, nonatomic) id<UITextFieldDelegate> delegate; //!< 代理
+@property (assign, nonatomic) id<UITextFieldDelegate, UITextViewDelegate> delegate; //!< 代理
 @property (retain, nonatomic, readonly) UIImageView * avatarImageView; //!< 相片视图
 @property (retain, nonatomic, readonly) UITextField * nameTF; //!< 姓名编辑框
 @property (retain, nonatomic, readonly) UITextField * sexTF; //!< 性别编辑框
