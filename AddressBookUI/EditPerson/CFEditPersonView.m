@@ -128,7 +128,6 @@
     self.introTV.text = self.person.intro;
     
     if (YES == [self isAddPerson]) {
-        // 逻辑有误!
         if (0 == person.age) {
             self.ageTF.text = @"";
         }

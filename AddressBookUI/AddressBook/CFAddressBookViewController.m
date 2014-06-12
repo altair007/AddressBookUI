@@ -186,9 +186,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CFPerson * person= [self personAtIndexPath: indexPath];
+    
     [self.navigationController switchToPersonDetailViewWithPerson: person];
 }
-
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {

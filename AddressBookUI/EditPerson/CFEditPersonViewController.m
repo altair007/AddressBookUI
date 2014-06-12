@@ -12,6 +12,8 @@
 #import "CFAddressBookView.h"
 #import "CFAddressBookModel.h"
 #import "CFPerson.h"
+//#import "RIButtonItem.h"
+#import "UIAlertView+Blocks.h"
 
 @interface CFEditPersonViewController ()
 
@@ -135,36 +137,49 @@ static CFEditPersonViewController * sharedObj = nil;
     person.sex = self.view.sexTF.text;
     person.age = [self.view.ageTF.text integerValue];
     person.tel = self.view.telTF.text;
+    // ???: 为什么self.view.introTV.text的值是nil??ss
     person.intro = self.view.introTV.text;
-    
-    // 保存联系人信息
-    BOOL result =  [self.navigationController.model  addPerson: person];
-    
-    // 提示信息
-    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"提示" message:@"保存成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
-    alertView.tag = TAG_ALERTVIEW_SAVE;
-    if (NO == result) {
-        alertView.message = @"保存失败";
-    }
-    
-    [alertView show];
-    
-    // 更新通讯录主视图
-    if (YES == result) {
-        [self setEditing: ! self.editing animated:YES];
-    }
-    
-    // 更新导航栏
-    [self updateTitle];
+    int a  = 10;
+//    // 保存联系人信息
+//    BOOL result =  [self.navigationController.model  addPerson: person];
+//    
+//    // 提示信息
+//    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"提示" message:@"保存成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//    alertView.tag = TAG_ALERTVIEW_SAVE;
+//    if (NO == result) {
+//        alertView.message = @"保存失败";
+//    }
+//    
+//    [alertView show];
+//    
+//    // ???: 下面的代码,应该放到block中.
+//    // 将页面转换至不可编辑状态.
+//    if (YES == result) {
+//        [self setEditing: ! self.editing animated:YES];
+//    }
+//
+//    // 更新导航栏
+//    [self updateTitle];
  }
 
 - (void) didClickReverseBackButtonItemAction: (UIBarButtonItem *) aButtonItem
 {
     // 是否是用户的误操作?
     if (YES == self.editing) {
-        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您正在编辑联系人信息,确定离开?" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:@"取消", nil];
-        alertView.tag = TAG_ALERTVIEW_REVERSEBACK;
+        RIButtonItem * cancelItem = [RIButtonItem itemWithLabel:@"取消" action:NULL];
+        RIButtonItem * confirmItem = [RIButtonItem itemWithLabel:@"确定" action:^{
+            // 取消对person的监测.
+            // ???: 此处应该对应删除所有观察者,建议封装为方法.!!
+            [self.view.person removeObserver:self.navigationController forKeyPath:@"intro"];
+            
+            // 转至通讯录主页面.
+            [self.navigationController switchToAddressBookView];
+        }];
+        
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您正在编辑联系人信息,确定离开?" cancelButtonItem: cancelItem otherButtonItems: confirmItem, nil];
         [alertView show];
+        [alertView release];
+
         return;
     }
     
@@ -258,11 +273,6 @@ static CFEditPersonViewController * sharedObj = nil;
     return YES;
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
-{
-    
-    return NO;
-}
 #pragma mark - <UIImagePickerControllerDelegate>协议方法
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -280,34 +290,22 @@ static CFEditPersonViewController * sharedObj = nil;
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
-#pragma mark - <UIAlertViewDelegate>协议方法
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (TAG_ALERTVIEW_REVERSEBACK == alertView.tag) {
-        if (INDEX_CONFIRM_BUTTON == buttonIndex) {
-            [self.navigationController switchToAddressBookView];
-        }
-    }
-}
-
 #pragma mark - <UITextViewDelegate> 协议方法
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-//    [self selectAll: nil];
+//    [textView selectAll: nil];
     return YES;
 }
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
-    [self selectAll: nil];
-//    textView.selectedRange = NSMakeRange(0, 11);
-//    NSRange range = textView.selectedRange;
-//    int a;
+    // ???: 如何实现全选?
+//    [textView selectAll: nil];
 }
 
 - (void)textViewDidChangeSelection:(UITextView *)textView
 {
-    NSRange range = textView.selectedRange;
-    int a;
+    // ???: 如何实现全选?
+//    [textView selectAll: nil];
 }
 @end

@@ -11,6 +11,7 @@
 #import "CFEditPersonViewController.h"
 #import "CFAddressBookModel.h"
 #import "CFPerson.h"
+#import "UIAlertView+Blocks.h"
 
 @interface CFMainViewController ()
 
@@ -19,7 +20,6 @@
 @implementation CFMainViewController
 -(void)dealloc
 {
-    [self.model removeObserver:self forKeyPath:PATH_KVO_PERSONSBYGROUPS];
     self.model = nil;
     self.editPersonVC = nil;
     self.addressBookVC = nil;
@@ -44,23 +44,47 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    __block NSInteger countOfOld = 0; // 原通讯录中的联系人个数
-    __block NSInteger countOfNew = 0;// 新通讯录中的联系人个数
-    NSDictionary * dictOld = [change objectForKey: @"old"];
-    [dictOld enumerateKeysAndObjectsUsingBlock:^(id key, NSArray * arr, BOOL *stop) {
-        countOfOld += arr.count;
-    }];
+    // 保存联系人信息
+    BOOL result =  [self.model  addPerson: object];
     
-    NSDictionary * dictNew = [change objectForKey: @"new"];
-    [dictNew enumerateKeysAndObjectsUsingBlock:^(id key, NSArray * arr, BOOL *stop) {
-        countOfNew += arr.count;
-    }];
+    // 提示信息
+    NSString * message = @"保存失败";
     
-    if (countOfNew < countOfOld) {// 说明是在删除联系人,不需要通讯录视图重新加载数据
-        return;
+    if (YES == result) {
+        message = @"保存成功";
+        // 更改页面编辑状态.
+        [self.editPersonVC setEditing: ! self.editPersonVC.editing animated:YES];
+        
+        // 更新导航栏
+        [self.editPersonVC updateTitle];
+        
+        // 通讯录刷新数据
+        [self.addressBookVC.view reloadData];
     }
     
-    [self.addressBookVC.view reloadData];
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"提示" message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    
+    [alertView show];
+
+//
+//    
+//    __block NSInteger countOfOld = 0; // 原通讯录中的联系人个数
+//    __block NSInteger countOfNew = 0;// 新通讯录中的联系人个数
+//    NSDictionary * dictOld = [change objectForKey: @"old"];
+//    [dictOld enumerateKeysAndObjectsUsingBlock:^(id key, NSArray * arr, BOOL *stop) {
+//        countOfOld += arr.count;
+//    }];
+//    
+//    NSDictionary * dictNew = [change objectForKey: @"new"];
+//    [dictNew enumerateKeysAndObjectsUsingBlock:^(id key, NSArray * arr, BOOL *stop) {
+//        countOfNew += arr.count;
+//    }];
+//    
+//    if (countOfNew < countOfOld) {// 说明是在删除联系人,不需要通讯录视图重新加载数据
+//        return;
+//    }
+//    
+//    [self.addressBookVC.view reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,6 +99,11 @@
 - (void) switchToEditViewWithPerson: (CFPerson *) aPerson
                           editing: (BOOL) editing
 {
+    //  给person添加一个观察者.
+    // ???: 如何观察所有属性?
+    [aPerson addObserver:self forKeyPath:@"intro" options:NSKeyValueObservingOptionNew |
+     NSKeyValueObservingOptionOld context:NULL];
+    
     self.editPersonVC.person = aPerson;
     [self.editPersonVC setEditing: editing animated: YES];
     [self pushViewController: self.editPersonVC animated:YES];
@@ -83,6 +112,7 @@
 - (void) switchToAddPersonView
 {
     CFPerson * person = [[CFPerson alloc] init];
+
     [self switchToEditViewWithPerson: person editing: YES];
     [person release];
 }
@@ -95,14 +125,6 @@
 - (void) switchToAddressBookView
 {
     [self popToViewController:self.addressBookVC animated:YES];
-}
-
-- (void)setModel:(CFAddressBookModel *)model
-{
-    [model retain];
-    [_model release];
-    _model = model;
-    [self.model addObserver:self forKeyPath:PATH_KVO_PERSONSBYGROUPS options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context: NULL];
 }
 
 - (BOOL) addPerson: (CFPerson *) aPerson

@@ -15,11 +15,7 @@
 #define TAG_ALERTVIEW_REVERSEBACK 100
 #define TAG_ALERTVIEW_SAVE 101
 
-// 弹出视图中"确定"或"取消"按钮的索引值
-#define INDEX_CONFIRM_BUTTON 0
-#define INDEX_CANCEL_BUTTON 1
-
-@interface CFEditPersonViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, UITextViewDelegate>
+@interface CFEditPersonViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 @property (retain, nonatomic) CFPerson * person;
 @property (retain, nonatomic, readonly) CFMainViewController * navigationController;
 @property (retain, nonatomic) CFEditPersonView * view;
