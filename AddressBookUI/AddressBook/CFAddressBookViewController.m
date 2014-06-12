@@ -199,6 +199,7 @@
                                                           cancelButtonItem:cancelItem
                                                      destructiveButtonItem:deleteItem otherButtonItems: nil];
         [actionSheet showInView: self.view];
+        [actionSheet release];
     }
 }
 

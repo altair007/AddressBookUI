@@ -47,7 +47,7 @@
     
     UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController: addressBookVC];
     self.window.rootViewController = navController;
-    [mainVC release];
+    [navController release];
     
     [self.window makeKeyAndVisible];
     

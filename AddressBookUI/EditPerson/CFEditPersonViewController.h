@@ -18,12 +18,6 @@
 @interface CFEditPersonViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (retain, nonatomic) CFPerson * person;
 @property (retain, nonatomic) CFEditPersonView * view;
-/**
- *  获取单例
- *
- *  @return 单例
- */
-+ (instancetype) sharedInstance;
 
 /**
  *  保存联系人信息

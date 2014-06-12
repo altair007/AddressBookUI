@@ -19,64 +19,7 @@
 
 @end
 
-static CFEditPersonViewController * sharedObj = nil;
 @implementation CFEditPersonViewController
-+ (instancetype) sharedInstance
-{
-    @synchronized(self)
-    {
-        if (nil == sharedObj) {
-            [[self alloc] init];
-        }
-    }
-    
-    return sharedObj;
-}
-
-+ (instancetype) allocWithZone:(struct _NSZone *)zone
-{
-    @synchronized(self){
-        if (nil == sharedObj) {
-            sharedObj = [super allocWithZone:zone];
-            return sharedObj;
-        }
-    }
-    return nil;
-}
-
-- (instancetype) copyWithZone: (NSZone *) zone
-{
-    return  self;
-}
-
-- (instancetype)retain
-{
-    return self;
-}
-
-- (NSUInteger)retainCount
-{
-    return UINT_MAX;
-}
-
-- (oneway void)release
-{
-    
-}
-
-- (instancetype) autorelease
-{
-    return self;
-}
-
-- (id)init
-{
-    @synchronized(self){
-        self = [self initWithNibName:nil bundle:nil];
-        return self;
-    }
-}
-
 -(void)dealloc
 {
     self.person = nil;

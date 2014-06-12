@@ -95,7 +95,7 @@
         failureBlock:^(NSError *error)
      {
          // 使用默认图片
-         self.avatarImage = [[UIImage alloc] initWithContentsOfFile: self.nameOfdefaultImg];
+         self.avatarImage = [[[UIImage alloc] initWithContentsOfFile: self.nameOfdefaultImg] autorelease];
      }
      ];
 }
