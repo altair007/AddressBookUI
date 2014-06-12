@@ -18,12 +18,13 @@
 
 -(void)dealloc
 {
-    self.avatarName = nil;
     self.name = nil;
+    self.avatarName = nil;
+    self.sex = nil;
     self.tel = nil;
+    self.intro = nil;
     self.nameOfdefaultImg = nil;
     self.avatarImage = nil;
-    self.intro = nil;
     
     [super dealloc];
 }
@@ -31,7 +32,7 @@
 #pragma mark - 便利初始化
 - (instancetype) init
 {
-    if (self = [self initWithName:nil avatarName:nil sex:nil age:0 tel:nil nameOfdefaultImg:nil]) {
+    if (self = [self initWithName:nil avatarName:nil sex:nil age:0 tel:nil intro: nil nameOfdefaultImg:nil]) {
         
     }
     
@@ -42,6 +43,7 @@
                           sex: (NSString *) sex
                           age: (NSUInteger) age
                           tel: (NSString *) tel
+                        intro: (NSString *) intro
              nameOfdefaultImg: (NSString *) nameOfdefaultImg
 {
     if (self = [super init]) {
@@ -50,6 +52,7 @@
         self.sex = sex;
         self.age = age;
         self.tel = tel;
+        self.intro = intro;
         self.nameOfdefaultImg = nameOfdefaultImg;
     }
     
@@ -61,8 +64,9 @@
                           sex: (NSString *) sex
                           age: (NSUInteger) age
                           tel: (NSString *) tel
+                        intro: (NSString *) intro
 {
-    if (self = [self initWithName: name avatarName: avatarName sex: sex age: age tel: tel nameOfdefaultImg: nil]) {
+    if (self = [self initWithName: name avatarName: avatarName sex: sex age: age tel: tel intro: intro nameOfdefaultImg: nil]) {
         
     }
     

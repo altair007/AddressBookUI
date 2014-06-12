@@ -47,7 +47,6 @@
 {
     self.backgroundColor = [UIColor whiteColor];
     
-    // ???: 好多魔数,怎么回事?!
     // 头像
     CGFloat landscapeSpace = 30.0; // 头像距离边框的距离
     

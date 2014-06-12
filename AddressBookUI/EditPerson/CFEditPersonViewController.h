@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CFMainViewController.h"
+#import "CFMainController.h"
 #import "CFEditPersonView.h"
 @class CFPerson;
 
@@ -15,9 +15,8 @@
 #define TAG_ALERTVIEW_REVERSEBACK 100
 #define TAG_ALERTVIEW_SAVE 101
 
-@interface CFEditPersonViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
+@interface CFEditPersonViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (retain, nonatomic) CFPerson * person;
-@property (retain, nonatomic, readonly) CFMainViewController * navigationController;
 @property (retain, nonatomic) CFEditPersonView * view;
 /**
  *  获取单例

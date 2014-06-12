@@ -47,13 +47,15 @@
                    avatarName: (NSString *) avatarName
                           sex: (NSString *) sex
                           age: (NSUInteger) age
-                          tel: (NSString *) tel;
+                          tel: (NSString *) tel
+                        intro: (NSString *) intro;
 
 - (instancetype) initWithName: (NSString *) name
                    avatarName: (NSString *) avatarName
                           sex: (NSString *) sex
                           age: (NSUInteger) age
                           tel: (NSString *) tel
+                        intro: (NSString *) intro
              nameOfdefaultImg: (NSString *) nameOfdefaultImg;
 
 /**

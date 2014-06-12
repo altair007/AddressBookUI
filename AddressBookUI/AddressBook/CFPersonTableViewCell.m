@@ -44,7 +44,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        // ???: 此处用主屏值,不太妥.
         CGRect frame = [UIScreen mainScreen].bounds;
         [self setupSubviews: frame];
     }

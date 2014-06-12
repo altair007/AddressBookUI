@@ -68,7 +68,7 @@
 - (NSArray *) personsInSection: (NSInteger)section
 {
     // 获取按姓名首字母分组的字典
-    NSDictionary * personsDict = self.navigationController.model.personsByGroups;
+    NSDictionary * personsDict = [CFMainController sharedInstance].dictionaryOfPersons;
     
     NSString * groupName = [self groupNameInSection: section];
     
@@ -97,22 +97,13 @@
 
 - (void) didClickAddButtonItem: (UIBarButtonItem *) aButtonItem
 {
-    [self.navigationController switchToAddPersonView];
-}
-
-- (CFMainViewController *)navigationController
-{    CFMainViewController * navigtionController;
-    if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
-        navigtionController =  (CFMainViewController *)self.parentViewController;
-    }
-    
-    return navigtionController;
+    [[CFMainController sharedInstance] switchToAddPersonView];
 }
 
 - (NSArray *) groups
 {
     // 获取按姓名首字母分组的字典
-    NSDictionary * personsDict = self.navigationController.model.personsByGroups;
+    NSDictionary * personsDict = [CFMainController sharedInstance].dictionaryOfPersons;
     
     // 获取keys数组
     NSArray * groups = personsDict.allKeys;
@@ -128,7 +119,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSInteger  count;
-    count = self.navigationController.model.personsByGroups.allKeys.count;
+    count = [CFMainController sharedInstance].model.personsByGroups.allKeys.count;
     return count;
 }
 
@@ -187,7 +178,7 @@
 {
     CFPerson * person= [self personAtIndexPath: indexPath];
     
-    [self.navigationController switchToPersonDetailViewWithPerson: person];
+    [[CFMainController sharedInstance] switchToPersonDetailViewWithPerson: person];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -201,19 +192,9 @@
         RIButtonItem * cancelItem = [RIButtonItem itemWithLabel:@"取消"
                                         action:^{/* 不做任何操作 */}];
         RIButtonItem * deleteItem = [RIButtonItem itemWithLabel: @"确定"
-                                                         action:^{            //删除联系人
-             // 先获取此分区所有成员
-             NSArray * personsArray = [self personsInSection: indexPath.section];
-             
+                                                         action:^{            //删除联系人                            
              // 删除数据
-             [self.navigationController removePerson: person];
-             
-             // 根据分区成员数量来决定是删除行,还是直接删除分区
-             if (1 == personsArray.count) { // 可以直接删除分区了
-                 [tableView deleteSections:[NSIndexSet indexSetWithIndex: indexPath.section] withRowAnimation: UITableViewRowAnimationAutomatic];
-             }else{ // 只删除行
-                 [tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
-             }}];
+             [[CFMainController sharedInstance] removePerson: person];}];
         UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString    stringWithFormat:@"确定删除联系人 %@ ?", person.name]
                                                           cancelButtonItem:cancelItem
                                                      destructiveButtonItem:deleteItem otherButtonItems: nil];

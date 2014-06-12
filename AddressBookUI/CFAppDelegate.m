@@ -9,7 +9,7 @@
 #import "CFAppDelegate.h"
 #import "CFAddressBookViewController.h"
 #import "CFAddressBookModel.h"
-#import "CFMainViewController.h"
+#import "CFMainController.h"
 #import "CFEditPersonViewController.h"
 
 @implementation CFAppDelegate
@@ -33,7 +33,7 @@
     
     CFAddressBookViewController * addressBookVC = [[CFAddressBookViewController alloc] init];
     
-    CFMainViewController * mainVC = [[CFMainViewController alloc] initWithRootViewController: addressBookVC];
+    CFMainController * mainVC = [CFMainController sharedInstance];
     
     mainVC.addressBookVC = addressBookVC;
     [addressBookVC release];
@@ -45,7 +45,8 @@
     mainVC.editPersonVC = editPersonVC;
     [editPersonVC release];
     
-    self.window.rootViewController = mainVC;
+    UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController: addressBookVC];
+    self.window.rootViewController = navController;
     [mainVC release];
     
     [self.window makeKeyAndVisible];

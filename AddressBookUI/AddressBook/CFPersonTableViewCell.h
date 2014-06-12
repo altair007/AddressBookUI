@@ -10,8 +10,6 @@
 @class CFPerson;
 @class CFPersonCellInfoView;
 
-// ???: 定义成类变量,更合适些吧?不同页面间,已经开始混乱了!
-
 // 默认头像图片高度和高度
 #define HEIGHT_AVATAR   120.0
 #define WIDTH_AVATAR    80.0

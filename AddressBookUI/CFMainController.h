@@ -1,26 +1,31 @@
 //
-//  CFMainViewController.h
+//  CFMainController.h
 //  AddressBookUI
 //
 //  Created by   颜风 on 14-6-7.
 //  Copyright (c) 2014年 Shadow. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 @class CFAddressBookViewController;
 @class CFEditPersonViewController;
 @class CFAddressBookModel;
 @class CFPerson;
 
-#define PATH_KVO_PERSONSBYGROUPS @"personsByGroups"
-
 /**
  *  主控制器
  */
-@interface CFMainViewController : UINavigationController
-@property (assign, nonatomic) CFAddressBookViewController * addressBookVC; //!< 通讯录视图控制器
-@property (assign, nonatomic) CFEditPersonViewController * editPersonVC; //!< 编辑联系人页面视图控制器
+@interface CFMainController : NSObject
+@property (retain, nonatomic) CFAddressBookViewController * addressBookVC; //!< 通讯录视图控制器
+@property (retain, nonatomic) CFEditPersonViewController * editPersonVC; //!< 编辑联系人页面视图控制器
 @property (retain, nonatomic) CFAddressBookModel * model; //!< 通讯录数据模型
+/**
+ *  获取单例
+ *
+ *  @return 单例
+ */
++ (instancetype) sharedInstance;
 
 /**
  *  转向编辑页面.
@@ -63,5 +68,12 @@
  *  @param aPerson 要删除的联系人
  */
 - (void) removePerson: (CFPerson *) aPerson;
+
+/**
+ *  返回通讯录中所有联系人的字典.以姓名拼音首字母大写为键,以存储联系人的可变数组为值.
+ *
+ *  @return 联系人字典.
+ */
+- (NSDictionary *) dictionaryOfPersons;
 
 @end

@@ -17,6 +17,7 @@
 @property (retain, nonatomic, readonly) NSMutableArray * persons; //!< 联系人
 @property (retain, nonatomic, readonly) NSString * pathOfData; //!< 数据文件
 @property (retain, nonatomic, readonly) NSMutableDictionary * personsByGroups; //!: 按姓名拼音首字母分组排序的字典,以首字母为键,以联系人数组为值
+@property (assign, nonatomic, readonly) NSUInteger countOfPersons; //!< 通讯录成员数量.主要用于标记数据源是否发生了变化.
 #pragma mark - 实例方法
 /**
  *  从文件中获取数据,进行初始化
@@ -38,7 +39,7 @@
  *  初始设置peronsByGroups属性
  *
  */
-- (void) updatePersonsByGroups;
+- (void) setupPersonsByGroups;
 
 /**
  *  返回一个汉语名的拼音首字母
@@ -64,5 +65,17 @@
  *  @return YES,添加成功;NO,添加失败
  */
 - (BOOL) addPerson: (CFPerson *) aPerson;
+
+/**
+ *  在添加联系人成功后,更新联系人字典,以供外部使用.
+ *
+ *  @param aPerson 联系人.
+ */
+- (void) updatePersonsByGroupsWithPerson: (CFPerson *) aPerson;
+
+/**
+ *  在数据更新后更新联系人数量.
+ */
+- (void) updateCountOfPersons;
 
 @end
