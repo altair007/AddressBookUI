@@ -139,7 +139,8 @@ static CFEditPersonViewController * sharedObj = nil;
     person.tel = self.view.telTF.text;
     // ???: 为什么self.view.introTV.text的值是nil??ss
     person.intro = self.view.introTV.text;
-    int a  = 10;
+    // ??: 为什么会弹出两次弹出提示框?边界页面.
+//    int a  = 10;
 //    // 保存联系人信息
 //    BOOL result =  [self.navigationController.model  addPerson: person];
 //    

@@ -24,6 +24,9 @@
 
     CGFloat height = DEFAULT_HEIGHT + rect.size.height;
     
+    // 浮点数会有精度损失,所以最后的结果加上0.001修正.
+    height += 0.001;
+    
     return height;
 }
 
