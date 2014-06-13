@@ -9,6 +9,7 @@
 #import "CFPersonTableViewCell.h"
 #import "CFPerson.h"
 #import "CFPersonCellInfoView.h"
+#import "UIImage+AssetUrl.h"
 
 @interface CFPersonTableViewCell ()
 @property (retain, nonatomic, readwrite) UIImageView * avatarIV; //!< 联系人头像.
@@ -103,7 +104,18 @@
 
 - (void) updateContentOfView
 {
-    self.avatarIV.image = self.person.avatarImage;
+    [UIImage imageForAssetUrl:self.person.avatarName success:^(UIImage * aImg) {// 使用本地图片
+        self.avatarIV.image = aImg;
+    } fail:^{// 使用app内置图片
+        UIImage * image = [UIImage imageNamed: self.person.avatarName];
+        
+        if (nil == image) {// 使用默认图片
+            image = [UIImage imageNamed: @"default.jpg"];
+        }
+        
+        self.avatarIV.image = image;
+    }];
+    
     self.infoView.person = self.person;
     
     // 更新视图边框信息.

@@ -10,7 +10,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 @implementation UIImage (AssetUrl)
-- (void) imageForAssetUrl: (NSString *) assetUrl
++ (void) imageForAssetUrl: (NSString *) assetUrl
                   success: (void(^)(UIImage *)) successBlock
                      fail: (void(^)()) failBlock
 {
@@ -30,7 +30,6 @@
          }
          
          successBlock(image);
-         [image release];
      }
         failureBlock:^(NSError *error) { // 说明获取图片失败.
             failBlock();

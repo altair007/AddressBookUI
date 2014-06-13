@@ -175,7 +175,7 @@
 
 - (void) enableViewEdit
 {
-    self.view.avatarImageView.userInteractionEnabled = YES;
+    self.view.avatarIV.userInteractionEnabled = YES;
     self.view.nameTF.enabled = YES;
     self.view.sexTF.enabled = YES;
     self.view.ageTF.enabled = YES;
@@ -185,7 +185,7 @@
 
 - (void) disableViewEdit
 {
-    self.view.avatarImageView.userInteractionEnabled = NO;
+    self.view.avatarIV.userInteractionEnabled = NO;
     self.view.nameTF.enabled = NO;
     self.view.sexTF.enabled = NO;
     self.view.ageTF.enabled = NO;
@@ -202,7 +202,7 @@
 #pragma mark - <UIImagePickerControllerDelegate>协议方法
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    self.view.avatarImageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.view.avatarIV.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     self.view.person.avatarName = ((NSURL *)[info objectForKey:UIImagePickerControllerReferenceURL]).description;
     [picker dismissViewControllerAnimated:YES completion:NULL];

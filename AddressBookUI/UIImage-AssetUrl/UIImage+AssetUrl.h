@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  通过assetUrl获取本地图片.
+ */
 @interface UIImage (AssetUrl)
 /**
  *  通过assetUrl获取图片.
@@ -16,7 +19,7 @@
  *  @param success  成功获取到图片后执行的操作.
  *  @param fail     获取图片失败时执行的操作.
  */
-- (void) imageForAssetUrl: (NSString *) assetUrl
++ (void) imageForAssetUrl: (NSString *) assetUrl
                   success: (void(^)(UIImage *)) successBlock
                      fail: (void(^)()) failBlock;
 @end

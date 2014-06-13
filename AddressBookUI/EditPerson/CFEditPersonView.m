@@ -9,9 +9,10 @@
 #import "CFEditPersonView.h"
 #import "CFEditPersonViewController.h"
 #import "CFPerson.h"
+#import "UIImage+AssetUrl.h"
 
 @interface CFEditPersonView ()
-@property (retain, nonatomic, readwrite) UIImageView * avatarImageView; //!< 相片视图.
+@property (retain, nonatomic, readwrite) UIImageView * avatarIV; //!< 相片视图.
 @property (retain, nonatomic, readwrite) UITextField * nameTF; //!< 姓名编辑框
 @property (retain, nonatomic, readwrite) UITextField * sexTF; //!< 性别编辑框
 @property (retain, nonatomic, readwrite) UITextField * ageTF; //!< 年龄编辑框
@@ -23,7 +24,7 @@
 -(void)dealloc
 {
     self.person = nil;
-    self.avatarImageView = nil;
+    self.avatarIV = nil;
     self.nameTF = nil;
     self.sexTF = nil;
     self.ageTF = nil;
@@ -51,17 +52,17 @@
     CGFloat landscapeSpace = 30.0; // 头像距离边框的距离
     
     UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(landscapeSpace, 100, 80, 120)];
-    self.avatarImageView= imageView;
+    self.avatarIV= imageView;
     [imageView release];
     
-    [self addSubview: self.avatarImageView];
+    [self addSubview: self.avatarIV];
     
     // 给头像视图添加手势
-    self.avatarImageView.userInteractionEnabled = YES;
+    self.avatarIV.userInteractionEnabled = YES;
     
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self.delegate action:@selector(handlAvatarViewTapGesture:)];
     
-    [self.avatarImageView addGestureRecognizer: tapGesture];
+    [self.avatarIV addGestureRecognizer: tapGesture];
     [tapGesture release];
     
     
@@ -70,7 +71,7 @@
     
     CGFloat portraitSpace = landscapeSpace / (placeHolders.count - 1); // 编辑框竖直方向的间距
     
-    __block CGRect baseRect = CGRectMake(2 * self.avatarImageView.frame.origin.x + self.avatarImageView.frame.size.width, self.avatarImageView.frame.origin.y, rect.size.width - self.avatarImageView.frame.size.width - self.avatarImageView.frame.origin.x - 2 * self.avatarImageView.frame.origin.x, (self.avatarImageView.frame.size.height - portraitSpace * (placeHolders.count - 1)) / placeHolders.count);
+    __block CGRect baseRect = CGRectMake(2 * self.avatarIV.frame.origin.x + self.avatarIV.frame.size.width, self.avatarIV.frame.origin.y, rect.size.width - self.avatarIV.frame.size.width - self.avatarIV.frame.origin.x - 2 * self.avatarIV.frame.origin.x, (self.avatarIV.frame.size.height - portraitSpace * (placeHolders.count - 1)) / placeHolders.count);
     
     [placeHolders enumerateObjectsUsingBlock:^(NSString * placeHolder, NSUInteger idx, BOOL *stop) {
         UITextField * tempTF = [[UITextField alloc] initWithFrame:baseRect];
@@ -104,10 +105,9 @@
     }];
     
     // 个人简介编辑框
-    CGRect rectOfIntro = CGRectMake(self.avatarImageView.frame.origin.x, self.avatarImageView.frame.origin.y + self.avatarImageView.frame.size.height + portraitSpace, rect.size.width - 2 * self.avatarImageView.frame.origin.x, rect.size.height - self.avatarImageView.frame.size.height - self.avatarImageView.frame.origin.y - 2 * portraitSpace - 215.0);
+    CGRect rectOfIntro = CGRectMake(self.avatarIV.frame.origin.x, self.avatarIV.frame.origin.y + self.avatarIV.frame.size.height + portraitSpace, rect.size.width - 2 * self.avatarIV.frame.origin.x, rect.size.height - self.avatarIV.frame.size.height - self.avatarIV.frame.origin.y - 2 * portraitSpace);
     UITextView * introTV = [[UITextView alloc] initWithFrame: rectOfIntro];
     introTV.backgroundColor = [UIColor lightGrayColor];
-    introTV.delegate = self.delegate;
     self.introTV = introTV;
     [self addSubview: introTV];
     [introTV release];
@@ -119,7 +119,18 @@
     [_person release];
     _person = person;
     
-    self.avatarImageView.image = self.person.avatarImage;
+    [UIImage imageForAssetUrl:self.person.avatarName success:^(UIImage * aImg) {// 使用本地图片
+        self.avatarIV.image = aImg;
+    } fail:^{// 使用app内置图片
+        UIImage * image = [UIImage imageNamed: self.person.avatarName];
+        
+        if (nil == image) {// 使用默认图片
+            image = [UIImage imageNamed: @"default.jpg"];
+        }
+        
+        self.avatarIV.image = image;
+    }];
+    
     self.nameTF.text = self.person.name;
     self.sexTF.text = self.person.sex;
     self.ageTF.text = [NSString stringWithFormat: @"%lu", self.person.age];
