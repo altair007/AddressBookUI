@@ -41,8 +41,10 @@
 		C217ABA519408CFB0006784A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8D19408CFB0006784A /* UIKit.framework */; };
 		C217ABAD19408CFB0006784A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C217ABAB19408CFB0006784A /* InfoPlist.strings */; };
 		C217ABAF19408CFB0006784A /* AddressBookUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C217ABAE19408CFB0006784A /* AddressBookUITests.m */; };
+		C21CC925194A9C08003E8808 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CC924194A9C08003E8808 /* AssetsLibrary.framework */; };
 		C220EB5219470E6700D9796F /* CFMaleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C220EB5119470E6700D9796F /* CFMaleTableViewCell.m */; };
 		C220EB5519470EEF00D9796F /* CFFemaleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C220EB5419470EEF00D9796F /* CFFemaleTableViewCell.m */; };
+		C229C275194B043B002B2052 /* UIImage+AssetUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = C229C274194B043B002B2052 /* UIImage+AssetUrl.m */; };
 		C22FF93A19431127004094DD /* CFMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = C22FF93919431127004094DD /* CFMainController.m */; };
 		C23C83071949EDF700D74D13 /* CFAddressBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C23C83061949EDF700D74D13 /* CFAddressBookModel.m */; };
 		C23F26A61947FAFD005C67B2 /* CFPersonCellInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F26A51947FAFD005C67B2 /* CFPersonCellInfoView.m */; };
@@ -108,10 +110,13 @@
 		C217ABAA19408CFB0006784A /* AddressBookUITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AddressBookUITests-Info.plist"; sourceTree = "<group>"; };
 		C217ABAC19408CFB0006784A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C217ABAE19408CFB0006784A /* AddressBookUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBookUITests.m; sourceTree = "<group>"; };
+		C21CC924194A9C08003E8808 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		C220EB5019470E6700D9796F /* CFMaleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFMaleTableViewCell.h; path = AddressBook/CFMaleTableViewCell.h; sourceTree = "<group>"; };
 		C220EB5119470E6700D9796F /* CFMaleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFMaleTableViewCell.m; path = AddressBook/CFMaleTableViewCell.m; sourceTree = "<group>"; };
 		C220EB5319470EEF00D9796F /* CFFemaleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFFemaleTableViewCell.h; path = AddressBook/CFFemaleTableViewCell.h; sourceTree = "<group>"; };
 		C220EB5419470EEF00D9796F /* CFFemaleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CFFemaleTableViewCell.m; path = AddressBook/CFFemaleTableViewCell.m; sourceTree = "<group>"; };
+		C229C273194B043B002B2052 /* UIImage+AssetUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AssetUrl.h"; sourceTree = "<group>"; };
+		C229C274194B043B002B2052 /* UIImage+AssetUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AssetUrl.m"; sourceTree = "<group>"; };
 		C22FF93819431127004094DD /* CFMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFMainController.h; sourceTree = "<group>"; };
 		C22FF93919431127004094DD /* CFMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFMainController.m; sourceTree = "<group>"; };
 		C23C83051949EDF700D74D13 /* CFAddressBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFAddressBookModel.h; sourceTree = "<group>"; };
@@ -132,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C21CC925194A9C08003E8808 /* AssetsLibrary.framework in Frameworks */,
 				C217AB8C19408CFB0006784A /* CoreGraphics.framework in Frameworks */,
 				C217AB8E19408CFB0006784A /* UIKit.framework in Frameworks */,
 				C217AB8A19408CFB0006784A /* Foundation.framework in Frameworks */,
@@ -234,6 +240,7 @@
 		C217AB8819408CFB0006784A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C21CC924194A9C08003E8808 /* AssetsLibrary.framework */,
 				C217AB8919408CFB0006784A /* Foundation.framework */,
 				C217AB8B19408CFB0006784A /* CoreGraphics.framework */,
 				C217AB8D19408CFB0006784A /* UIKit.framework */,
@@ -260,6 +267,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C229C272194B043B002B2052 /* UIImage-AssetUrl */ = {
+			isa = PBXGroup;
+			children = (
+				C229C273194B043B002B2052 /* UIImage+AssetUrl.h */,
+				C229C274194B043B002B2052 /* UIImage+AssetUrl.m */,
+			);
+			path = "UIImage-AssetUrl";
+			sourceTree = "<group>";
+		};
 		C281CA2A1941CC0300D61F40 /* AddressBookUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +288,7 @@
 				C281CA4D1941CC9800D61F40 /* AddressBook */,
 				C20FB7D219455C0C0003DB70 /* EditPerson */,
 				C213071E19488A9C00E5FA0B /* UIAlertView-Blocks */,
+				C229C272194B043B002B2052 /* UIImage-AssetUrl */,
 				C216C02B194200CD008DF648 /* img */,
 				C216C02A1941F351008DF648 /* Supporting Files */,
 			);
@@ -419,6 +436,7 @@
 				C213072A19488A9C00E5FA0B /* RIButtonItem.m in Sources */,
 				C22FF93A19431127004094DD /* CFMainController.m in Sources */,
 				C281CA471941CC0300D61F40 /* main.m in Sources */,
+				C229C275194B043B002B2052 /* UIImage+AssetUrl.m in Sources */,
 				C2149F29194721A80059C623 /* CFPersonTableViewCell.m in Sources */,
 				C281CA431941CC0300D61F40 /* CFAppDelegate.m in Sources */,
 				C216C06219420ED0008DF648 /* CFAddressBookViewController.m in Sources */,
