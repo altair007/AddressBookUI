@@ -12,8 +12,8 @@
 #import "CFAddressBookView.h"
 #import "CFAddressBookModel.h"
 #import "CFPerson.h"
-//#import "RIButtonItem.h"
 #import "UIAlertView+Blocks.h"
+#import "NSString+IsAllNumbers.h"
 
 @interface CFEditPersonViewController ()
 
@@ -72,33 +72,57 @@
         return;
     }
     
-    // 保存数据
-    // 获取视图关联的联系人
-    CFPerson * person = self.view.person;
-    person.name = self.view.nameTF.text;
-    person.avatarName = self.view.person.avatarName;
-    person.sex = self.view.sexTF.text;
-    person.age = [self.view.ageTF.text integerValue];
-    person.tel = self.view.telTF.text;
-    person.intro = self.view.introTV.text;
+    // 获取用户输入
+    NSString * name = self.view.nameTF.text;
+    NSString * sex = self.view.sexTF.text;
+    NSInteger age = [self.view.ageTF.text integerValue];
+    NSString * tel = self.view.telTF.text;
+    NSString * intro = self.view.introTV.text;
     
-    BOOL result =  [[CFMainController sharedInstance] addPerson: person];
-    
-    // 提示信息
-    NSString * message = @"保存失败";
-    
-    if (YES == result) {
-        message = @"保存成功";
-        // 更改页面编辑状态.
-        [self setEditing: ! self.editing animated:YES];
-        
-        // 更新导航栏
-        [self updateTitle];
+    // 年龄或手机号是否为空?
+    if ([name isEqualToString: @""] || [tel isEqualToString: @""]) {
+        NSString * message = @"姓名或者手机号不能为空!";
+        [self showAlertViewWithMessage: message];
+        return;
     }
     
-    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"提示" message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    // 手机号是否全部为数字?
+    if (NO == [tel isAllNumbers]) {
+        NSString * message = @"手机号应当全部是数字!";
+        [self showAlertViewWithMessage: message];
+        return;
+    }
     
-    [alertView show];
+    // 获取视图关联的联系人
+    // ???: 此处暗示:有一个潜在的逻辑错误!应该自定义一个UIImageVIew,它有一个专门的属性,用来存储图片名称.而不是直接把获取到的图片地址赋值给self.view.person.
+    CFPerson * person = [[CFPerson alloc] initWithName: name avatarName:self.view.person.avatarName sex:sex age:age tel:tel intro: intro]
+    ;
+    
+    if (YES == [self.view.person isEqualToPerson: person]) {// 内容没有任何变化.
+        NSString * message = @"您并未更改任何信息!";
+        [self showAlertViewWithMessage: message];
+        return;
+    }
+    
+    // 保存数据
+    [self.view.person updateWithPerson: person];
+    
+    BOOL result =  [[CFMainController sharedInstance] addPerson: self.view.person];
+    
+    if (NO == result) {
+        NSString * message = @"保存失败";
+        [self showAlertViewWithMessage: message];
+        return;
+    }
+    
+    // 更改页面编辑状态.
+    [self setEditing: ! self.editing animated:YES];
+    
+    // 更新导航栏
+    [self updateTitle];
+    
+    NSString * message = @"保存成功";
+    [self showAlertViewWithMessage: message];
  }
 
 - (void) didClickReverseBackButtonItemAction: (UIBarButtonItem *) aButtonItem
@@ -191,6 +215,13 @@
     self.view.ageTF.enabled = NO;
     self.view.telTF.enabled = NO;
     self.view.introTV.editable = NO;
+}
+
+- (void) showAlertViewWithMessage: (NSString *) aMessage
+{
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle: @"提示" message:aMessage delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    [alertView show];
+    [alertView release];
 }
 #pragma mark - <UITextFieldDelegate>协议方法
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

@@ -54,4 +54,12 @@
  *  使视图处于不可编辑状态
  */
 - (void) disableViewEdit;
+
+/**
+ *  显示一个含有指定信息的弹出框.
+ *
+ *  @param aMessage 要显示的信息.
+ */
+- (void) showAlertViewWithMessage: (NSString *) aMessage;
+
 @end

@@ -44,4 +44,21 @@
                           age: (NSUInteger) age
                           tel: (NSString *) tel
                         intro: (NSString *) intro;
+
+/**
+ *  对象是否与另一对象等价.
+ *
+ *  @param aPerson 用来比较的对象.
+ *
+ *  @return YES,等价;NO,不等价.
+ */
+- (BOOL) isEqualToPerson: (CFPerson *) aPerson;
+
+/**
+ *  使用另一个联系人的信息来更新信息.
+ *
+ *  @param aPerson 另一个联系人.
+ */
+- (void) updateWithPerson: (CFPerson *) aPerson;
+
 @end

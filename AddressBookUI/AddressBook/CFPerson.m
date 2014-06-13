@@ -50,47 +50,44 @@
     return self;
 }
 
-// ???:备用!
-//- (void) updateAvatarImage
-//{
-//    [self imageForAssetUrl:self.avatarName success:^(UIImage * aImg) {// 使用本地图片
-//        self.avatarImage = aImg;
-//    } fail:^{// 使用app内置图片或者默认图片.
-//        UIImage * img = [UIImage imageNamed:self.avatarName];
-//        if (nil == img) {// 使用默认图片
-//            img = [UIImage imageNamed: self.nameOfdefaultImg];
-//        }
-//        self.avatarImage = img;
-//    }];
-//}
+- (BOOL) isEqualToPerson: (CFPerson *) aPerson
+{
+    if (nil == aPerson) { // 为空
+        return NO;
+    }
+    
+    if (NO == [aPerson isMemberOfClass: [self class]]) { // 不是同类对象
+        return NO;
+    }
+    
+    if (self == aPerson) { // 为同一对象.
+        return YES;
+    }
+    
+    if ([self.name isEqualToString: aPerson.name] &&
+        [self.avatarName isEqualToString: aPerson.avatarName] &&
+        [self.sex isEqualToString: aPerson.sex] &&
+        self.age == aPerson.age &&
+        [self.tel isEqualToString: aPerson.tel] &&
+        [self.intro isEqualToString: aPerson.intro]) {
+        return YES;
+    }
+    
+    return NO;
+}
 
-// ???:代码备用.
-//- (void) imageForAssetUrl: (NSString *) assetUrl
-//                  success: (void(^)(UIImage *)) successBlock
-//                     fail: (void(^)()) failBlock
-//{
-//    __block UIImage * image;
-//    ALAssetsLibrary   *lib = [[[ALAssetsLibrary alloc] init] autorelease];
-//    [lib assetForURL:[NSURL URLWithString:self.avatarName] resultBlock:^(ALAsset *asset)
-//     {
-//         // 使用asset来获取本地图片
-//         ALAssetRepresentation *assetRep = [asset defaultRepresentation];
-//         CGImageRef imgRef = [assetRep fullResolutionImage];
-//         image = [UIImage imageWithCGImage:imgRef
-//                                       scale:assetRep.scale
-//                                 orientation:(UIImageOrientation)assetRep.orientation];
-//         if (nil == image) { // 获取图片失败
-//             failBlock();
-//             return;
-//         }
-//         
-//         successBlock(image);
-//         [image release];
-//     }
-//        failureBlock:^(NSError *error) {
-//            failBlock();
-//        }];
-//}
+- (void) updateWithPerson: (CFPerson *) aPerson
+{
+    if (nil == aPerson) {
+        return;
+    }
+    
+    self.name = aPerson.name;
+    self.avatarName = aPerson.avatarName;
+    self.sex = aPerson.sex;
+    self.tel = aPerson.tel;
+    self.intro = aPerson.intro;
+}
 
 #pragma mark - NSCoding协议方法
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
