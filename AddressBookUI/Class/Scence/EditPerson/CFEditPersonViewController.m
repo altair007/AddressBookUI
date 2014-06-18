@@ -14,6 +14,7 @@
 #import "CFPerson.h"
 #import "UIAlertView+Blocks.h"
 #import "NSString+IsAllNumbers.h"
+#import "CFAvatarView.h"
 
 @interface CFEditPersonViewController ()
 
@@ -73,9 +74,10 @@
     }
     
     // 获取用户输入
+    NSString * avatarName = self.view.avatarView.avatarName;
     NSString * name = self.view.nameTF.text;
     NSString * sex = self.view.sexTF.text;
-    NSInteger age = [self.view.ageTF.text integerValue];
+    NSString * age = self.view.ageTF.text;
     NSString * tel = self.view.telTF.text;
     NSString * intro = self.view.introTV.text;
     
@@ -93,9 +95,27 @@
         return;
     }
     
+    // 性别如果存在,必须为男或者女.
+    // ???: 应该使用一个下拉列表,让用户选择男或者女!这样性别就可以用一个布尔值来表示.
+    if (NO == [sex isEqualToString: @""]) {
+        if (NO == [sex isEqualToString: @"男"] && NO == [sex isEqualToString: @"女"]) {
+            NSString * message = @"性别应当为\"男\"或者\"女\"!";
+            [self showAlertViewWithMessage: message];
+            return;
+        }
+    }
+    
+    // 年龄如果存在,必须为数字.
+    if (NO == [age isEqualToString: @""]) {
+        if (NO == [age isAllNumbers]) {
+            NSString * message = @"年龄应当全部是数字!";
+            [self showAlertViewWithMessage: message];
+            return;
+        }
+    }
+    
     // 获取视图关联的联系人
-    // ???: 此处暗示:有一个潜在的逻辑错误!应该自定义一个UIImageVIew,它有一个专门的属性,用来存储图片名称.而不是直接把获取到的图片地址赋值给self.view.person.
-    CFPerson * person = [[CFPerson alloc] initWithName: name avatarName:self.view.person.avatarName sex:sex age:age tel:tel intro: intro]
+    CFPerson * person = [[CFPerson alloc] initWithName: name avatarName:avatarName sex:sex age:[age integerValue] tel:tel intro: intro]
     ;
     
     if (YES == [self.view.person isEqualToPerson: person]) {// 内容没有任何变化.
@@ -199,7 +219,7 @@
 
 - (void) enableViewEdit
 {
-    self.view.avatarIV.userInteractionEnabled = YES;
+    self.view.avatarView.userInteractionEnabled = YES;
     self.view.nameTF.enabled = YES;
     self.view.sexTF.enabled = YES;
     self.view.ageTF.enabled = YES;
@@ -209,7 +229,7 @@
 
 - (void) disableViewEdit
 {
-    self.view.avatarIV.userInteractionEnabled = NO;
+    self.view.avatarView.userInteractionEnabled = NO;
     self.view.nameTF.enabled = NO;
     self.view.sexTF.enabled = NO;
     self.view.ageTF.enabled = NO;
@@ -233,9 +253,7 @@
 #pragma mark - <UIImagePickerControllerDelegate>协议方法
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    self.view.avatarIV.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
-    self.view.person.avatarName = ((NSURL *)[info objectForKey:UIImagePickerControllerReferenceURL]).description;
+    self.view.avatarView.avatarName = ((NSURL *)[info objectForKey:UIImagePickerControllerReferenceURL]).description;
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 

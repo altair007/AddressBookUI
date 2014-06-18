@@ -13,13 +13,7 @@
 + (void) imageForAssetUrl: (NSString *) assetUrl
                   success: (void(^)(UIImage *)) successBlock
                      fail: (void(^)()) failBlock
-{
-    // ???: 修复下osc上的代码!
-    if (nil == assetUrl) {
-        failBlock();
-        return;
-    }
-    
+{    
     __block UIImage * image;
     ALAssetsLibrary   *lib = [[[ALAssetsLibrary alloc] init] autorelease];
     [lib assetForURL:[NSURL URLWithString:assetUrl] resultBlock:^(ALAsset *asset)

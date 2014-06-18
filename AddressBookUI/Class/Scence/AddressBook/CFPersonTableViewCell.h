@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @class CFPerson;
 @class CFPersonCellInfoView;
+@class CFAvatarView;
 
 // 默认头像图片高度和高度
 #define HEIGHT_AVATAR   120.0
@@ -23,7 +24,7 @@
  */
 @interface CFPersonTableViewCell : UITableViewCell
 @property (retain, nonatomic) CFPerson * person; //!<  联系人.
-@property (retain, nonatomic, readonly) UIImageView * avatarIV; //!< 联系人头像.
+@property (retain, nonatomic, readonly) CFAvatarView * avatarView; //!< 联系人头像.
 @property (retain, nonatomic, readonly) CFPersonCellInfoView * infoView; //!< 联系人信息
 
 /**

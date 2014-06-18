@@ -15,7 +15,6 @@
 @class CFDetailViewController;
 @class CFPerson;
 
-
 @interface CFAddressBookViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (retain, nonatomic) CFAddressBookView * view;
 /**

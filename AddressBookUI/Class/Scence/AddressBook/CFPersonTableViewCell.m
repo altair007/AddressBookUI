@@ -10,9 +10,10 @@
 #import "CFPerson.h"
 #import "CFPersonCellInfoView.h"
 #import "UIImage+AssetUrl.h"
+#import "CFAvatarView.h"
 
 @interface CFPersonTableViewCell ()
-@property (retain, nonatomic, readwrite) UIImageView * avatarIV; //!< 联系人头像.
+@property (retain, nonatomic, readwrite) CFAvatarView * avatarView; //!< 联系人头像.
 @property (retain, nonatomic, readwrite) CFPersonCellInfoView * infoView; //!< 联系人信息
 @end
 
@@ -34,7 +35,7 @@
 -(void)dealloc
 {
     self.person = nil;
-    self.avatarIV = nil;
+    self.avatarView = nil;
     self.infoView = nil;
     
     [super dealloc];
@@ -68,15 +69,15 @@
     self.backgroundColor = [UIColor whiteColor];
     
     // 头像视图
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(PADDING_LEFT_AVATAR, PADDING_UP_AVATAR, WIDTH_AVATAR, HEIGHT_AVATAR)];
+    CFAvatarView * avatarView = [[CFAvatarView alloc] initWithFrame:CGRectMake(PADDING_LEFT_AVATAR, PADDING_UP_AVATAR, WIDTH_AVATAR, HEIGHT_AVATAR)];
     
-    self.avatarIV= imageView;
-    [imageView release];
+    self.avatarView= avatarView;
+    [avatarView release];
     
-    [self addSubview: self.avatarIV];
+    [self addSubview: self.avatarView];
     
     // 信息视图
-    CFPersonCellInfoView * infoView = [[CFPersonCellInfoView alloc] initWithFrame:CGRectMake(rect.size.width - DEFAULT_WIDTH - PADDING_LEFT_AVATAR, self.avatarIV.frame.origin.y, DEFAULT_WIDTH, DEFAULT_HEIGHT)];
+    CFPersonCellInfoView * infoView = [[CFPersonCellInfoView alloc] initWithFrame:CGRectMake(rect.size.width - DEFAULT_WIDTH - PADDING_LEFT_AVATAR, self.avatarView.frame.origin.y, DEFAULT_WIDTH, DEFAULT_HEIGHT)];
     
     self.infoView = infoView;
     [self addSubview: self.infoView];
@@ -104,17 +105,8 @@
 
 - (void) updateContentOfView
 {
-    [UIImage imageForAssetUrl:self.person.avatarName success:^(UIImage * aImg) {// 使用本地图片
-        self.avatarIV.image = aImg;
-    } fail:^{// 使用app内置图片
-        UIImage * image = [UIImage imageNamed: self.person.avatarName];
-        
-        if (nil == image) {// 使用默认图片
-            image = [UIImage imageNamed: @"default.jpg"];
-        }
-        
-        self.avatarIV.image = image;
-    }];
+    
+    self.avatarView.avatarName = self.person.avatarName;
     
     self.infoView.person = self.person;
     

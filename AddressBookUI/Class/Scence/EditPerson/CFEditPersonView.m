@@ -10,9 +10,10 @@
 #import "CFEditPersonViewController.h"
 #import "CFPerson.h"
 #import "UIImage+AssetUrl.h"
+#import "CFAvatarView.h"
 
 @interface CFEditPersonView ()
-@property (retain, nonatomic, readwrite) UIImageView * avatarIV; //!< 相片视图.
+@property (retain, nonatomic, readwrite) CFAvatarView * avatarView; //!< 相片视图.
 @property (retain, nonatomic, readwrite) UITextField * nameTF; //!< 姓名编辑框
 @property (retain, nonatomic, readwrite) UITextField * sexTF; //!< 性别编辑框
 @property (retain, nonatomic, readwrite) UITextField * ageTF; //!< 年龄编辑框
@@ -24,7 +25,7 @@
 -(void)dealloc
 {
     self.person = nil;
-    self.avatarIV = nil;
+    self.avatarView = nil;
     self.nameTF = nil;
     self.sexTF = nil;
     self.ageTF = nil;
@@ -51,18 +52,18 @@
     // 头像
     CGFloat landscapeSpace = 30.0; // 头像距离边框的距离
     
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(landscapeSpace, 100, 80, 120)];
-    self.avatarIV= imageView;
-    [imageView release];
+    CFAvatarView * avatarView = [[CFAvatarView alloc] initWithFrame:CGRectMake(landscapeSpace, 100, 80, 120)];
+    self.avatarView= avatarView;
+    [avatarView release];
     
-    [self addSubview: self.avatarIV];
+    [self addSubview: self.avatarView];
     
     // 给头像视图添加手势
-    self.avatarIV.userInteractionEnabled = YES;
+    self.avatarView.userInteractionEnabled = YES;
     
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self.delegate action:@selector(handlAvatarViewTapGesture:)];
     
-    [self.avatarIV addGestureRecognizer: tapGesture];
+    [self.avatarView addGestureRecognizer: tapGesture];
     [tapGesture release];
     
     
@@ -71,7 +72,7 @@
     
     CGFloat portraitSpace = landscapeSpace / (placeHolders.count - 1); // 编辑框竖直方向的间距
     
-    __block CGRect baseRect = CGRectMake(2 * self.avatarIV.frame.origin.x + self.avatarIV.frame.size.width, self.avatarIV.frame.origin.y, rect.size.width - self.avatarIV.frame.size.width - self.avatarIV.frame.origin.x - 2 * self.avatarIV.frame.origin.x, (self.avatarIV.frame.size.height - portraitSpace * (placeHolders.count - 1)) / placeHolders.count);
+    __block CGRect baseRect = CGRectMake(2 * self.avatarView.frame.origin.x + self.avatarView.frame.size.width, self.avatarView.frame.origin.y, rect.size.width - self.avatarView.frame.size.width - self.avatarView.frame.origin.x - 2 * self.avatarView.frame.origin.x, (self.avatarView.frame.size.height - portraitSpace * (placeHolders.count - 1)) / placeHolders.count);
     
     [placeHolders enumerateObjectsUsingBlock:^(NSString * placeHolder, NSUInteger idx, BOOL *stop) {
         UITextField * tempTF = [[UITextField alloc] initWithFrame:baseRect];
@@ -105,7 +106,7 @@
     }];
     
     // 个人简介编辑框
-    CGRect rectOfIntro = CGRectMake(self.avatarIV.frame.origin.x, self.avatarIV.frame.origin.y + self.avatarIV.frame.size.height + portraitSpace, rect.size.width - 2 * self.avatarIV.frame.origin.x, rect.size.height - self.avatarIV.frame.size.height - self.avatarIV.frame.origin.y - 2 * portraitSpace);
+    CGRect rectOfIntro = CGRectMake(self.avatarView.frame.origin.x, self.avatarView.frame.origin.y + self.avatarView.frame.size.height + portraitSpace, rect.size.width - 2 * self.avatarView.frame.origin.x, rect.size.height - self.avatarView.frame.size.height - self.avatarView.frame.origin.y - 2 * portraitSpace);
     UITextView * introTV = [[UITextView alloc] initWithFrame: rectOfIntro];
     introTV.backgroundColor = [UIColor lightGrayColor];
     self.introTV = introTV;
@@ -120,7 +121,7 @@
     _person = person;
     
     [UIImage imageForAssetUrl:self.person.avatarName success:^(UIImage * aImg) {// 使用本地图片
-        self.avatarIV.image = aImg;
+        self.avatarView.image = aImg;
     } fail:^{// 使用app内置图片
         UIImage * image = [UIImage imageNamed: self.person.avatarName];
         
@@ -128,7 +129,7 @@
             image = [UIImage imageNamed: @"default.jpg"];
         }
         
-        self.avatarIV.image = image;
+        self.avatarView.image = image;
     }];
     
     self.nameTF.text = self.person.name;
