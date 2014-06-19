@@ -64,11 +64,13 @@
 - (BOOL) addPerson: (CFPerson *) aPerson;
 
 /**
- *  删除联系人
+ *  删除某个电话号关联的联系人.
  *
- *  @param aPerson 要删除的联系人
+ *  @param tel 电话号
+ *
+ *  @return YES,删除成功;NO,删除失败.
  */
-- (void) removePerson: (CFPerson *) aPerson;
+- (BOOL) removePersonWithTel: (NSString *) tel;
 
 /**
  *  返回通讯录中所有联系人的字典.以姓名拼音首字母大写为键,以存储联系人的可变数组为值.

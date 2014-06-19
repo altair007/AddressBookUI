@@ -35,6 +35,8 @@
         
         if (nil == image) {// 使用默认图片
             image = [UIImage imageNamed: @"default.jpg"];
+            [_avatarName release];
+            _avatarName = @"default.jpg";
         }
         
         self.image = image;

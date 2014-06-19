@@ -21,10 +21,20 @@
     [super dealloc];
 }
 
-#pragma mark - 便利初始化
++ (instancetype) personWithName: (NSString *) name
+                         avatar: (NSString *) avatar
+                            sex: (BOOL) sex
+                            age: (NSUInteger) age
+                            tel: (NSString *) tel
+                          intro: (NSString *) intro
+{
+    CFPerson * person = [[[[self class] alloc]initWithName: name avatar:avatar sex: sex age: age tel: tel intro: intro] autorelease];
+    return person;
+}
+
 - (instancetype) init
 {
-    if (self = [self initWithName:nil avatarName:nil sex:nil age:0 tel:nil intro: nil]) {
+    if (self = [self initWithName:nil avatar:nil sex:NO age:0 tel:nil intro: nil]) {
         
     }
     
@@ -32,8 +42,8 @@
 }
 
 - (instancetype) initWithName: (NSString *) name
-                   avatarName: (NSString *) avatarName
-                          sex: (NSString *) sex
+                   avatar: (NSString *) avatarName
+                          sex: (BOOL) sex
                           age: (NSUInteger) age
                           tel: (NSString *) tel
                         intro: (NSString *) intro

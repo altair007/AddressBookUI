@@ -66,7 +66,6 @@
     }
 }
 
-// ???:有一个BUG!"编辑页面"点"保存",会错误保存,头像被错误替换!
 -(void) didClickSaveButtonItemAction: (UIBarButtonItem *) aButtonItem
 {
     if (NO == self.editing) { // 页面处于"不可编辑"状态
@@ -115,7 +114,12 @@
     }
     
     // 获取视图关联的联系人
-    CFPerson * person = [[CFPerson alloc] initWithName: name avatarName:avatarName sex:sex age:[age integerValue] tel:tel intro: intro]
+    BOOL realSex = NO;
+    if ([sex isEqualToString: @"女"]) {
+        realSex = YES;
+    }
+    
+    CFPerson * person = [CFPerson personWithName: name avatar:avatarName sex:realSex age:[age integerValue] tel:tel intro: intro]
     ;
     
     if (YES == [self.view.person isEqualToPerson: person]) {// 内容没有任何变化.
@@ -124,21 +128,13 @@
         return;
     }
     
-    // 保存数据
-    [self.view.person updateWithPerson: person];
-    
-    BOOL result =  [[CFMainController sharedInstance] addPerson: self.view.person];
-    
-    if (NO == result) {
+    if (NO == [[CFMainController sharedInstance] addPerson: person]) {
         NSString * message = @"保存失败";
         [self showAlertViewWithMessage: message];
         return;
     }
     
-    // 更改页面编辑状态.
     [self setEditing: ! self.editing animated:YES];
-    
-    // 更新导航栏
     [self updateTitle];
     
     NSString * message = @"保存成功";

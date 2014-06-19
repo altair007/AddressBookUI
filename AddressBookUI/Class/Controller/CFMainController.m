@@ -20,8 +20,7 @@
 @end
 
 @implementation CFMainController
-#pragma mark - 单例
-// !!!:搜一下apple官网的单例示例!
+#pragma mark - 实现单例
 static CFMainController * sharedObj = nil;
 
 + (instancetype) sharedInstance
@@ -60,7 +59,7 @@ static CFMainController * sharedObj = nil;
 
 - (oneway void)release
 {
-    
+    return;
 }
 
 - (instancetype) autorelease
@@ -142,18 +141,20 @@ static CFMainController * sharedObj = nil;
     return result;
 }
 
-- (void) removePerson: (CFPerson *) aPerson
+
+- (BOOL) removePersonWithTel: (NSString *) tel
 {
-    [self.model removePerson: aPerson];
+    BOOL success = [self.model removePersonWithTel: tel];
+    return success;
 }
 
 - (void)setModel:(CFAddressBookModel *)model
 {
-    [model addObserver: self forKeyPath: @"countOfPersons" options:NSKeyValueObservingOptionNew |
+    [model addObserver: self forKeyPath: @"persons" options:NSKeyValueObservingOptionNew |
      NSKeyValueObservingOptionOld context: NULL];
     [model retain];
     
-    [_model removeObserver: self forKeyPath:@"countOfPersons"];
+    [_model removeObserver: self forKeyPath:@"persons"];
     [_model release];
     
     _model = model;
@@ -161,6 +162,6 @@ static CFMainController * sharedObj = nil;
 
 - (NSDictionary *) dictionaryOfPersons
 {
-    return self.model.personsByGroups;
+    return self.model.persons;
 }
 @end

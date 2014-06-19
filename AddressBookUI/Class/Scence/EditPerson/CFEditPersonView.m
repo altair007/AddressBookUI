@@ -120,23 +120,11 @@
     [_person release];
     _person = person;
     
-    [UIImage imageForAssetUrl:self.person.avatar success:^(UIImage * aImg) {// 使用本地图片
-        self.avatarView.image = aImg;
-    } fail:^{// 使用app内置图片
-        UIImage * image = [UIImage imageNamed: self.person.avatar];
-        
-        if (nil == image) {// 使用默认图片
-            image = [UIImage imageNamed: @"default.jpg"];
-        }
-        
-        self.avatarView.image = image;
-    }];
+    self.avatarView.avatarName = person.avatar;
     
     self.nameTF.text = self.person.name;
     
-    // FIXME:请优化性别数据的处理和展示方式,使用下拉列表或单选框!
     self.sexTF.text = @"男";
-    
     if (YES == self.person.sex) {
         self.sexTF.text = @"女";
     }
@@ -145,7 +133,7 @@
     self.telTF.text = self.person.tel;
     self.introTV.text = self.person.intro;
     
-    if (YES == [self isAddPerson]) {
+    if (YES == [self isAddPerson]) {// 添加联系人页面.
         if (0 == person.age) {
             self.ageTF.text = @"";
         }
@@ -153,6 +141,8 @@
         if (nil == self.telTF.text || [@"" isEqualToString: self.telTF.text]) {
             self.introTV.text = [NSString stringWithFormat:@"请简单描述一下这个人吧"];
         }
+        
+        self.sexTF.text = @"";
     }
 }
 

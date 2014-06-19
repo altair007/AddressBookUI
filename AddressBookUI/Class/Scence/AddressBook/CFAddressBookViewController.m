@@ -121,7 +121,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSInteger  count;
-    count = [CFMainController sharedInstance].model.personsByGroups.allKeys.count;
+    count = [CFMainController sharedInstance].model.persons.allKeys.count;
     return count;
 }
 
@@ -134,7 +134,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // FIXME:修改相册cell复用方法的实现策略.(使其与tablbe的单元格实现方式,基本统一.)
     // 获取此分区对应的通讯录成员
     CFPerson * person = [self personAtIndexPath: indexPath];
     
@@ -189,7 +188,8 @@
         RIButtonItem * deleteItem = [RIButtonItem itemWithLabel: @"确定"
                                                          action:^{            //删除联系人                            
              // 删除数据
-             [[CFMainController sharedInstance] removePerson: person];}];
+             [[CFMainController sharedInstance] removePersonWithTel: person.tel];
+                                                         }];
         UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString    stringWithFormat:@"确定删除联系人 %@ ?", person.name]
                                                           cancelButtonItem:cancelItem
                                                      destructiveButtonItem:deleteItem otherButtonItems: nil];
