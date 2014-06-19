@@ -10,6 +10,7 @@
 @class CFPerson;
 @class CFAvatarView;
 
+// !!!: 建议把添加页和编辑页分离!使用继承机制.要不然,逻辑越来越乱!
 @interface CFEditPersonView : UIView
 @property (retain ,nonatomic) CFPerson * person; //!< 联系人
 @property (assign, nonatomic) id<UITextFieldDelegate, UITextViewDelegate> delegate; //!< 代理

@@ -16,6 +16,54 @@
 @end
 
 @implementation CFAddressBookModel
+#pragma mark - 实现单例
+static CFAddressBookModel * sharedObj = nil;
+
++ (instancetype) sharedInstance
+{
+    if (nil == sharedObj) {
+        sharedObj = [[self alloc] init];
+    }
+    
+    return sharedObj;
+}
+
++ (instancetype) allocWithZone:(struct _NSZone *)zone
+{
+    if (nil == sharedObj) {
+        sharedObj = [super allocWithZone:zone];
+        return sharedObj;
+    }
+    
+    return nil;
+}
+
+- (instancetype) copyWithZone: (NSZone *) zone
+{
+    return  self;
+}
+
+- (instancetype)retain
+{
+    return self;
+}
+
+- (NSUInteger)retainCount
+{
+    return UINT_MAX;
+}
+
+- (oneway void)release
+{
+    return;
+}
+
+- (instancetype) autorelease
+{
+    return self;
+}
+
+# pragma mark - 实例方法.
 -(void)dealloc
 {
     self.persons = nil;
@@ -117,6 +165,7 @@
     return result.uppercaseString;
 }
 
+// !!!:下面三个方法可以合并:公共部分是sql,args
 - (BOOL) removePersonWithTel: (NSString *) tel
 {
     if (NO == [self.db open]) {
@@ -158,4 +207,27 @@
     return YES;
 }
 
+- (BOOL) updatePerson: (CFPerson *) aPerson
+                atTel: (NSString *) tel
+{
+    if (NO == [self.db open]) {
+        return NO;
+    }
+    
+//    UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值
+    NSString * sql = [NSString stringWithFormat:@"UPDATE `abPersons` SET `txtName` = ?, `txtAvatar` = ?, `intSex` = ?, `intAge` = ?, `txtTel` = ?, `txtIntro` = ? WHERE `txtTel` = ?)"];
+    NSArray * sqlArgs = @[aPerson.name, aPerson.avatar, [NSNumber numberWithBool: aPerson.sex], [NSNumber numberWithInteger: aPerson.age], aPerson.tel, aPerson.intro, tel];
+    
+    if (NO == [self.db executeUpdate:sql withArgumentsInArray: sqlArgs]) {
+        return NO;
+    }
+    
+    if (NO == [self updateData]) {
+        return NO;
+    }
+    
+    [self.db close];
+    
+    return YES;
+}
 @end

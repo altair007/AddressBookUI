@@ -134,34 +134,4 @@ static CFMainController * sharedObj = nil;
     [self.addressBookVC.navigationController popToViewController:self.addressBookVC animated:YES];
 }
 
-- (BOOL) addPerson: (CFPerson *) aPerson
-{
-    BOOL result = [self.model addPerson: aPerson];
-    
-    return result;
-}
-
-
-- (BOOL) removePersonWithTel: (NSString *) tel
-{
-    BOOL success = [self.model removePersonWithTel: tel];
-    return success;
-}
-
-- (void)setModel:(CFAddressBookModel *)model
-{
-    [model addObserver: self forKeyPath: @"persons" options:NSKeyValueObservingOptionNew |
-     NSKeyValueObservingOptionOld context: NULL];
-    [model retain];
-    
-    [_model removeObserver: self forKeyPath:@"persons"];
-    [_model release];
-    
-    _model = model;
-}
-
-- (NSDictionary *) dictionaryOfPersons
-{
-    return self.model.persons;
-}
 @end

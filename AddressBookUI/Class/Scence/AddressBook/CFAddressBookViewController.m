@@ -70,7 +70,7 @@
 - (NSArray *) personsInSection: (NSInteger)section
 {
     // 获取按姓名首字母分组的字典
-    NSDictionary * personsDict = [CFMainController sharedInstance].dictionaryOfPersons;
+    NSDictionary * personsDict = [[CFAddressBookModel sharedInstance] persons];
     
     NSString * groupName = [self groupNameInSection: section];
     
@@ -105,7 +105,7 @@
 - (NSArray *) groups
 {
     // 获取按姓名首字母分组的字典
-    NSDictionary * personsDict = [CFMainController sharedInstance].dictionaryOfPersons;
+    NSDictionary * personsDict = [[CFAddressBookModel sharedInstance] persons];
     
     // 获取keys数组
     NSArray * groups = personsDict.allKeys;
@@ -188,7 +188,7 @@
         RIButtonItem * deleteItem = [RIButtonItem itemWithLabel: @"确定"
                                                          action:^{            //删除联系人                            
              // 删除数据
-             [[CFMainController sharedInstance] removePersonWithTel: person.tel];
+             [[CFAddressBookModel sharedInstance] removePersonWithTel: person.tel];
                                                          }];
         UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString    stringWithFormat:@"确定删除联系人 %@ ?", person.name]
                                                           cancelButtonItem:cancelItem

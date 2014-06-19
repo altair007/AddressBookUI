@@ -21,6 +21,7 @@
 @property (retain, nonatomic, readonly) CFAddressBookViewController * addressBookVC; //!< 通讯录视图控制器
 @property (retain, nonatomic, readonly) CFEditPersonViewController * editPersonVC; //!< 编辑联系人页面视图控制器
 @property (retain, nonatomic) CFAddressBookModel * model; //!< 通讯录数据模型
+
 /**
  *  获取单例
  *
@@ -53,30 +54,5 @@
  *  转向通讯录视图
  */
 - (void) switchToAddressBookView;
-
-/**
- *  添加联系人,姓名或电话号不能为空
- *
- *  @param aPerson 一个联系人
- *
- *  @return YES,添加成功;NO,添加失败
- */
-- (BOOL) addPerson: (CFPerson *) aPerson;
-
-/**
- *  删除某个电话号关联的联系人.
- *
- *  @param tel 电话号
- *
- *  @return YES,删除成功;NO,删除失败.
- */
-- (BOOL) removePersonWithTel: (NSString *) tel;
-
-/**
- *  返回通讯录中所有联系人的字典.以姓名拼音首字母大写为键,以存储联系人的可变数组为值.
- *
- *  @return 联系人字典.
- */
-- (NSDictionary *) dictionaryOfPersons;
 
 @end

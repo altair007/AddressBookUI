@@ -20,6 +20,13 @@
 @property (retain, nonatomic, readonly) FMDatabase * db; //!< 数据库.
 
 /**
+ *  获取单例
+ *
+ *  @return 单例
+ */
++ (instancetype) sharedInstance;
+
+/**
  *  设置数据库连接.
  *
  *  @return YES,成功;NO,失败.
@@ -59,5 +66,16 @@
  *  @return YES,添加成功;NO,添加失败
  */
 - (BOOL) addPerson: (CFPerson *) aPerson;
+
+/**
+ *  更新联系人信息
+ *
+ *  @param aPerson 新的联系人信息对象.
+ *  @param tel     联系人原来的手机号.
+ *
+ *  @return YES,成功;NO,失败.
+ */
+- (BOOL) updatePerson: (CFPerson *) aPerson
+                atTel: (NSString *) tel;
 
 @end

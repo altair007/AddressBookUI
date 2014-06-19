@@ -128,11 +128,22 @@
         return;
     }
     
-    if (NO == [[CFMainController sharedInstance] addPerson: person]) {
-        NSString * message = @"保存失败";
-        [self showAlertViewWithMessage: message];
-        return;
+    //???:此处代码有些冗余!
+    // !!!:更新数据,有错误!
+    if ([self.view.person.tel isEqualToString: person.tel]) {// 修改
+        if (NO == [[CFAddressBookModel sharedInstance] updatePerson:person atTel: self.view.person.tel]) {
+            NSString * message = @"保存失败";
+            [self showAlertViewWithMessage: message];
+            return;
+        }
+    }else{// 添加
+        if (NO == [[CFAddressBookModel sharedInstance] addPerson: person]) {
+            NSString * message = @"保存失败";
+            [self showAlertViewWithMessage: message];
+            return;
+        }
     }
+
     
     [self setEditing: ! self.editing animated:YES];
     [self updateTitle];
