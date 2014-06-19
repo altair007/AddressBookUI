@@ -40,17 +40,6 @@
         self.db = db;
         [db release];
         
-        // ???:暂时先用此方式!等待数据库学习完成!
-        NSString * path;
-        path = [NSBundle pathForResource:@"addressBookData" ofType: nil inDirectory:[NSBundle mainBundle].bundlePath];
-        self.pathOfData = path;
-
-        self.persons = [NSKeyedUnarchiver unarchiveObjectWithFile: self.pathOfData];
-        
-        if (nil == self.persons) {
-            self.persons = [[[NSMutableArray alloc] initWithCapacity: 42] autorelease];
-        }
-        
         [self setupPersonsByGroups];
         [self updateCountOfPersons];
         if (nil == self.persons) {
@@ -59,6 +48,58 @@
     }
     
     return self;
+}
+
+- (void)setDb:(FMDatabase *)db
+{
+    // 设置属性
+    [db retain];
+    [_db release];
+    _db = db;
+    
+    // 初始化数据.
+    // ???: 应该封装一下!
+    NSMutableArray * persons = [[NSMutableArray alloc] initWithCapacity: 42];
+    self.persons = persons;
+    [persons release];
+    
+    [self.db open];
+    BOOL success = NO; // 标记各操作是否执行成功.
+    
+    // !!!:这一步操作,有些鸡肋!
+    success = [self.db executeUpdate:@"CREATE TABLE IF NOT EXISTS `abPersons` (`pkPersonId`INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, `txtName` TEXT NOT NULL, `txtAvatar` TEXT, `intSex` INTEGER, `intAge` INTEGER, `txtTel` TEXT NOT NULL, `txtIntro` TEXT)"];
+    
+    // ???:可以直接获取数据的总条数,进行判断吗?
+    
+    // !!!: 把城市信息管理的数据放到一个数据库中进行管理.
+    
+    if (NO == success) {
+        return;
+    }
+    
+    FMResultSet * results = [self.db executeQuery:@"SELECT `txtName`, `txtAvatar`, `intSex`, `intAge`, `txtTel`, `txtIntro`  FROM `abPersons`"];
+    while ([results next]) {
+        NSString * name = [results stringForColumn: @"txtName"];
+        NSString * avatar = [results stringForColumn: @"txtAvatar"];
+        
+        // !!!:暂时不修改person的性别属性的数据类型,以免大混乱!
+        BOOL  sexTemp = [results boolForColumn: @"intSex"];
+        NSString * sex = @"男";
+        if (YES == sexTemp) {
+            sex = @"女";
+        }
+        
+        NSUInteger age = [results longLongIntForColumn: @"intAge"];
+        NSString * tel = [results stringForColumn: @"txtTel"];
+        NSString * intro = [results stringForColumn: @"txtIntro"];
+        
+        CFPerson * person = [[CFPerson alloc] initWithName: name avatarName: avatar sex: sex age:age tel: tel intro: intro];
+        [self.persons addObject: person];
+        [person release];
+        
+    }
+    
+    [self.db close];
 }
 
 - (BOOL) update

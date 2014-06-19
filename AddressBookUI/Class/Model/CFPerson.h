@@ -17,13 +17,13 @@
 /**
  * 通讯录成员类,用作通讯录成员
  */
-@interface CFPerson : NSObject <NSCoding>
+@interface CFPerson : NSObject
 
 #pragma mark - 属性
 @property (copy, nonatomic) NSString * name; //!< 姓名.
 @property (copy, nonatomic) NSString * avatar; //!< 头像图片名称.
 // ???:应该换成布尔型,比较合适!没有下拉控件吗?
-@property (copy, nonatomic) NSString * sex; //!< 性别.
+@property (assign, nonatomic) BOOL sex; //!< 性别.NO, 表示男;YES,表示女.
 @property (assign, nonatomic) NSUInteger age; //!< 年龄.
 @property (copy, nonatomic) NSString * tel; //!< 电话.
 @property (copy, nonatomic) NSString * intro; //!< 简介.

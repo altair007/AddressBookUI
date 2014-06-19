@@ -133,7 +133,14 @@
     }];
     
     self.nameTF.text = self.person.name;
-    self.sexTF.text = self.person.sex;
+    
+    // FIXME:请优化性别数据的处理和展示方式,使用下拉列表或单选框!
+    self.sexTF.text = @"男";
+    
+    if (YES == self.person.sex) {
+        self.sexTF.text = @"女";
+    }
+    
     self.ageTF.text = [NSString stringWithFormat: @"%lu", self.person.age];
     self.telTF.text = self.person.tel;
     self.introTV.text = self.person.intro;

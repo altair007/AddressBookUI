@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C212855E19443973004EC639 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C212855D19443973004EC639 /* readme.md */; };
+		C2131AB81952DDB2009ED1B0 /* AddressBook.db in Resources */ = {isa = PBXBuildFile; fileRef = C2131AB71952DDB2009ED1B0 /* AddressBook.db */; };
+		C2131ABA1952E515009ED1B0 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2131AB91952E515009ED1B0 /* LICENSE.txt */; };
 		C21528A61952687D00A2EA3F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C215289C1952687D00A2EA3F /* FMDatabase.m */; };
 		C21528A71952687D00A2EA3F /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C215289E1952687D00A2EA3F /* FMDatabaseAdditions.m */; };
 		C21528A81952687D00A2EA3F /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C21528A01952687D00A2EA3F /* FMDatabasePool.m */; };
@@ -75,6 +77,8 @@
 
 /* Begin PBXFileReference section */
 		C212855D19443973004EC639 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = SOURCE_ROOT; };
+		C2131AB71952DDB2009ED1B0 /* AddressBook.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = AddressBook.db; sourceTree = "<group>"; };
+		C2131AB91952E515009ED1B0 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C215289B1952687D00A2EA3F /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		C215289C1952687D00A2EA3F /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		C215289D1952687D00A2EA3F /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 		C215289A1952687D00A2EA3F /* fmdb */ = {
 			isa = PBXGroup;
 			children = (
+				C2131AB91952E515009ED1B0 /* LICENSE.txt */,
 				C21528B019527C7900A2EA3F /* README.markdown */,
 				C215289B1952687D00A2EA3F /* FMDatabase.h */,
 				C215289C1952687D00A2EA3F /* FMDatabase.m */,
@@ -339,6 +344,7 @@
 		C2167B021951DD6E00F2EAE4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C2131AB71952DDB2009ED1B0 /* AddressBook.db */,
 				C2167B031951DD6E00F2EAE4 /* addressBookData */,
 				C2167B041951DD6E00F2EAE4 /* Img */,
 			);
@@ -513,6 +519,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2131ABA1952E515009ED1B0 /* LICENSE.txt in Resources */,
+				C2131AB81952DDB2009ED1B0 /* AddressBook.db in Resources */,
 				C2167B321951DD6F00F2EAE4 /* 诺伊特拉·吉尔加.png in Resources */,
 				C2167B2F1951DD6F00F2EAE4 /* 萨尔阿波罗·格兰兹.png in Resources */,
 				C281CA461941CC0300D61F40 /* Images.xcassets in Resources */,

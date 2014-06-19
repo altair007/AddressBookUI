@@ -66,6 +66,7 @@
     }
 }
 
+// ???:有一个BUG!"编辑页面"点"保存",会错误保存,头像被错误替换!
 -(void) didClickSaveButtonItemAction: (UIBarButtonItem *) aButtonItem
 {
     if (NO == self.editing) { // 页面处于"不可编辑"状态

@@ -138,7 +138,7 @@
     // 获取此分区对应的通讯录成员
     CFPerson * person = [self personAtIndexPath: indexPath];
     
-    if ([person.sex isEqualToString: @"男"]) {
+    if (NO == person.sex) {
         static NSString * identifierOfMale = @"male";
         CFMaleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifierOfMale forIndexPath:indexPath];
         
@@ -205,7 +205,7 @@
     CGFloat height = 0.0; // 行高
     
     // 不同性别的人行高可能不同.
-    if ( [person.sex isEqualToString: @"男"]) {
+    if (NO == person.sex) {
         height = [CFMaleTableViewCell heightWithPerson: person];
         
         return height;

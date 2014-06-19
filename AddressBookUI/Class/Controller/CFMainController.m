@@ -21,7 +21,7 @@
 
 @implementation CFMainController
 #pragma mark - 单例
-
+// !!!:搜一下apple官网的单例示例!
 static CFMainController * sharedObj = nil;
 
 + (instancetype) sharedInstance
