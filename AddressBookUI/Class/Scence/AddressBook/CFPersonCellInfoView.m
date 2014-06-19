@@ -47,6 +47,8 @@
     self = [super initWithFrame: realRect];
     if (self) {
         // Initialization code
+        self.backgroundColor = [UIColor whiteColor];
+        
         [self setupSubviews];
     }
     return self;
@@ -54,8 +56,6 @@
 
 - (void)setupSubviews
 {
-    self.backgroundColor = [UIColor whiteColor];
-    
     NSArray * keys = @[kNameLabel, kTelLabel, kIntroLabel]; // 属性键组成的数组.
     
     __block CGRect baseRect = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height/ (keys.count - 1));

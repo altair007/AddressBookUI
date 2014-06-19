@@ -38,6 +38,8 @@
 - (void)loadView
 {
     CFAddressBookView * addressBookView = [[CFAddressBookView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
+    [addressBookView registerClass:[CFMaleTableViewCell class] forCellReuseIdentifier:@"male"];
+    [addressBookView registerClass:[CFFemaleTableViewCell class] forCellReuseIdentifier:@"female"];
     addressBookView.dataSource = self;
     addressBookView.delegate = self;
     self.view = addressBookView;
@@ -132,16 +134,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // 获取次分区对应的通讯录成员
+    // FIXME:修改相册cell复用方法的实现策略.(使其与tablbe的单元格实现方式,基本统一.)
+    // 获取此分区对应的通讯录成员
     CFPerson * person = [self personAtIndexPath: indexPath];
     
     if ([person.sex isEqualToString: @"男"]) {
         static NSString * identifierOfMale = @"male";
-        CFMaleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifierOfMale];
-        
-        if (nil == cell) {
-            cell = [[[CFMaleTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifierOfMale] autorelease];
-        }
+        CFMaleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifierOfMale forIndexPath:indexPath];
         
         // 设置cell属性
         cell.person = person;
@@ -149,12 +148,8 @@
     }
     
     static NSString * identifierOfFemale = @"female";
-    CFFemaleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifierOfFemale];
-    
-    if (nil == cell) {
-        cell = [[[CFFemaleTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifierOfFemale] autorelease];
-    }
-    
+    CFFemaleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:identifierOfFemale forIndexPath: indexPath];
+
     // 设置cell属性
     cell.person = person;
     

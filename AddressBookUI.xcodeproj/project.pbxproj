@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		C212855E19443973004EC639 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = C212855D19443973004EC639 /* readme.md */; };
+		C21528A61952687D00A2EA3F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C215289C1952687D00A2EA3F /* FMDatabase.m */; };
+		C21528A71952687D00A2EA3F /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C215289E1952687D00A2EA3F /* FMDatabaseAdditions.m */; };
+		C21528A81952687D00A2EA3F /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C21528A01952687D00A2EA3F /* FMDatabasePool.m */; };
+		C21528A91952687D00A2EA3F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C21528A21952687D00A2EA3F /* FMDatabaseQueue.m */; };
+		C21528AA1952687D00A2EA3F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C21528A51952687D00A2EA3F /* FMResultSet.m */; };
+		C21528AC1952689A00A2EA3F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C21528AB1952689A00A2EA3F /* libsqlite3.0.dylib */; };
+		C21528AF19526C4D00A2EA3F /* CFPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = C21528AE19526C4D00A2EA3F /* CFPerson.m */; };
+		C21528B119527C7900A2EA3F /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = C21528B019527C7900A2EA3F /* README.markdown */; };
 		C2167B111951DD6E00F2EAE4 /* CFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167AD21951DD6E00F2EAE4 /* CFAppDelegate.m */; };
 		C2167B121951DD6E00F2EAE4 /* CFMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167AD51951DD6E00F2EAE4 /* CFMainController.m */; };
 		C2167B131951DD6E00F2EAE4 /* CFAddressBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167AD91951DD6E00F2EAE4 /* CFAddressBookModel.m */; };
@@ -22,7 +30,6 @@
 		C2167B1C1951DD6E00F2EAE4 /* CFAddressBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167AED1951DD6E00F2EAE4 /* CFAddressBookViewController.m */; };
 		C2167B1D1951DD6E00F2EAE4 /* CFFemaleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167AEF1951DD6E00F2EAE4 /* CFFemaleTableViewCell.m */; };
 		C2167B1E1951DD6E00F2EAE4 /* CFMaleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167AF11951DD6E00F2EAE4 /* CFMaleTableViewCell.m */; };
-		C2167B1F1951DD6E00F2EAE4 /* CFPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167AF31951DD6E00F2EAE4 /* CFPerson.m */; };
 		C2167B201951DD6E00F2EAE4 /* CFPersonCellInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167AF51951DD6E00F2EAE4 /* CFPersonCellInfoView.m */; };
 		C2167B211951DD6E00F2EAE4 /* CFPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167AF71951DD6E00F2EAE4 /* CFPersonTableViewCell.m */; };
 		C2167B221951DD6E00F2EAE4 /* CFAvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167AFA1951DD6E00F2EAE4 /* CFAvatarView.m */; };
@@ -42,29 +49,6 @@
 		C2167B301951DD6F00F2EAE4 /* 葛力姆乔·贾卡杰克.png in Resources */ = {isa = PBXBuildFile; fileRef = C2167B0E1951DD6E00F2EAE4 /* 葛力姆乔·贾卡杰克.png */; };
 		C2167B311951DD6F00F2EAE4 /* 蒂雅·赫丽贝尔.png in Resources */ = {isa = PBXBuildFile; fileRef = C2167B0F1951DD6E00F2EAE4 /* 蒂雅·赫丽贝尔.png */; };
 		C2167B321951DD6F00F2EAE4 /* 诺伊特拉·吉尔加.png in Resources */ = {isa = PBXBuildFile; fileRef = C2167B101951DD6E00F2EAE4 /* 诺伊特拉·吉尔加.png */; };
-		C2167BBC1951DF9800F2EAE4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C2167B911951DF9800F2EAE4 /* .gitignore */; };
-		C2167BBD1951DF9800F2EAE4 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = C2167B921951DF9800F2EAE4 /* .travis.yml */; };
-		C2167BBE1951DF9800F2EAE4 /* CHANGES_AND_TODO_LIST.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2167B931951DF9800F2EAE4 /* CHANGES_AND_TODO_LIST.txt */; };
-		C2167BBF1951DF9800F2EAE4 /* CONTRIBUTORS.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2167B941951DF9800F2EAE4 /* CONTRIBUTORS.txt */; };
-		C2167BC01951DF9800F2EAE4 /* fmdb.1 in Resources */ = {isa = PBXBuildFile; fileRef = C2167B951951DF9800F2EAE4 /* fmdb.1 */; };
-		C2167BC11951DF9800F2EAE4 /* fmdb.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C2167B961951DF9800F2EAE4 /* fmdb.podspec */; };
-		C2167BC21951DF9800F2EAE4 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2167B9A1951DF9800F2EAE4 /* LICENSE.txt */; };
-		C2167BC31951DF9800F2EAE4 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = C2167B9B1951DF9800F2EAE4 /* README.markdown */; };
-		C2167BC41951DF9800F2EAE4 /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167B9F1951DF9800F2EAE4 /* FMDatabase+InMemoryOnDiskIO.m */; };
-		C2167BC51951DF9800F2EAE4 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167BA21951DF9800F2EAE4 /* FMDatabase.m */; };
-		C2167BC61951DF9800F2EAE4 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167BA41951DF9800F2EAE4 /* FMDatabaseAdditions.m */; };
-		C2167BC71951DF9800F2EAE4 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167BA61951DF9800F2EAE4 /* FMDatabasePool.m */; };
-		C2167BC81951DF9800F2EAE4 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167BA81951DF9800F2EAE4 /* FMDatabaseQueue.m */; };
-		C2167BC91951DF9800F2EAE4 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167BAB1951DF9800F2EAE4 /* FMResultSet.m */; };
-		C2167BCA1951DF9800F2EAE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167BAE1951DF9800F2EAE4 /* main.m */; };
-		C2167BCB1951DF9800F2EAE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2167BB01951DF9800F2EAE4 /* InfoPlist.strings */; };
-		C2167BCC1951DF9800F2EAE4 /* FMDatabaseAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167BB21951DF9800F2EAE4 /* FMDatabaseAdditionsTests.m */; };
-		C2167BCD1951DF9800F2EAE4 /* FMDatabasePoolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167BB31951DF9800F2EAE4 /* FMDatabasePoolTests.m */; };
-		C2167BCE1951DF9800F2EAE4 /* FMDatabaseQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167BB41951DF9800F2EAE4 /* FMDatabaseQueueTests.m */; };
-		C2167BCF1951DF9800F2EAE4 /* FMDatabaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167BB51951DF9800F2EAE4 /* FMDatabaseTests.m */; };
-		C2167BD01951DF9800F2EAE4 /* FMDBTempDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2167BB71951DF9800F2EAE4 /* FMDBTempDBTests.m */; };
-		C2167BD11951DF9800F2EAE4 /* Tests.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = C2167BB91951DF9800F2EAE4 /* Tests.xcscheme */; };
-		C2167BD21951DF9800F2EAE4 /* Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2167BBA1951DF9800F2EAE4 /* Tests-Info.plist */; };
 		C217AB8A19408CFB0006784A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8919408CFB0006784A /* Foundation.framework */; };
 		C217AB8C19408CFB0006784A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8B19408CFB0006784A /* CoreGraphics.framework */; };
 		C217AB8E19408CFB0006784A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C217AB8D19408CFB0006784A /* UIKit.framework */; };
@@ -80,34 +64,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C2167BD71951DF9800F2EAE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C2167B971951DF9800F2EAE4 /* fmdb.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DD76FA10486AA7600D96B5E;
-			remoteInfo = fmdb;
-		};
-		C2167BD91951DF9800F2EAE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C2167B971951DF9800F2EAE4 /* fmdb.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EE4290EF12B42F870088BD94;
-			remoteInfo = FMDB;
-		};
-		C2167BDB1951DF9800F2EAE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C2167B971951DF9800F2EAE4 /* fmdb.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BF5D041618416BB2008C5AA9;
-			remoteInfo = Tests;
-		};
-		C2167BDD1951DF9800F2EAE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C2167B971951DF9800F2EAE4 /* fmdb.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6290CBB5188FE836009790F8;
-			remoteInfo = "FMDB-IOS";
-		};
 		C217ABA619408CFB0006784A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C217AB7E19408CFB0006784A /* Project object */;
@@ -119,6 +75,21 @@
 
 /* Begin PBXFileReference section */
 		C212855D19443973004EC639 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = SOURCE_ROOT; };
+		C215289B1952687D00A2EA3F /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		C215289C1952687D00A2EA3F /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		C215289D1952687D00A2EA3F /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		C215289E1952687D00A2EA3F /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		C215289F1952687D00A2EA3F /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		C21528A01952687D00A2EA3F /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		C21528A11952687D00A2EA3F /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		C21528A21952687D00A2EA3F /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		C21528A31952687D00A2EA3F /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		C21528A41952687D00A2EA3F /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		C21528A51952687D00A2EA3F /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		C21528AB1952689A00A2EA3F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		C21528AD19526C4D00A2EA3F /* CFPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFPerson.h; sourceTree = "<group>"; };
+		C21528AE19526C4D00A2EA3F /* CFPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFPerson.m; sourceTree = "<group>"; };
+		C21528B019527C7900A2EA3F /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		C2167AD11951DD6E00F2EAE4 /* CFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFAppDelegate.h; sourceTree = "<group>"; };
 		C2167AD21951DD6E00F2EAE4 /* CFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFAppDelegate.m; sourceTree = "<group>"; };
 		C2167AD41951DD6E00F2EAE4 /* CFMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFMainController.h; sourceTree = "<group>"; };
@@ -144,8 +115,6 @@
 		C2167AEF1951DD6E00F2EAE4 /* CFFemaleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFFemaleTableViewCell.m; sourceTree = "<group>"; };
 		C2167AF01951DD6E00F2EAE4 /* CFMaleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFMaleTableViewCell.h; sourceTree = "<group>"; };
 		C2167AF11951DD6E00F2EAE4 /* CFMaleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFMaleTableViewCell.m; sourceTree = "<group>"; };
-		C2167AF21951DD6E00F2EAE4 /* CFPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFPerson.h; sourceTree = "<group>"; };
-		C2167AF31951DD6E00F2EAE4 /* CFPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFPerson.m; sourceTree = "<group>"; };
 		C2167AF41951DD6E00F2EAE4 /* CFPersonCellInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFPersonCellInfoView.h; sourceTree = "<group>"; };
 		C2167AF51951DD6E00F2EAE4 /* CFPersonCellInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFPersonCellInfoView.m; sourceTree = "<group>"; };
 		C2167AF61951DD6E00F2EAE4 /* CFPersonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFPersonTableViewCell.h; sourceTree = "<group>"; };
@@ -171,40 +140,6 @@
 		C2167B0E1951DD6E00F2EAE4 /* 葛力姆乔·贾卡杰克.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "葛力姆乔·贾卡杰克.png"; sourceTree = "<group>"; };
 		C2167B0F1951DD6E00F2EAE4 /* 蒂雅·赫丽贝尔.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "蒂雅·赫丽贝尔.png"; sourceTree = "<group>"; };
 		C2167B101951DD6E00F2EAE4 /* 诺伊特拉·吉尔加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "诺伊特拉·吉尔加.png"; sourceTree = "<group>"; };
-		C2167B911951DF9800F2EAE4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		C2167B921951DF9800F2EAE4 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
-		C2167B931951DF9800F2EAE4 /* CHANGES_AND_TODO_LIST.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGES_AND_TODO_LIST.txt; sourceTree = "<group>"; };
-		C2167B941951DF9800F2EAE4 /* CONTRIBUTORS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CONTRIBUTORS.txt; sourceTree = "<group>"; };
-		C2167B951951DF9800F2EAE4 /* fmdb.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = fmdb.1; sourceTree = "<group>"; };
-		C2167B961951DF9800F2EAE4 /* fmdb.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fmdb.podspec; sourceTree = "<group>"; };
-		C2167B971951DF9800F2EAE4 /* fmdb.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = fmdb.xcodeproj; sourceTree = "<group>"; };
-		C2167B9A1951DF9800F2EAE4 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		C2167B9B1951DF9800F2EAE4 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
-		C2167B9E1951DF9800F2EAE4 /* FMDatabase+InMemoryOnDiskIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+InMemoryOnDiskIO.h"; sourceTree = "<group>"; };
-		C2167B9F1951DF9800F2EAE4 /* FMDatabase+InMemoryOnDiskIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+InMemoryOnDiskIO.m"; sourceTree = "<group>"; };
-		C2167BA11951DF9800F2EAE4 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		C2167BA21951DF9800F2EAE4 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		C2167BA31951DF9800F2EAE4 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		C2167BA41951DF9800F2EAE4 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		C2167BA51951DF9800F2EAE4 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		C2167BA61951DF9800F2EAE4 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		C2167BA71951DF9800F2EAE4 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		C2167BA81951DF9800F2EAE4 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		C2167BA91951DF9800F2EAE4 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
-		C2167BAA1951DF9800F2EAE4 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		C2167BAB1951DF9800F2EAE4 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		C2167BAD1951DF9800F2EAE4 /* fmdb_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmdb_Prefix.pch; sourceTree = "<group>"; };
-		C2167BAE1951DF9800F2EAE4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C2167BB11951DF9800F2EAE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C2167BB21951DF9800F2EAE4 /* FMDatabaseAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditionsTests.m; sourceTree = "<group>"; };
-		C2167BB31951DF9800F2EAE4 /* FMDatabasePoolTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePoolTests.m; sourceTree = "<group>"; };
-		C2167BB41951DF9800F2EAE4 /* FMDatabaseQueueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueueTests.m; sourceTree = "<group>"; };
-		C2167BB51951DF9800F2EAE4 /* FMDatabaseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseTests.m; sourceTree = "<group>"; };
-		C2167BB61951DF9800F2EAE4 /* FMDBTempDBTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBTempDBTests.h; sourceTree = "<group>"; };
-		C2167BB71951DF9800F2EAE4 /* FMDBTempDBTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBTempDBTests.m; sourceTree = "<group>"; };
-		C2167BB91951DF9800F2EAE4 /* Tests.xcscheme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tests.xcscheme; sourceTree = "<group>"; };
-		C2167BBA1951DF9800F2EAE4 /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
-		C2167BBB1951DF9800F2EAE4 /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		C217AB8619408CFB0006784A /* AddressBookUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AddressBookUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C217AB8919408CFB0006784A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C217AB8B19408CFB0006784A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -226,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C21528AC1952689A00A2EA3F /* libsqlite3.0.dylib in Frameworks */,
 				C21CC925194A9C08003E8808 /* AssetsLibrary.framework in Frameworks */,
 				C217AB8C19408CFB0006784A /* CoreGraphics.framework in Frameworks */,
 				C217AB8E19408CFB0006784A /* UIKit.framework in Frameworks */,
@@ -246,15 +182,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C215289A1952687D00A2EA3F /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				C21528B019527C7900A2EA3F /* README.markdown */,
+				C215289B1952687D00A2EA3F /* FMDatabase.h */,
+				C215289C1952687D00A2EA3F /* FMDatabase.m */,
+				C215289D1952687D00A2EA3F /* FMDatabaseAdditions.h */,
+				C215289E1952687D00A2EA3F /* FMDatabaseAdditions.m */,
+				C215289F1952687D00A2EA3F /* FMDatabasePool.h */,
+				C21528A01952687D00A2EA3F /* FMDatabasePool.m */,
+				C21528A11952687D00A2EA3F /* FMDatabaseQueue.h */,
+				C21528A21952687D00A2EA3F /* FMDatabaseQueue.m */,
+				C21528A31952687D00A2EA3F /* FMDB.h */,
+				C21528A41952687D00A2EA3F /* FMResultSet.h */,
+				C21528A51952687D00A2EA3F /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
 		C2167ACF1951DD6E00F2EAE4 /* Class */ = {
 			isa = PBXGroup;
 			children = (
 				C2167AD01951DD6E00F2EAE4 /* AppDelegate */,
 				C2167AD31951DD6E00F2EAE4 /* Controller */,
-				C2167AD61951DD6E00F2EAE4 /* Helper */,
 				C2167AD71951DD6E00F2EAE4 /* Model */,
-				C2167ADA1951DD6E00F2EAE4 /* OpenSource */,
 				C2167AE81951DD6E00F2EAE4 /* Scence */,
+				C2167ADA1951DD6E00F2EAE4 /* OpenSource */,
+				C2167AD61951DD6E00F2EAE4 /* Helper */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -287,6 +242,8 @@
 		C2167AD71951DD6E00F2EAE4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C21528AD19526C4D00A2EA3F /* CFPerson.h */,
+				C21528AE19526C4D00A2EA3F /* CFPerson.m */,
 				C2167AD81951DD6E00F2EAE4 /* CFAddressBookModel.h */,
 				C2167AD91951DD6E00F2EAE4 /* CFAddressBookModel.m */,
 			);
@@ -296,7 +253,7 @@
 		C2167ADA1951DD6E00F2EAE4 /* OpenSource */ = {
 			isa = PBXGroup;
 			children = (
-				C2167B901951DF9800F2EAE4 /* fmdb */,
+				C215289A1952687D00A2EA3F /* fmdb */,
 				C2167ADB1951DD6E00F2EAE4 /* UIAlertView-Blocks */,
 				C2167AE51951DD6E00F2EAE4 /* UIImage-AssetUrl */,
 			);
@@ -345,16 +302,14 @@
 				C2167AEB1951DD6E00F2EAE4 /* CFAddressBookView.m */,
 				C2167AEC1951DD6E00F2EAE4 /* CFAddressBookViewController.h */,
 				C2167AED1951DD6E00F2EAE4 /* CFAddressBookViewController.m */,
-				C2167AEE1951DD6E00F2EAE4 /* CFFemaleTableViewCell.h */,
-				C2167AEF1951DD6E00F2EAE4 /* CFFemaleTableViewCell.m */,
-				C2167AF01951DD6E00F2EAE4 /* CFMaleTableViewCell.h */,
-				C2167AF11951DD6E00F2EAE4 /* CFMaleTableViewCell.m */,
-				C2167AF21951DD6E00F2EAE4 /* CFPerson.h */,
-				C2167AF31951DD6E00F2EAE4 /* CFPerson.m */,
-				C2167AF41951DD6E00F2EAE4 /* CFPersonCellInfoView.h */,
-				C2167AF51951DD6E00F2EAE4 /* CFPersonCellInfoView.m */,
 				C2167AF61951DD6E00F2EAE4 /* CFPersonTableViewCell.h */,
 				C2167AF71951DD6E00F2EAE4 /* CFPersonTableViewCell.m */,
+				C2167AF01951DD6E00F2EAE4 /* CFMaleTableViewCell.h */,
+				C2167AF11951DD6E00F2EAE4 /* CFMaleTableViewCell.m */,
+				C2167AEE1951DD6E00F2EAE4 /* CFFemaleTableViewCell.h */,
+				C2167AEF1951DD6E00F2EAE4 /* CFFemaleTableViewCell.m */,
+				C2167AF41951DD6E00F2EAE4 /* CFPersonCellInfoView.h */,
+				C2167AF51951DD6E00F2EAE4 /* CFPersonCellInfoView.m */,
 			);
 			path = AddressBook;
 			sourceTree = "<group>";
@@ -409,106 +364,6 @@
 			path = Img;
 			sourceTree = "<group>";
 		};
-		C2167B901951DF9800F2EAE4 /* fmdb */ = {
-			isa = PBXGroup;
-			children = (
-				C2167B911951DF9800F2EAE4 /* .gitignore */,
-				C2167B921951DF9800F2EAE4 /* .travis.yml */,
-				C2167B931951DF9800F2EAE4 /* CHANGES_AND_TODO_LIST.txt */,
-				C2167B941951DF9800F2EAE4 /* CONTRIBUTORS.txt */,
-				C2167B951951DF9800F2EAE4 /* fmdb.1 */,
-				C2167B961951DF9800F2EAE4 /* fmdb.podspec */,
-				C2167B971951DF9800F2EAE4 /* fmdb.xcodeproj */,
-				C2167B9A1951DF9800F2EAE4 /* LICENSE.txt */,
-				C2167B9B1951DF9800F2EAE4 /* README.markdown */,
-				C2167B9C1951DF9800F2EAE4 /* src */,
-				C2167BAF1951DF9800F2EAE4 /* Tests */,
-			);
-			path = fmdb;
-			sourceTree = "<group>";
-		};
-		C2167B981951DF9800F2EAE4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C2167BD81951DF9800F2EAE4 /* fmdb */,
-				C2167BDA1951DF9800F2EAE4 /* libFMDB.a */,
-				C2167BDC1951DF9800F2EAE4 /* Tests.xctest */,
-				C2167BDE1951DF9800F2EAE4 /* libFMDB-IOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C2167B9C1951DF9800F2EAE4 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				C2167B9D1951DF9800F2EAE4 /* extra */,
-				C2167BA01951DF9800F2EAE4 /* fmdb */,
-				C2167BAC1951DF9800F2EAE4 /* sample */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		C2167B9D1951DF9800F2EAE4 /* extra */ = {
-			isa = PBXGroup;
-			children = (
-				C2167B9E1951DF9800F2EAE4 /* FMDatabase+InMemoryOnDiskIO.h */,
-				C2167B9F1951DF9800F2EAE4 /* FMDatabase+InMemoryOnDiskIO.m */,
-			);
-			path = extra;
-			sourceTree = "<group>";
-		};
-		C2167BA01951DF9800F2EAE4 /* fmdb */ = {
-			isa = PBXGroup;
-			children = (
-				C2167BA11951DF9800F2EAE4 /* FMDatabase.h */,
-				C2167BA21951DF9800F2EAE4 /* FMDatabase.m */,
-				C2167BA31951DF9800F2EAE4 /* FMDatabaseAdditions.h */,
-				C2167BA41951DF9800F2EAE4 /* FMDatabaseAdditions.m */,
-				C2167BA51951DF9800F2EAE4 /* FMDatabasePool.h */,
-				C2167BA61951DF9800F2EAE4 /* FMDatabasePool.m */,
-				C2167BA71951DF9800F2EAE4 /* FMDatabaseQueue.h */,
-				C2167BA81951DF9800F2EAE4 /* FMDatabaseQueue.m */,
-				C2167BA91951DF9800F2EAE4 /* FMDB.h */,
-				C2167BAA1951DF9800F2EAE4 /* FMResultSet.h */,
-				C2167BAB1951DF9800F2EAE4 /* FMResultSet.m */,
-			);
-			path = fmdb;
-			sourceTree = "<group>";
-		};
-		C2167BAC1951DF9800F2EAE4 /* sample */ = {
-			isa = PBXGroup;
-			children = (
-				C2167BAD1951DF9800F2EAE4 /* fmdb_Prefix.pch */,
-				C2167BAE1951DF9800F2EAE4 /* main.m */,
-			);
-			path = sample;
-			sourceTree = "<group>";
-		};
-		C2167BAF1951DF9800F2EAE4 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				C2167BB01951DF9800F2EAE4 /* InfoPlist.strings */,
-				C2167BB21951DF9800F2EAE4 /* FMDatabaseAdditionsTests.m */,
-				C2167BB31951DF9800F2EAE4 /* FMDatabasePoolTests.m */,
-				C2167BB41951DF9800F2EAE4 /* FMDatabaseQueueTests.m */,
-				C2167BB51951DF9800F2EAE4 /* FMDatabaseTests.m */,
-				C2167BB61951DF9800F2EAE4 /* FMDBTempDBTests.h */,
-				C2167BB71951DF9800F2EAE4 /* FMDBTempDBTests.m */,
-				C2167BB81951DF9800F2EAE4 /* Schemes */,
-				C2167BBA1951DF9800F2EAE4 /* Tests-Info.plist */,
-				C2167BBB1951DF9800F2EAE4 /* Tests-Prefix.pch */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		C2167BB81951DF9800F2EAE4 /* Schemes */ = {
-			isa = PBXGroup;
-			children = (
-				C2167BB91951DF9800F2EAE4 /* Tests.xcscheme */,
-			);
-			path = Schemes;
-			sourceTree = "<group>";
-		};
 		C216C02A1941F351008DF648 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +399,7 @@
 		C217AB8819408CFB0006784A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C21528AB1952689A00A2EA3F /* libsqlite3.0.dylib */,
 				C21CC924194A9C08003E8808 /* AssetsLibrary.framework */,
 				C217AB8919408CFB0006784A /* Foundation.framework */,
 				C217AB8B19408CFB0006784A /* CoreGraphics.framework */,
@@ -644,12 +500,6 @@
 			mainGroup = C217AB7D19408CFB0006784A;
 			productRefGroup = C217AB8719408CFB0006784A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = C2167B981951DF9800F2EAE4 /* Products */;
-					ProjectRef = C2167B971951DF9800F2EAE4 /* fmdb.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				C217AB8519408CFB0006784A /* AddressBookUI */,
@@ -658,71 +508,30 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		C2167BD81951DF9800F2EAE4 /* fmdb */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = fmdb;
-			remoteRef = C2167BD71951DF9800F2EAE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C2167BDA1951DF9800F2EAE4 /* libFMDB.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libFMDB.a;
-			remoteRef = C2167BD91951DF9800F2EAE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C2167BDC1951DF9800F2EAE4 /* Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Tests.xctest;
-			remoteRef = C2167BDB1951DF9800F2EAE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C2167BDE1951DF9800F2EAE4 /* libFMDB-IOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libFMDB-IOS.a";
-			remoteRef = C2167BDD1951DF9800F2EAE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		C217AB8419408CFB0006784A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2167BBC1951DF9800F2EAE4 /* .gitignore in Resources */,
-				C2167BCB1951DF9800F2EAE4 /* InfoPlist.strings in Resources */,
 				C2167B321951DD6F00F2EAE4 /* 诺伊特拉·吉尔加.png in Resources */,
 				C2167B2F1951DD6F00F2EAE4 /* 萨尔阿波罗·格兰兹.png in Resources */,
-				C2167BD21951DF9800F2EAE4 /* Tests-Info.plist in Resources */,
-				C2167BD11951DF9800F2EAE4 /* Tests.xcscheme in Resources */,
 				C281CA461941CC0300D61F40 /* Images.xcassets in Resources */,
 				C281CA451941CC0300D61F40 /* InfoPlist.strings in Resources */,
-				C2167BC11951DF9800F2EAE4 /* fmdb.podspec in Resources */,
 				C2167B191951DD6E00F2EAE4 /* UIAlertView-Blocks.podspec in Resources */,
 				C2167B151951DD6E00F2EAE4 /* README.md in Resources */,
+				C21528B119527C7900A2EA3F /* README.markdown in Resources */,
 				C2167B2B1951DD6F00F2EAE4 /* 妮莉艾露·杜·欧德修凡克.png in Resources */,
 				C2167B141951DD6E00F2EAE4 /* LICENSE in Resources */,
 				C2167B2D1951DD6F00F2EAE4 /* 柯雅泰·史塔克.png in Resources */,
 				C2167B2E1951DD6F00F2EAE4 /* 牙密·里亚尔戈.png in Resources */,
 				C212855E19443973004EC639 /* readme.md in Resources */,
-				C2167BBD1951DF9800F2EAE4 /* .travis.yml in Resources */,
-				C2167BC31951DF9800F2EAE4 /* README.markdown in Resources */,
 				C2167B261951DD6F00F2EAE4 /* addressBookData in Resources */,
 				C2167B311951DD6F00F2EAE4 /* 蒂雅·赫丽贝尔.png in Resources */,
 				C2167B301951DD6F00F2EAE4 /* 葛力姆乔·贾卡杰克.png in Resources */,
-				C2167BBF1951DF9800F2EAE4 /* CONTRIBUTORS.txt in Resources */,
-				C2167BC21951DF9800F2EAE4 /* LICENSE.txt in Resources */,
-				C2167BBE1951DF9800F2EAE4 /* CHANGES_AND_TODO_LIST.txt in Resources */,
 				C2167B2A1951DD6F00F2EAE4 /* 佐马利·路鲁.png in Resources */,
 				C2167B291951DD6F00F2EAE4 /* 亚罗尼洛·艾鲁鲁耶利.png in Resources */,
 				C2167B271951DD6F00F2EAE4 /* default.jpg in Resources */,
 				C2167B281951DD6F00F2EAE4 /* 乌尔奇奥拉·西法.png in Resources */,
-				C2167BC01951DF9800F2EAE4 /* fmdb.1 in Resources */,
 				C2167B2C1951DD6F00F2EAE4 /* 拜勒岗·鲁伊森邦.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,36 +551,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2167BCE1951DF9800F2EAE4 /* FMDatabaseQueueTests.m in Sources */,
-				C2167BCA1951DF9800F2EAE4 /* main.m in Sources */,
 				C2167B121951DD6E00F2EAE4 /* CFMainController.m in Sources */,
 				C2167B171951DD6E00F2EAE4 /* UIActionSheet+Blocks.m in Sources */,
 				C2167B161951DD6E00F2EAE4 /* RIButtonItem.m in Sources */,
-				C2167BC71951DF9800F2EAE4 /* FMDatabasePool.m in Sources */,
-				C2167BC51951DF9800F2EAE4 /* FMDatabase.m in Sources */,
+				C21528A61952687D00A2EA3F /* FMDatabase.m in Sources */,
 				C2167B251951DD6F00F2EAE4 /* NSString+IsAllNumbers.m in Sources */,
+				C21528A81952687D00A2EA3F /* FMDatabasePool.m in Sources */,
+				C21528AA1952687D00A2EA3F /* FMResultSet.m in Sources */,
+				C21528A71952687D00A2EA3F /* FMDatabaseAdditions.m in Sources */,
 				C2167B231951DD6F00F2EAE4 /* CFEditPersonView.m in Sources */,
 				C2167B241951DD6F00F2EAE4 /* CFEditPersonViewController.m in Sources */,
-				C2167BC61951DF9800F2EAE4 /* FMDatabaseAdditions.m in Sources */,
-				C2167BCF1951DF9800F2EAE4 /* FMDatabaseTests.m in Sources */,
 				C2167B1E1951DD6E00F2EAE4 /* CFMaleTableViewCell.m in Sources */,
 				C2167B201951DD6E00F2EAE4 /* CFPersonCellInfoView.m in Sources */,
 				C281CA471941CC0300D61F40 /* main.m in Sources */,
+				C21528AF19526C4D00A2EA3F /* CFPerson.m in Sources */,
+				C21528A91952687D00A2EA3F /* FMDatabaseQueue.m in Sources */,
 				C2167B1B1951DD6E00F2EAE4 /* CFAddressBookView.m in Sources */,
 				C2167B1A1951DD6E00F2EAE4 /* UIImage+AssetUrl.m in Sources */,
 				C2167B181951DD6E00F2EAE4 /* UIAlertView+Blocks.m in Sources */,
 				C2167B131951DD6E00F2EAE4 /* CFAddressBookModel.m in Sources */,
 				C2167B1D1951DD6E00F2EAE4 /* CFFemaleTableViewCell.m in Sources */,
-				C2167BC81951DF9800F2EAE4 /* FMDatabaseQueue.m in Sources */,
 				C2167B111951DD6E00F2EAE4 /* CFAppDelegate.m in Sources */,
-				C2167BC91951DF9800F2EAE4 /* FMResultSet.m in Sources */,
-				C2167BCD1951DF9800F2EAE4 /* FMDatabasePoolTests.m in Sources */,
-				C2167BC41951DF9800F2EAE4 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				C2167B221951DD6E00F2EAE4 /* CFAvatarView.m in Sources */,
-				C2167BD01951DF9800F2EAE4 /* FMDBTempDBTests.m in Sources */,
 				C2167B1C1951DD6E00F2EAE4 /* CFAddressBookViewController.m in Sources */,
-				C2167B1F1951DD6E00F2EAE4 /* CFPerson.m in Sources */,
-				C2167BCC1951DF9800F2EAE4 /* FMDatabaseAdditionsTests.m in Sources */,
 				C2167B211951DD6E00F2EAE4 /* CFPersonTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -795,14 +597,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C2167BB01951DF9800F2EAE4 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C2167BB11951DF9800F2EAE4 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		C217ABAB19408CFB0006784A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

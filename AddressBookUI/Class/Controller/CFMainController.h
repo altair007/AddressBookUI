@@ -17,8 +17,9 @@
  *  主控制器
  */
 @interface CFMainController : NSObject
-@property (retain, nonatomic) CFAddressBookViewController * addressBookVC; //!< 通讯录视图控制器
-@property (retain, nonatomic) CFEditPersonViewController * editPersonVC; //!< 编辑联系人页面视图控制器
+@property (retain,nonatomic, readonly) UINavigationController * navigationController; //!< 导航栏.
+@property (retain, nonatomic, readonly) CFAddressBookViewController * addressBookVC; //!< 通讯录视图控制器
+@property (retain, nonatomic, readonly) CFEditPersonViewController * editPersonVC; //!< 编辑联系人页面视图控制器
 @property (retain, nonatomic) CFAddressBookModel * model; //!< 通讯录数据模型
 /**
  *  获取单例

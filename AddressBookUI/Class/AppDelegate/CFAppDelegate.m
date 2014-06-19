@@ -25,29 +25,8 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    // 数据模型
-    NSString * path;
-    path = [NSBundle pathForResource:@"addressBookData" ofType: nil inDirectory:[NSBundle mainBundle].bundlePath];
-    CFAddressBookModel * addressBookModel = [[CFAddressBookModel alloc] initWithFile:path];
-    
-    CFAddressBookViewController * addressBookVC = [[CFAddressBookViewController alloc] init];
-    
-    CFMainController * mainVC = [CFMainController sharedInstance];
-    
-    mainVC.addressBookVC = addressBookVC;
-    [addressBookVC release];
-    
-    mainVC.model = addressBookModel;
-    [addressBookModel release];
-    
-    CFEditPersonViewController * editPersonVC = [[CFEditPersonViewController alloc] init];
-    mainVC.editPersonVC = editPersonVC;
-    [editPersonVC release];
-    
-    UINavigationController * navController = [[UINavigationController alloc] initWithRootViewController: addressBookVC];
-    self.window.rootViewController = navController;
-    [navController release];
+
+    self.window.rootViewController = [[CFMainController sharedInstance] navigationController];
     
     [self.window makeKeyAndVisible];
     

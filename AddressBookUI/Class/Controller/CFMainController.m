@@ -13,19 +13,21 @@
 #import "CFPerson.h"
 #import "UIAlertView+Blocks.h"
 
-static CFMainController * sharedObj = nil;
 @interface CFMainController ()
-
+@property (retain,nonatomic, readwrite) UINavigationController * navigationController; //!< 导航栏.
+@property (retain, nonatomic, readwrite) CFAddressBookViewController * addressBookVC; //!< 通讯录视图控制器
+@property (retain, nonatomic, readwrite) CFEditPersonViewController * editPersonVC; //!< 编辑联系人页面视图控制器
 @end
 
 @implementation CFMainController
+#pragma mark - 单例
+
+static CFMainController * sharedObj = nil;
+
 + (instancetype) sharedInstance
 {
-    @synchronized(self)
-    {
-        if (nil == sharedObj) {
-            [[self alloc] init];
-        }
+    if (nil == sharedObj) {
+        sharedObj = [[self alloc] init];
     }
     
     return sharedObj;
@@ -33,12 +35,11 @@ static CFMainController * sharedObj = nil;
 
 + (instancetype) allocWithZone:(struct _NSZone *)zone
 {
-    @synchronized(self){
-        if (nil == sharedObj) {
-            sharedObj = [super allocWithZone:zone];
-            return sharedObj;
-        }
+    if (nil == sharedObj) {
+        sharedObj = [super allocWithZone:zone];
+        return sharedObj;
     }
+    
     return nil;
 }
 
@@ -67,21 +68,40 @@ static CFMainController * sharedObj = nil;
     return self;
 }
 
-- (id)init
-{
-    @synchronized(self){
-        self = [super init];
-        return self;
-    }
-}
+#pragma mark - 实例方法
 
 -(void)dealloc
 {
     self.model = nil;
     self.editPersonVC = nil;
     self.addressBookVC = nil;
+    self.navigationController = nil;
     
     [super dealloc];
+}
+
+- (id)init
+{
+    if (self = [super init]) {
+        CFAddressBookViewController * addressBookVC = [[CFAddressBookViewController alloc] init];
+        self.addressBookVC = addressBookVC;
+        [addressBookVC release];
+        
+        CFEditPersonViewController * editPersonVC = [[CFEditPersonViewController alloc] init];
+        self.editPersonVC = editPersonVC;
+        [editPersonVC release];
+        
+        UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController: addressBookVC];
+        self.navigationController = navigationController;
+        [navigationController release];
+        
+        CFAddressBookModel * addressBookModel = [[CFAddressBookModel alloc] init];
+        self.model = addressBookModel;
+        [addressBookModel release];
+        
+    }
+    
+    return self;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

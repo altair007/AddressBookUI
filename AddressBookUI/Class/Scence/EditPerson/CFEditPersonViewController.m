@@ -96,7 +96,6 @@
     }
     
     // 性别如果存在,必须为男或者女.
-    // ???: 应该使用一个下拉列表,让用户选择男或者女!这样性别就可以用一个布尔值来表示.
     if (NO == [sex isEqualToString: @""]) {
         if (NO == [sex isEqualToString: @"男"] && NO == [sex isEqualToString: @"女"]) {
             NSString * message = @"性别应当为\"男\"或者\"女\"!";

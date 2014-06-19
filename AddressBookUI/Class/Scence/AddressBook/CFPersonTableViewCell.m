@@ -74,13 +74,13 @@
     self.avatarView= avatarView;
     [avatarView release];
     
-    [self addSubview: self.avatarView];
+    [self.contentView addSubview: self.avatarView];
     
     // 信息视图
     CFPersonCellInfoView * infoView = [[CFPersonCellInfoView alloc] initWithFrame:CGRectMake(rect.size.width - DEFAULT_WIDTH - PADDING_LEFT_AVATAR, self.avatarView.frame.origin.y, DEFAULT_WIDTH, DEFAULT_HEIGHT)];
     
     self.infoView = infoView;
-    [self addSubview: self.infoView];
+    [self.contentView addSubview: self.infoView];
     [infoView release];
     
 }
@@ -106,7 +106,7 @@
 - (void) updateContentOfView
 {
     
-    self.avatarView.avatarName = self.person.avatarName;
+    self.avatarView.avatarName = self.person.avatar;
     
     self.infoView.person = self.person;
     

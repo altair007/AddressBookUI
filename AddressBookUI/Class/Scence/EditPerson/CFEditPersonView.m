@@ -120,10 +120,10 @@
     [_person release];
     _person = person;
     
-    [UIImage imageForAssetUrl:self.person.avatarName success:^(UIImage * aImg) {// 使用本地图片
+    [UIImage imageForAssetUrl:self.person.avatar success:^(UIImage * aImg) {// 使用本地图片
         self.avatarView.image = aImg;
     } fail:^{// 使用app内置图片
-        UIImage * image = [UIImage imageNamed: self.person.avatarName];
+        UIImage * image = [UIImage imageNamed: self.person.avatar];
         
         if (nil == image) {// 使用默认图片
             image = [UIImage imageNamed: @"default.jpg"];

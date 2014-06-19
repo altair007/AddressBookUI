@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class CFPerson;
+@class FMDatabase;
 
 /**
  *  通讯录模型类
@@ -15,18 +16,13 @@
 @interface CFAddressBookModel : NSObject
 #pragma mark - 属性
 @property (retain, nonatomic, readonly) NSMutableArray * persons; //!< 联系人
+// ???:pathOfData,删除!
 @property (retain, nonatomic, readonly) NSString * pathOfData; //!< 数据文件
 @property (retain, nonatomic, readonly) NSMutableDictionary * personsByGroups; //!: 按姓名拼音首字母分组排序的字典,以首字母为键,以联系人数组为值
+// ???:感觉这个属性很鸡肋!
 @property (assign, nonatomic, readonly) NSUInteger countOfPersons; //!< 通讯录成员数量.主要用于标记数据源是否发生了变化.
+@property (retain, nonatomic, readonly) FMDatabase * db; //!< 数据库.
 #pragma mark - 实例方法
-/**
- *  从文件中获取数据,进行初始化
- *
- *  @param path 数据文件路径
- *
- *  @return 返回初始化后的对象
- */
-- (instancetype) initWithFile: (NSString *) path;
 
 /**
  *  将数据写入数据源文件

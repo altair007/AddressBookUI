@@ -8,19 +8,41 @@
 
 #import "CFAddressBookModel.h"
 #import "CFPerson.h"
+#import "FMDB.h"
 
 @interface CFAddressBookModel ()
 @property (nonatomic, retain, readwrite) NSMutableDictionary * personsByGroups; //!: 按姓名拼音首字母分组排序的字典,以首字母为键,以联系人数组为值
 @property (nonatomic, retain, readwrite) NSMutableArray * persons; //!< 联系人
 @property (nonatomic, retain, readwrite) NSString * pathOfData; //!< 数据文件
 @property (assign, nonatomic, readwrite) NSUInteger countOfPersons; //!< 通讯录成员数量.主要用于标记数据源是否发生了变化.
+@property (retain, nonatomic, readwrite) FMDatabase * db; //!< 数据库.
 @end
 
 @implementation CFAddressBookModel
 #pragma mark - 实例方法
-- (instancetype)initWithFile:(NSString *)path
+-(void)dealloc
+{
+    self.persons = nil;
+    self.pathOfData = nil;
+    self.personsByGroups = nil;
+    self.db = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)init
 {
     if (self = [super init]) {
+        // TODO: 数据库练习
+        // 连接数据库
+        NSString * dbPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/AddressBook.db"];
+        FMDatabase * db = [[FMDatabase alloc] initWithPath:dbPath];
+        self.db = db;
+        [db release];
+        
+        // ???:暂时先用此方式!等待数据库学习完成!
+        NSString * path;
+        path = [NSBundle pathForResource:@"addressBookData" ofType: nil inDirectory:[NSBundle mainBundle].bundlePath];
         self.pathOfData = path;
 
         self.persons = [NSKeyedUnarchiver unarchiveObjectWithFile: self.pathOfData];
@@ -44,15 +66,6 @@
     BOOL result = [NSKeyedArchiver archiveRootObject: self.persons toFile: self.pathOfData];
     
     return result;
-}
-
--(void)dealloc
-{
-    self.persons = nil;
-    self.pathOfData = nil;
-    self.personsByGroups = nil;
-    
-    [super dealloc];
 }
 
 - (void) setupPersonsByGroups

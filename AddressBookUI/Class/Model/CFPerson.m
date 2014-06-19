@@ -14,7 +14,7 @@
 -(void)dealloc
 {
     self.name = nil;
-    self.avatarName = nil;
+    self.avatar = nil;
     self.sex = nil;
     self.tel = nil;
     self.intro = nil;
@@ -40,7 +40,7 @@
 {
     if (self = [super init]) {
         self.name = name;
-        self.avatarName = avatarName;
+        self.avatar = avatarName;
         self.sex = sex;
         self.age = age;
         self.tel = tel;
@@ -65,7 +65,7 @@
     }
     
     if ([self.name isEqualToString: aPerson.name] &&
-        [self.avatarName isEqualToString: aPerson.avatarName] &&
+        [self.avatar isEqualToString: aPerson.avatar] &&
         [self.sex isEqualToString: aPerson.sex] &&
         self.age == aPerson.age &&
         [self.tel isEqualToString: aPerson.tel] &&
@@ -83,7 +83,7 @@
     }
     
     self.name = aPerson.name;
-    self.avatarName = aPerson.avatarName;
+    self.avatar = aPerson.avatar;
     self.sex = aPerson.sex;
     self.tel = aPerson.tel;
     self.intro = aPerson.intro;
@@ -94,7 +94,7 @@
 {
     if (self = [super init]) {
         self.name = [aDecoder decodeObjectForKey: kNameKey];
-        self.avatarName = [aDecoder decodeObjectForKey: kAvatarKey];
+        self.avatar = [aDecoder decodeObjectForKey: kAvatarKey];
         self.sex = [aDecoder decodeObjectForKey: kSexKey];
         self.age = [aDecoder decodeIntegerForKey: kAgeKey];
         self.tel = [aDecoder decodeObjectForKey: kTelKey];
@@ -107,7 +107,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject: self.name forKey: kNameKey];
-    [aCoder encodeObject: self.avatarName forKey: kAvatarKey];
+    [aCoder encodeObject: self.avatar forKey: kAvatarKey];
     [aCoder encodeObject: self.sex forKey: kSexKey];
     [aCoder encodeInteger: self.age forKey: kAgeKey];
     [aCoder encodeObject: self.tel forKey: kTelKey];

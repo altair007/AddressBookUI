@@ -21,7 +21,8 @@
 
 #pragma mark - 属性
 @property (copy, nonatomic) NSString * name; //!< 姓名.
-@property (copy, nonatomic) NSString * avatarName; //!< 头像图片名称.
+@property (copy, nonatomic) NSString * avatar; //!< 头像图片名称.
+// ???:应该换成布尔型,比较合适!没有下拉控件吗?
 @property (copy, nonatomic) NSString * sex; //!< 性别.
 @property (assign, nonatomic) NSUInteger age; //!< 年龄.
 @property (copy, nonatomic) NSString * tel; //!< 电话.
@@ -31,7 +32,7 @@
  *  便利初始化
  *
  *  @param name   姓名
- *  @param avatar 头像名称s
+ *  @param avatar 头像名称
  *  @param sex    性别
  *  @param age    年龄
  *  @param tel    地址
