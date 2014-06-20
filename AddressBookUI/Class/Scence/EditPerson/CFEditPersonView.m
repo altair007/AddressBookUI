@@ -119,4 +119,21 @@
     [introTV release];
 }
 
+- (void)setPerson:(CFPerson *)person
+{
+    // 设置属性.
+    [person retain];
+    [_person release];
+    _person = person;
+    
+    // 设置视图内容.
+    if (nil != person) {
+        self.avatarView.avatarName = self.person.avatar;
+        self.nameTF.text = self.person.name;
+        self.sexTF.text = (NO == self.person.sex) ? @"男": @"女";
+        self.ageTF.text = [NSString stringWithFormat:@"%lu", self.person.age];
+        self.telTF.text = self.person.tel;
+        self.introTV.text = self.person.intro;
+    }
+}
 @end

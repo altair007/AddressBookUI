@@ -177,7 +177,7 @@ static CFAddressBookModel * sharedObj = nil;
 {
     NSString * sql = @"INSERT INTO `abPersons` (`txtName`, `txtAvatar`, `intSex`, `intAge`, `txtTel`, `txtIntro`) VALUES(?, ?, ?, ?, ?, ?)";
     NSArray * sqlArgs = @[aPerson.name, aPerson.avatar, [NSNumber numberWithBool: aPerson.sex], [NSNumber numberWithInteger: aPerson.age], aPerson.tel, aPerson.intro];
-    
+
     return [self updatePerson: sql withArgumentsInArray: sqlArgs];
 }
 
@@ -198,7 +198,7 @@ static CFAddressBookModel * sharedObj = nil;
         [self.db close]) {
         return YES;
     }
-    
+
     return NO;
 }
 @end

@@ -66,8 +66,6 @@
     }
 }
 
-// !!!:超类不应该提供这个方法.或者不应该实现.或者部分实现!
-// !!!:保存时,会有一个BUG!无限循环的寻找图片的BUG!
 -(void) didClickSaveButtonItemAction: (UIBarButtonItem *) aButtonItem
 {
     if (NO == self.editing) { // 页面处于"不可编辑"状态
@@ -179,11 +177,13 @@
     [_person release];
     _person = person;
     
-    // 更新导航栏
-    [self updateTitle];
-    
-    // 向视图传值
-    self.view.person = _person;
+    if (nil != person) {
+        // 更新导航栏
+        [self updateTitle];
+        
+        // 向视图传值
+        self.view.person = _person;
+    }
 }
 
 - (void) handlAvatarViewTapGesture: (UITapGestureRecognizer *) tapGesture

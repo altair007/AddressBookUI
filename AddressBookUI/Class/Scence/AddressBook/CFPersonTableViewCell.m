@@ -93,7 +93,10 @@
     _person = person;
     
     // 更新视图内容
-    [self updateContentOfView];
+    if (nil != person) {
+        [self updateContentOfView];
+    }
+
 }
 
 - (CGFloat) height

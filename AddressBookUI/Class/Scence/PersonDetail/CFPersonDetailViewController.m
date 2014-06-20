@@ -7,6 +7,8 @@
 //
 
 #import "CFPersonDetailViewController.h"
+#import "CFAddressBookModel.h"
+#import "CFPerson.h"
 
 @interface CFPersonDetailViewController ()
 
@@ -28,4 +30,8 @@
     [self setEditing: NO animated: YES];
 }
 
+- (BOOL)handleDataOfPerson:(CFPerson *)person
+{
+    return [[CFAddressBookModel sharedInstance] updatePerson: person atTel: self.person.tel];
+}
 @end
