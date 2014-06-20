@@ -13,5 +13,5 @@
  */
 @interface CFAvatarView : UIImageView
 @property (copy, nonatomic) NSString * avatarName; //!< 图片名称.
-
+@property (copy, nonatomic, readonly) NSString * defaultImg; //!< 默认图片.
 @end

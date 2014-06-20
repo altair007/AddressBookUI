@@ -14,13 +14,20 @@
 #import "CFFemaleTableViewCell.h"
 #import "RIButtonItem.h"
 #import "UIActionSheet+Blocks.h"
+#import "CFEditPersonViewController.h"
+#import "CFAddPersonViewController.h"
 
 @interface CFAddressBookViewController ()
+@property (retain, nonatomic, readwrite) CFEditPersonViewController * editPersonVC; //!< 编辑联系人页面视图控制器
 @end
 
 @implementation CFAddressBookViewController
+#pragma mark - 实例方法.
+
 -(void)dealloc
 {
+    // 将自身从联系人模型的观察者中移除.
+    [[CFAddressBookModel sharedInstance] removeObserver: self forKeyPath:@"persons"];
     
     [super dealloc];
 }
@@ -30,6 +37,12 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        // 添加自身为联系人模型的观察者.
+        [[CFAddressBookModel sharedInstance] addObserver: self forKeyPath:@"persons" options:    NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];
+        
+        CFEditPersonViewController * editPersonVC = [[CFEditPersonViewController alloc] init];
+        self.editPersonVC = editPersonVC;
+        [editPersonVC release];
     }
     
     return self;
@@ -99,7 +112,16 @@
 
 - (void) didClickAddButtonItem: (UIBarButtonItem *) aButtonItem
 {
-    [[CFMainController sharedInstance] switchToAddPersonView];
+    CFAddPersonViewController * addPersonVC = [[CFAddPersonViewController alloc] init];
+    [self.navigationController pushViewController: addPersonVC animated:YES];
+}
+
+- (void) switchToEditViewWithPerson: (CFPerson *) aPerson
+                            editing: (BOOL) editing
+{
+    self.editPersonVC.person = aPerson;
+    [self.editPersonVC setEditing: editing animated: YES];
+    [self.navigationController pushViewController: self.editPersonVC animated:YES];
 }
 
 - (NSArray *) groups
@@ -117,11 +139,16 @@
     return groups;
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self.view reloadData];
+}
+
 #pragma mark - UITableViewDataSource协议方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSInteger  count;
-    count = [CFMainController sharedInstance].model.persons.allKeys.count;
+    count = [CFAddressBookModel sharedInstance].persons.allKeys.count;
     return count;
 }
 
@@ -172,7 +199,9 @@
 {
     CFPerson * person= [self personAtIndexPath: indexPath];
     
-    [[CFMainController sharedInstance] switchToPersonDetailViewWithPerson: person];
+    // !!!:等待替代方案!
+    //TODO: 迭代到这!
+//    [[CFMainController sharedInstance] switchToPersonDetailViewWithPerson: person];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

@@ -10,8 +10,6 @@
 @class CFPerson;
 @class FMDatabase;
 
-// ???:如果把模型类设为单例的话,就不需要额外的控制器了!
-
 /**
  *  通讯录模型类
  */
@@ -77,5 +75,15 @@
  */
 - (BOOL) updatePerson: (CFPerson *) aPerson
                 atTel: (NSString *) tel;
+
+/**
+ *  更新联系人信息:添加,删除,或者修改.
+ *
+ *  @param sql       sql语句.
+ *  @param arguments 参数数组,对应sql语句中的占位符.
+ *
+ *  @return YES,执行成功;NO,执行失败.
+ */
+- (BOOL) updatePerson:(NSString*)sql withArgumentsInArray:(NSArray *)arguments;
 
 @end

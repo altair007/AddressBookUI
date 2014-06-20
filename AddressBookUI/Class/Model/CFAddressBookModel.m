@@ -165,69 +165,40 @@ static CFAddressBookModel * sharedObj = nil;
     return result.uppercaseString;
 }
 
-// !!!:下面三个方法可以合并:公共部分是sql,args
 - (BOOL) removePersonWithTel: (NSString *) tel
 {
-    if (NO == [self.db open]) {
-        return NO;
-    }
-    
-    if (NO == [self.db executeUpdateWithFormat:@"DELETE FROM `abPersons` Where `txtTel` = %@", tel]) {
-        return NO;
-    }
+    NSString * sql = @"DELETE FROM `abPersons` Where `txtTel` = ?";
+    NSArray * sqlArgs = @[tel];
 
-    if (NO == [self updateData]) {
-        return NO;
-    }
-    
-    [self.db close];
-    
-    return YES;
+    return [self updatePerson: sql withArgumentsInArray: sqlArgs];
 }
 
 - (BOOL) addPerson: (CFPerson *) aPerson
 {
-    if (NO == [self.db open]) {
-        return NO;
-    }
-    
-    NSString * sql = [NSString stringWithFormat:@"INSERT INTO `abPersons` (`txtName`, `txtAvatar`, `intSex`, `intAge`, `txtTel`, `txtIntro`) VALUES(?, ?, ?, ?, ?, ?)"];
+    NSString * sql = @"INSERT INTO `abPersons` (`txtName`, `txtAvatar`, `intSex`, `intAge`, `txtTel`, `txtIntro`) VALUES(?, ?, ?, ?, ?, ?)";
     NSArray * sqlArgs = @[aPerson.name, aPerson.avatar, [NSNumber numberWithBool: aPerson.sex], [NSNumber numberWithInteger: aPerson.age], aPerson.tel, aPerson.intro];
     
-    if (NO == [self.db executeUpdate:sql withArgumentsInArray: sqlArgs]) {
-        return NO;
-    }
-    
-    if (NO == [self updateData]) {
-        return NO;
-    }
-    
-    [self.db close];
-    
-    return YES;
+    return [self updatePerson: sql withArgumentsInArray: sqlArgs];
 }
 
 - (BOOL) updatePerson: (CFPerson *) aPerson
                 atTel: (NSString *) tel
 {
-    if (NO == [self.db open]) {
-        return NO;
-    }
-    
-//    UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值
-    NSString * sql = [NSString stringWithFormat:@"UPDATE `abPersons` SET `txtName` = ?, `txtAvatar` = ?, `intSex` = ?, `intAge` = ?, `txtTel` = ?, `txtIntro` = ? WHERE `txtTel` = ?)"];
+    NSString * sql = @"UPDATE `abPersons` SET `txtName` = ?, `txtAvatar` = ?, `intSex` = ?, `intAge` = ?, `txtTel` = ?, `txtIntro` = ? WHERE `txtTel` = ?";
     NSArray * sqlArgs = @[aPerson.name, aPerson.avatar, [NSNumber numberWithBool: aPerson.sex], [NSNumber numberWithInteger: aPerson.age], aPerson.tel, aPerson.intro, tel];
     
-    if (NO == [self.db executeUpdate:sql withArgumentsInArray: sqlArgs]) {
-        return NO;
+    return [self updatePerson: sql withArgumentsInArray: sqlArgs];
+}
+
+- (BOOL) updatePerson:(NSString*)sql withArgumentsInArray:(NSArray *)arguments
+{
+    if ([self.db open] &&
+        [self.db executeUpdate:sql withArgumentsInArray: arguments] &&
+        [self updateData] &&
+        [self.db close]) {
+        return YES;
     }
     
-    if (NO == [self updateData]) {
-        return NO;
-    }
-    
-    [self.db close];
-    
-    return YES;
+    return NO;
 }
 @end

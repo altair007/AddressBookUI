@@ -66,90 +66,93 @@
     }
 }
 
+// !!!:超类不应该提供这个方法.或者不应该实现.或者部分实现!
+// !!!:保存时,会有一个BUG!无限循环的寻找图片的BUG!
 -(void) didClickSaveButtonItemAction: (UIBarButtonItem *) aButtonItem
 {
-    if (NO == self.editing) { // 页面处于"不可编辑"状态
-        [self setEditing: ! self.editing animated:YES];
-        return;
-    }
-    
-    // 获取用户输入
-    NSString * avatarName = self.view.avatarView.avatarName;
-    NSString * name = self.view.nameTF.text;
-    NSString * sex = self.view.sexTF.text;
-    NSString * age = self.view.ageTF.text;
-    NSString * tel = self.view.telTF.text;
-    NSString * intro = self.view.introTV.text;
-    
-    // 年龄或手机号是否为空?
-    if ([name isEqualToString: @""] || [tel isEqualToString: @""]) {
-        NSString * message = @"姓名或者手机号不能为空!";
-        [self showAlertViewWithMessage: message];
-        return;
-    }
-    
-    // 手机号是否全部为数字?
-    if (NO == [tel isAllNumbers]) {
-        NSString * message = @"手机号应当全部是数字!";
-        [self showAlertViewWithMessage: message];
-        return;
-    }
-    
-    // 性别如果存在,必须为男或者女.
-    if (NO == [sex isEqualToString: @""]) {
-        if (NO == [sex isEqualToString: @"男"] && NO == [sex isEqualToString: @"女"]) {
-            NSString * message = @"性别应当为\"男\"或者\"女\"!";
-            [self showAlertViewWithMessage: message];
-            return;
-        }
-    }
-    
-    // 年龄如果存在,必须为数字.
-    if (NO == [age isEqualToString: @""]) {
-        if (NO == [age isAllNumbers]) {
-            NSString * message = @"年龄应当全部是数字!";
-            [self showAlertViewWithMessage: message];
-            return;
-        }
-    }
-    
-    // 获取视图关联的联系人
-    BOOL realSex = NO;
-    if ([sex isEqualToString: @"女"]) {
-        realSex = YES;
-    }
-    
-    CFPerson * person = [CFPerson personWithName: name avatar:avatarName sex:realSex age:[age integerValue] tel:tel intro: intro]
-    ;
-    
-    if (YES == [self.view.person isEqualToPerson: person]) {// 内容没有任何变化.
-        NSString * message = @"您并未更改任何信息!";
-        [self showAlertViewWithMessage: message];
-        return;
-    }
-    
-    //???:此处代码有些冗余!
-    // !!!:更新数据,有错误!
-    if ([self.view.person.tel isEqualToString: person.tel]) {// 修改
-        if (NO == [[CFAddressBookModel sharedInstance] updatePerson:person atTel: self.view.person.tel]) {
-            NSString * message = @"保存失败";
-            [self showAlertViewWithMessage: message];
-            return;
-        }
-    }else{// 添加
-        if (NO == [[CFAddressBookModel sharedInstance] addPerson: person]) {
-            NSString * message = @"保存失败";
-            [self showAlertViewWithMessage: message];
-            return;
-        }
-    }
-
-    
-    [self setEditing: ! self.editing animated:YES];
-    [self updateTitle];
-    
-    NSString * message = @"保存成功";
-    [self showAlertViewWithMessage: message];
+    //!!!:临时删除!
+//    if (NO == self.editing) { // 页面处于"不可编辑"状态
+//        [self setEditing: ! self.editing animated:YES];
+//        return;
+//    }
+//    
+//    // 获取用户输入
+//    NSString * avatarName = self.view.avatarView.avatarName;
+//    NSString * name = self.view.nameTF.text;
+//    NSString * sex = self.view.sexTF.text;
+//    NSString * age = self.view.ageTF.text;
+//    NSString * tel = self.view.telTF.text;
+//    NSString * intro = self.view.introTV.text;
+//    
+//    // 年龄或手机号是否为空?
+//    if ([name isEqualToString: @""] || [tel isEqualToString: @""]) {
+//        NSString * message = @"姓名或者手机号不能为空!";
+//        [self showAlertViewWithMessage: message];
+//        return;
+//    }
+//    
+//    // 手机号是否全部为数字?
+//    if (NO == [tel isAllNumbers]) {
+//        NSString * message = @"手机号应当全部是数字!";
+//        [self showAlertViewWithMessage: message];
+//        return;
+//    }
+//    
+//    // 性别如果存在,必须为男或者女.
+//    if (NO == [sex isEqualToString: @""]) {
+//        if (NO == [sex isEqualToString: @"男"] && NO == [sex isEqualToString: @"女"]) {
+//            NSString * message = @"性别应当为\"男\"或者\"女\"!";
+//            [self showAlertViewWithMessage: message];
+//            return;
+//        }
+//    }
+//    
+//    // 年龄如果存在,必须为数字.
+//    if (NO == [age isEqualToString: @""]) {
+//        if (NO == [age isAllNumbers]) {
+//            NSString * message = @"年龄应当全部是数字!";
+//            [self showAlertViewWithMessage: message];
+//            return;
+//        }
+//    }
+//    
+//    // 获取视图关联的联系人
+//    BOOL realSex = NO;
+//    if ([sex isEqualToString: @"女"]) {
+//        realSex = YES;
+//    }
+//    
+//    CFPerson * person = [CFPerson personWithName: name avatar:avatarName sex:realSex age:[age integerValue] tel:tel intro: intro]
+//    ;
+//    
+//    if (YES == [self.view.person isEqualToPerson: person]) {// 内容没有任何变化.
+//        NSString * message = @"您并未更改任何信息!";
+//        [self showAlertViewWithMessage: message];
+//        return;
+//    }
+//    
+//    //???:此处代码有些冗余!
+//    // !!!:更新数据,有错误!
+//    if ([self.view.person.tel isEqualToString: person.tel]) {// 修改
+//        if (NO == [[CFAddressBookModel sharedInstance] updatePerson:person atTel: self.view.person.tel]) {
+//            NSString * message = @"保存失败";
+//            [self showAlertViewWithMessage: message];
+//            return;
+//        }
+//    }else{// 添加
+//        if (NO == [[CFAddressBookModel sharedInstance] addPerson: person]) {
+//            NSString * message = @"保存失败";
+//            [self showAlertViewWithMessage: message];
+//            return;
+//        }
+//    }
+//
+//    
+//    [self setEditing: ! self.editing animated:YES];
+//    [self updateTitle];
+//    
+//    NSString * message = @"保存成功";
+//    [self showAlertViewWithMessage: message];
  }
 
 - (void) didClickReverseBackButtonItemAction: (UIBarButtonItem *) aButtonItem
@@ -159,8 +162,8 @@
         RIButtonItem * cancelItem = [RIButtonItem itemWithLabel:@"取消" action:NULL];
         RIButtonItem * confirmItem = [RIButtonItem itemWithLabel:@"确定" action:^{
             
-            // 转至通讯录主页面.
-            [[CFMainController sharedInstance] switchToAddressBookView];
+            // 返回上一级.
+            [self.navigationController popViewControllerAnimated: YES];
         }];
         
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您正在编辑联系人信息,确定离开?" cancelButtonItem: cancelItem otherButtonItems: confirmItem, nil];
@@ -171,7 +174,7 @@
     }
     
     // 返回上一级
-    [[CFMainController sharedInstance] switchToAddressBookView];
+    [self.navigationController popViewControllerAnimated: YES];
 }
 
 -(void)setPerson:(CFPerson *)person

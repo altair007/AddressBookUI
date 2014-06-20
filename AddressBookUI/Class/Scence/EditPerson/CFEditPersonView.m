@@ -34,18 +34,23 @@
     [super dealloc];
 }
 
+- (instancetype) initWithFrame:(CGRect)frame
+{
+    return [self initWithFrame: frame delegate: nil];
+}
+
 - (instancetype) initWithFrame: (CGRect)frame
                       delegate: (id) delegate
 {
     if (self = [super initWithFrame:frame]) {
         // Initialization code
         self.delegate = delegate;
-        [self setupSubviews: frame];
+        [self setupSubviews];
     }
     return self;
 }
 
-- (void)setupSubviews: (CGRect) rect
+- (void)setupSubviews
 {
     self.backgroundColor = [UIColor whiteColor];
     
@@ -72,7 +77,7 @@
     
     CGFloat portraitSpace = landscapeSpace / (placeHolders.count - 1); // 编辑框竖直方向的间距
     
-    __block CGRect baseRect = CGRectMake(2 * self.avatarView.frame.origin.x + self.avatarView.frame.size.width, self.avatarView.frame.origin.y, rect.size.width - self.avatarView.frame.size.width - self.avatarView.frame.origin.x - 2 * self.avatarView.frame.origin.x, (self.avatarView.frame.size.height - portraitSpace * (placeHolders.count - 1)) / placeHolders.count);
+    __block CGRect baseRect = CGRectMake(2 * self.avatarView.frame.origin.x + self.avatarView.frame.size.width, self.avatarView.frame.origin.y, self.frame.size.width - self.avatarView.frame.size.width - self.avatarView.frame.origin.x - 2 * self.avatarView.frame.origin.x, (self.avatarView.frame.size.height - portraitSpace * (placeHolders.count - 1)) / placeHolders.count);
     
     [placeHolders enumerateObjectsUsingBlock:^(NSString * placeHolder, NSUInteger idx, BOOL *stop) {
         UITextField * tempTF = [[UITextField alloc] initWithFrame:baseRect];
@@ -106,7 +111,7 @@
     }];
     
     // 个人简介编辑框
-    CGRect rectOfIntro = CGRectMake(self.avatarView.frame.origin.x, self.avatarView.frame.origin.y + self.avatarView.frame.size.height + portraitSpace, rect.size.width - 2 * self.avatarView.frame.origin.x, rect.size.height - self.avatarView.frame.size.height - self.avatarView.frame.origin.y - 2 * portraitSpace);
+    CGRect rectOfIntro = CGRectMake(self.avatarView.frame.origin.x, self.avatarView.frame.origin.y + self.avatarView.frame.size.height + portraitSpace, self.frame.size.width - 2 * self.avatarView.frame.origin.x, self.frame.size.height - self.avatarView.frame.size.height - self.avatarView.frame.origin.y - 2 * portraitSpace);
     UITextView * introTV = [[UITextView alloc] initWithFrame: rectOfIntro];
     introTV.backgroundColor = [UIColor lightGrayColor];
     self.introTV = introTV;
@@ -114,44 +119,4 @@
     [introTV release];
 }
 
-- (void)setPerson:(CFPerson *)person
-{
-    [person retain];
-    [_person release];
-    _person = person;
-    
-    self.avatarView.avatarName = person.avatar;
-    
-    self.nameTF.text = self.person.name;
-    
-    self.sexTF.text = @"男";
-    if (YES == self.person.sex) {
-        self.sexTF.text = @"女";
-    }
-    
-    self.ageTF.text = [NSString stringWithFormat: @"%lu", self.person.age];
-    self.telTF.text = self.person.tel;
-    self.introTV.text = self.person.intro;
-    
-    if (YES == [self isAddPerson]) {// 添加联系人页面.
-        if (0 == person.age) {
-            self.ageTF.text = @"";
-        }
-        
-        if (nil == self.telTF.text || [@"" isEqualToString: self.telTF.text]) {
-            self.introTV.text = [NSString stringWithFormat:@"请简单描述一下这个人吧"];
-        }
-        
-        self.sexTF.text = @"";
-    }
-}
-
-- (BOOL) isAddPerson
-{
-    if (nil == self.person.name) {
-        return YES;
-    }
-    
-    return NO;
-}
 @end

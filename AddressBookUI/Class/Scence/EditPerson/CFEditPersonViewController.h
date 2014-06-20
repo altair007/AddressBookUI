@@ -7,20 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CFMainController.h"
 #import "CFEditPersonView.h"
 @class CFPerson;
 
-// 点击"返回"和"保存"按钮弹出的视图的tag值
-#define TAG_ALERTVIEW_REVERSEBACK 100
-#define TAG_ALERTVIEW_SAVE 101
-
+/**
+ *  编辑页面控制器.一个超类,用于让"添加联系人页面"和"联系人详情页面"继承.
+ */
 @interface CFEditPersonViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (retain, nonatomic) CFPerson * person;
 @property (retain, nonatomic) CFEditPersonView * view;
 
 /**
- *  保存联系人信息
+ *  保存联系人信息.
+ *
+ *  默认执行任何操作,你可以根据需要在子类中重写这个方法.
  *
  *  @param aButtonItem 一个按钮项
  */

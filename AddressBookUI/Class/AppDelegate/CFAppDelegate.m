@@ -9,7 +9,6 @@
 #import "CFAppDelegate.h"
 #import "CFAddressBookViewController.h"
 #import "CFAddressBookModel.h"
-#import "CFMainController.h"
 #import "CFEditPersonViewController.h"
 
 @implementation CFAppDelegate
@@ -26,7 +25,13 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
 
-    self.window.rootViewController = [[CFMainController sharedInstance] navigationController];
+    CFAddressBookViewController * addressBookVC = [[CFAddressBookViewController alloc] init];
+    
+    UINavigationController * mainNC = [[UINavigationController alloc] initWithRootViewController: addressBookVC];
+    [addressBookVC release];
+    
+    self.window.rootViewController = mainNC;
+    [mainNC release];
     
     [self.window makeKeyAndVisible];
     

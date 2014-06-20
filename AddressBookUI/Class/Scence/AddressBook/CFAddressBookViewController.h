@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CFMainController.h"
 #import "CFAddressBookView.h"
 
 @class CFAddressBookModel;
@@ -17,6 +16,7 @@
 
 @interface CFAddressBookViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (retain, nonatomic) CFAddressBookView * view;
+
 /**
  *  获取分区对应的通讯录成员
  *

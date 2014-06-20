@@ -29,14 +29,7 @@
  *
  *  @param rect 边框
  */
-- (void)setupSubviews: (CGRect) rect;
-
-/**
- *  是否在添加联系人
- *
- *  @return YES,正在添加联系人;NO,正在编辑联系人.
- */
-- (BOOL) isAddPerson;
+- (void)setupSubviews;
 
 @end
 

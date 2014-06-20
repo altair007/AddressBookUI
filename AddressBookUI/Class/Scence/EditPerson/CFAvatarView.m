@@ -9,13 +9,26 @@
 #import "CFAvatarView.h"
 #import "UIImage+AssetUrl.h"
 
+@interface CFAvatarView ()
+@property (copy, nonatomic, readwrite) NSString * defaultImg; //!< 默认图片.
+@end
+
 @implementation CFAvatarView
+- (void)dealloc
+{
+    self.avatarName = nil;
+    self.defaultImg = nil;
+
+    [super dealloc];
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.defaultImg = @"default.jpg";
+        
     }
     return self;
 }
@@ -34,9 +47,11 @@
         UIImage * image = [UIImage imageNamed: self.avatarName];
         
         if (nil == image) {// 使用默认图片
-            image = [UIImage imageNamed: @"default.jpg"];
-            [_avatarName release];
-            _avatarName = @"default.jpg";
+            if ([self.defaultImg isEqualToString: self.avatarName]) {
+                return;
+            }
+            
+            self.avatarName = self.defaultImg;
         }
         
         self.image = image;
