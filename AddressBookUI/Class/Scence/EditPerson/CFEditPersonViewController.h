@@ -27,6 +27,19 @@
 -(void) didClickSaveButtonItemAction: (UIBarButtonItem *) aButtonItem;
 
 /**
+ *  处理从输入框获取的联系人信息.
+ *
+ *  此方法在用户点击"保存"时,会被调用.此方法恒返回NO.子类应重写此方法以指定如何处理输入框中获取的联系人信息.
+ *  如果返回值为YES,会使用此联系人设置控制器的person属性.
+ *  子类重写方法中,你直接处理传入的联系人数据即可,不必再判断数据是否符合要求.在超类方法中已经存在相关逻辑.
+ *
+ *  @param person 联系人,根据输入框的内容创建的联系人对象.
+ *
+ *  @return YES,处理成功;NO,处理失败.
+ */
+- (BOOL) handleDataOfPerson: (CFPerson *) person;
+
+/**
  *  返回通讯录主页面
  *
  *  @param aButtonItem 一个按钮项

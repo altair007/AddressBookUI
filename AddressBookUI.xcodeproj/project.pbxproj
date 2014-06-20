@@ -304,10 +304,10 @@
 		C2167AE91951DD6E00F2EAE4 /* AddressBook */ = {
 			isa = PBXGroup;
 			children = (
-				C2167AEA1951DD6E00F2EAE4 /* CFAddressBookView.h */,
-				C2167AEB1951DD6E00F2EAE4 /* CFAddressBookView.m */,
 				C2167AEC1951DD6E00F2EAE4 /* CFAddressBookViewController.h */,
 				C2167AED1951DD6E00F2EAE4 /* CFAddressBookViewController.m */,
+				C2167AEA1951DD6E00F2EAE4 /* CFAddressBookView.h */,
+				C2167AEB1951DD6E00F2EAE4 /* CFAddressBookView.m */,
 				C2167AF61951DD6E00F2EAE4 /* CFPersonTableViewCell.h */,
 				C2167AF71951DD6E00F2EAE4 /* CFPersonTableViewCell.m */,
 				C2167AF01951DD6E00F2EAE4 /* CFMaleTableViewCell.h */,

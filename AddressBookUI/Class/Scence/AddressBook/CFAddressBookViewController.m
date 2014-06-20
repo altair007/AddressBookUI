@@ -16,6 +16,7 @@
 #import "UIActionSheet+Blocks.h"
 #import "CFEditPersonViewController.h"
 #import "CFAddPersonViewController.h"
+#import "CFPersonDetailViewController.h"
 
 @interface CFAddressBookViewController ()
 @property (retain, nonatomic, readwrite) CFEditPersonViewController * editPersonVC; //!< 编辑联系人页面视图控制器
@@ -198,10 +199,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CFPerson * person= [self personAtIndexPath: indexPath];
+    CFPersonDetailViewController * detailVC = [[CFPersonDetailViewController alloc] init];
+    detailVC.person = person;
     
-    // !!!:等待替代方案!
-    //TODO: 迭代到这!
-//    [[CFMainController sharedInstance] switchToPersonDetailViewWithPerson: person];
+    [self.navigationController pushViewController: detailVC animated: YES];
+    [detailVC release];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
