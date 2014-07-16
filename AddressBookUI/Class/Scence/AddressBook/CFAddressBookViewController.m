@@ -57,6 +57,9 @@
     addressBookView.dataSource = self;
     addressBookView.delegate = self;
     self.view = addressBookView;
+    UIBarButtonItem * backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"";
+    self.navigationItem.backBarButtonItem = backItem;
 }
 
 - (void)viewDidLoad

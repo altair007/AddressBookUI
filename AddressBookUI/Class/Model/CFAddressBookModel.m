@@ -50,7 +50,7 @@ static CFAddressBookModel * sharedObj = nil;
 
 - (NSUInteger)retainCount
 {
-    return UINT_MAX;
+    return NSUIntegerMax;
 }
 
 - (oneway void)release
